@@ -1,0 +1,145 @@
+---
+bibliography: ../bib-files/references.bib
+csl: ../bib-files/apa.csl
+format: 
+  docx:
+    reference-doc: ../bib-files/reference-doc.docx
+output:
+  officedown::rdocx_document:
+    page_margins:
+      bottom: 1
+      footer: 0
+      gutter: 0
+      header: 0.5
+      left: 1
+      right: 1
+      top: 1
+    plots:
+      align: center
+      caption:
+        pre: 'Figure '
+        sep: '. '
+        style: Image Caption
+    tables:
+      caption:
+        pre: 'Table '
+        sep: '. '
+        style: Table Caption
+  pdf_document: default
+  word_document: default
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+# Introduction
+
+## Exposure to adversity is associated with cognitive deficits
+
+## Exposure to adversity is associated with cognitive adaptations
+
+The adaptation-based perspective, sometimes referred to as the *hidden talents* model, focuses specifically on potentially enhanced or preserved abilities--outcomes that have a clear benchmark for better or worse performance [@frankenhuis_2020].
+Several studies have reported findings that are consistent with this perspective.
+Children who had experienced more abuse were faster at recognizing angry faces---but not happy faces---compared to children who had not experienced abuse [@gibb_2009; @pollak_2008; @pollak_2009].
+People with lower perceived socioeconomic status were more accurate at inferring social class (based on income) from faces [@bjornsdottir_2017].
+Finally, people with more a more anxious attachment style were better able to detect deception [@ein-dor_2014].
+
+Similar findings have also been documented in the domain of Executive Functioning (EF)---a set of abilities that are central to goal-directed behavior [xxx].
+Several studies found that more exposure to unpredictability and threat are associated with better attention-shifting performance, which is the ability to rapidly switch attention between two or more task goals [@fields_2021; @mittal_2015; @young_2022].
+This ability may be adaptive in environments where threats can occur suddenly and unexpectedly.
+Similarly, some work has found that exposure to unpredictability and threat are associated with better working memory updating performance, which is the ability to rapidly replace old with new information [@young_2018; @young_2022].
+This ability may be adaptive in unpredictable environments, in which it is important to keep track of the current state of the environment and remove information that is no longer relevant.
+
+The adaptation-based perspective is part of a larger strength-based literature emphasizing strenghs in people who experience adversity or are otherwise minoritized in society [@ellis_2022; @dejoseph_2024; @miller_cotto_2022].
+.....
+
+## Performance-ability gap: insights from cognitive psychology
+
+[Multiple processes]
+
+[Lack of task-purity]
+
+[Reliability]
+
+## From performance to cognitive processes: Drift Diffusion Modeling
+
+The DDM is part of a larger class of so-called evidence accumulation models.
+These models all largely share the same key assumptions about how people come to a decision, but differ largely in the types of tasks that they can be applied to.
+For example, the Linear Ballistic Accumulator (LBA) Model [@brown_2008] contains multiple independent information accumulators that race towards the same decision boundary, and can be applied to tasks that contain three or more response options.
+In this dissertation, I focus on the DDM for three reasons.
+First, previous work shows that the DDM is remarkable flexible.
+While it was originally developed for simple and fast perceptual tasks, more recent work has applied it to a wide range of more complex tasks with longer response windows, such as intelligence and executive functioning tasks [@lerche_2020; @loffler_2024].
+Second, many established EF tasks have a binary response format and therefore adhere to an important DDM assumption.
+Third, the DDM is among the most well-established models in its class, with many recent advances in software and computational approaches that make it increasingly accessible for researchers from fields other than mathematical and cognitive psychology [e.g., @johnson_2017; @vandekerckhove_2011; @voss_2013; @voss_2015; @wiecki_2013\; for some DDM applications in related fields, see for example @thompson_2021; @grange_2022].
+
+While the broad applicability of the DDM is an important advantage, it also comes at the cost of lower specificity.
+In order for the model to fit cognitive task data of many different paradigms, the parameters that it estimates are necessarily general. 
+Psychologically, accumulating evidence on an attention-shifting task is qualitatively different from deciding whether a string is a word or non-word, which itself is different from indicating the direction of an arrow while ignoring opposing arrows.
+Yet, the DDM translates each of these types of evidence accumulation in a single parameter: the drift rate.
+
+Several extensions of the DDM have been developed to more explicitly capture processes that are unique to certain tasks or paradigms.
+Much of this work has focused on modeling selective attention, or the ability to focus attention on a target while ignoring interference in the form of distracting information or prepotent responses [XXX].
+The main competing models are the Shrinking Spotlight Model [@white_2011; @white_2018b], the Dual-Stage Two-Phase model [@hubner_2010; @hubner_2012], and the Diffusion Model for Conflict Tasks (DMC\; @ulrich_2015)
+The main difference between these models is the way they model the attention process.
+For example, while the SSP model assumes that attention continuously shrinks down to the central target, the DSTP model assumes that attention narrows down in one discrete step.
+I focus here on the SSP model, mostly for practical reasons which I explain in more detail in chapter 4.
+
+
+
+
+[Large class of evidence accumulation models, but we focus on DDM here for three reasons: first, many tasks have binary responses, therefore adhering to an important DDM assumption. Second, recent work shows that the DDM is remarkably flexible, in that it can be applied to a wide variety of tasks, ranging from basic processing speed tasks to complex executive functioning and intelligence tasks. Third, the DDM is among the most well-established models in its class.]
+
+## Specific abilities or general processes?
+
+
+## Implications for adversity research
+
+
+# Current aims
+
+This dissertation has two central aims. 
+The first aim is to 
+
+The second aim is to use these insights to sketch out a roadmap for the future of adversity research.
+Recent years have seen many exciting developments in this field. 
+First, there have been important theoretical and empirical developments in how to think about and measure adversity [@dejoseph_2022; @mclaughlin_2021; @shariq_2024; @smith_2021].
+Second, strength-based approaches have been gaining popularity, and are already adding important nuance to a literature which for decades has been predominantly focused on cognitive deficits [@ellis_2019; @frankenhuis_2013; @frankenhuis_2020; @noble_2021].
+Third, 
+
+My aim is to show how the cognitive modeling tools used throughout this dissertation can enrich the literature on adversity research by moving beyond performance towards cognitive processes.
+
+
+# Thesis outline
+
+The chapters in this dissertation can be read in any order.
+In **chapter 2**, I use DDM and SEM to investigate which cognitive processes are associated with adversity in 9-10 year-olds, and whether these associations are more task-general or task-specific.
+In **Chapter 3**, I will use a similar design focused on an adult sample, but include multiple measures of both *inhibitory control* and *attention shifting*. 
+I will investigate whether it is possible to get stable estimates of both abilities after accounting for general speed of processing, and how adversity is associated with both. 
+In **Chapter 4**, I zoom in on inhibitory control by using an adaptation of the DDM (the Shrinking Spotlight Model) that was specifically developed for the Flanker Task.
+The central question in this chapter is whether childhood adversity is associated with a difficulty in inhibiting distracting information in early adulthood (as is typically assumed) or whether it is associated with other processes that play a role in Flanker performance.
+In **Chapter 5**, I apply SEM to a battery of working memory tasks to get latent estimates of working memory capacity (the ability to hold information in working memory while engaging in secondary processing) and working memory updating (the ability to rapidly replace old with new information).
+In **Chapter 6**, I will use the insights generated in Chapters 2-5 to argue for the importance of accounting for the performance-ability gap in adversity research, and how these insights can be used in three future directions for the field.
+In **Chapter 7**, I will provide a general discussion and address limitations, and provide more general psychometric recommendations for the field.
+
+# Open science statement
+
+The chapters in this dissertation are based on articles that have either been published in peer-reviewed scientific journals, are currently under review, or are being prepared for submission.
+For all empirical chapters (chapters 2-5), we preregistered our hypotheses, design, and analyses prior to collecting the data and/or conducting the analyses.
+The work in chapter 1 and chapter 4 was done using the Registered Report format.
+In a Registered Report, the Introduction and Methods section are submitted to and peer-reviewed by the journal prior to data collection and/or prior to analyzing the data [@chambers_2021].
+
+For each empirical chapter, the analysis code, study materials, (synthetic) data, and reproducible manuscript are openly available on GitHub.
+I provide links to the respective GitHub repositories in each chapter.
+Chapter 2 is based on data from the Adolescent Brain Cognitive Development (ABCD) Study (https://abcdstudy.org), and for that reason cannot be openly shared on the Github Repository.
+The same is true for Chapter 4 and 5, which are based on a combination of previously collected and newly collected data in the Longitudinal Internet Studies for the Social Sciences (LISS) panel study (https://lissdata.org).
+Researchers with an academic affiliation can apply for access to both data sets.
+To enable computational reproducibility, we provide synthetic (i.e., simulated) data in place of the real data.
+
+\pagebreak
+
+# References
+
+::: {#refs}
+:::
+
+
