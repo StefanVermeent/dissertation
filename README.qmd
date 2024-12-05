@@ -1,8 +1,10 @@
 ---
 title: "README"
 format: html
+execute:
+  keep-md: true
 editor: visual
-keep-md: true
+
 ---
 
 # Dissertation
