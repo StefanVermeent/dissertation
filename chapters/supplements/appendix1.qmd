@@ -1,0 +1,642 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+---
+
+```{r}
+#| include: false
+#| echo: false
+
+library(tidyverse)
+library(lavaan)
+library(flextable)
+library(patchwork)
+library(ggsci)
+library(pwr)
+library(faux)
+
+load('staged_results/chapter2/staged_sim_results_supp.RData')
+```
+
+```{=typst}
+#show: article.with(
+  chapter: "Supplementary materials",
+  chtitle: "Appendix 1"
+)
+```
+
+# Appendix 1 - Chapter 2
+
+## Data access workflow
+
+Prior to Stage 1 submission of the Registered Report, we accessed the cognitive task data for a couple of [preregistered](https://github.com/stefanvermeent/abcd_ddm/blob/main/preregistrations/2022-09-20_preregistration_DDM.md) data checks.
+By only accessing the cognitive task data, these steps did not bias or substantive analyses involving measures of adversity.
+To transparently show when we accessed which data, we created an open science workflow that would automate this process. 
+The main aim of this workflow was to create a transparent log of every major milestone of the project, such as accessing new data, submitting preregistrations, and finalizing analyses. 
+
+The main ingredient of this workflow is a set of custom functions that we created for reading in data files (See Figure A1.1).
+These are wrappers for the read functions in the *readr* package. 
+Whenever one of these functions (e.g., *read_csv*) was called, it went through a couple of internal processes.
+First, the specified data file would be read into R (but not yet accessible to us in the global environment). 
+This could be a single file, or a list of individual data files that would first be combined into a single dataframe.
+Second, any specified manipulations would be applied to the data.
+This could be selecting specific variables, filtering specific rows, or randomly shuffling values (e.g., participant IDs).
+Third, An MD5 hash of the final R object would be generated using the *digest* package. 
+An MD5 hash is a unique, 32-digit string that maps directly onto the content of the R object.
+The same R object will always generate the same MD5 hash, but as soon as anything changes (e.g., a variable is added, a value is rounded), the MD5 hash changes.
+Fourth, this MD5 hash would be compared to previously generated hashes.
+
+If the newly generated MD5 hash was not recognized, this triggered an automatic commit to GitHub.
+At this point, the user gets the choice to abort the process or to continue.
+Aborting would terminate the process without importing the data.
+If opting to continue, the user could supply an informative message (e.g., "accessed Flanker data"), which would be added to the Git commit.
+The Git commit message stored other relevant meta-data as well, such as the object hash and the code used to read and manipulate the data.
+Committing and pushing to Git was handled using the *gert* package.
+
+Thus, any accessing of raw data was automatically tracked via GitHub. 
+Using this same approach, we also logged other major milestones, such as submitting preregistrations and finalizing analyses.
+
+An automatically generated overview of all milestones can be found in the [Data Access History](https://github.com/stefanvermeent/abcd_ddm/data_access_history.md).
+
+```{r}
+#| label: figureA1.1
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.1. **Graphical overview of the data access workflow using R and GitHub.
+knitr::include_graphics("figures/chapter2/supplement/fig1.png")
+```
+
+
+## Power analysis
+
+We conducted a power analysis through simulation using the *simulateData* function of the *lavaan* package.
+On each iteration, we first specified a population model (i.e., the 'true' model) with prespecified factor loadings and regression coefficients.
+Factor loadings in this model were randomly generated between 0.6 and 0.8 following a uniform distribution.
+Next, we simulated data sets based on the population model.
+Finally, we fitted a sample model (i.e., without constrained parameters) to the simulated data and extracted the beta coefficients and corresponding *p*-values.
+We generated population models with beta coefficients of 0.06, 0.08 and 0.1, and simulated data with sample sizes ranging from 1,500 to 8,500 with steps of 1,000. 
+Each combination of coefficients and sample sizes was repeated 500 times, for a total of 12,000 iterations.
+
+The results are shown in Figure A1.2. The simulations yield power \> 90% at around *N* = 2,500 for $\beta$ = 0.1 and *N* = 6,500 for $\beta$ = 0.06.
+Thus, after taking out 1,500 participants for the training set, the test set will be highly powered.
+
+
+```{r}
+#| label: figureA1.2
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.2. **Results of the power simulations. The dashed line indicates 90% power.
+ch2_sup_staged_sim_results_supp$power_plot
+```
+
+
+## Response Distributions of Cognitive Tasks
+
+See Table A1.1 for descriptive statistics for all cognitive tasks.
+
+```{r}
+#| tab.id: tableA1.1
+#| results: markup
+flextable(ch2_sup_staged_sim_results_supp$descriptives, cwidth = c(2, 1.2, 1.2, 1.2, 1.2)) |> 
+  set_header_labels(task = "", mean_rt = "RT\nMean (SD)", mean_acc = "Accuracy\nMean (SD)", acc_min = "Accuracy\nMin", acc_max = "Accuracy\nMax") |> 
+  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
+  add_header_row(
+    values = " ",
+    colwidths = 5
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_b("Table A1.1. "), "Descriptive statistics of mean RTs and accuracy for the cognitive tasks."),
+    part = "header"
+  )
+```
+
+
+
+## Overview of DDM Modeling Procedure
+
+In theory, the hierarchical Bayesian framework allows simultaneously estimating DDM parameters, latent measurement models, and the regression paths between them in a single step [e.g., @schubert_2019; @vandekerckhove_2014].
+An advantage of this approach is that information regarding estimation uncertainty (e.g., of the DDM parameters) gets integrated in subsequent steps.
+However, this approach is very computationally expensive and might even be unfeasible with the current sample size.
+Therefore, we opted for a two-step estimation approach.
+
+The hierarchical DDM models will be fit using the *runjags* package [@denwood_2016] with JAGS code adapted from @johnson_2017.
+The JAGS code will be adjusted in a number of ways to meet our purposes.
+Across all models, the starting point will be fixed to 0.5, and the boundary separation will be will be constrained to be the same across conditions where relevant.
+Each model will be fit with three Markov Chain Monte Carlo (MCMC) chains.
+Each chain will contain 2,000 burn-in samples and 10,000 additional samples.
+Of these samples, every 10th sample will be retained.
+Posterior samples of all three chains will be combined, resulting in a posterior sample of 3,000 samples.
+If a model does not converge properly with these settings, we will increase the amount of samples drawn stepwise up to 100,000.
+
+Model convergence will be assessed in several ways.
+First, we will visually inspect the traces, which should not contain any drifts or large jumps.
+Second, we will calculate the Gelman-Rubin convergence statistic R\^ (@gelman_1992), of which all values should be below 1.1.
+Third, we will assess whether the model provides a good fit to the participants' data using simulation (See Figure A1.3 for a visualization of this procedure).
+When we estimate DDM parameters for a participant, we want to be sufficiently sure that the parameters accurately reflect the participant’s real cognitive processes. 
+Some factors can bias estimates. 
+For example, trial-level outliers could bias DDM parameters so that they are no longer representative of the full RT distribution.
+Thus, before using the obtained DDM parameters to address our hypotheses, we need to make sure that they accurately reflect participant’s cognitive processes.
+It is standard practice in cognitive modeling to use simulation to evaluate the accuracy of parameter recovery (Lewandowsky & Farrell, 2010). 
+Imagine that for child A, the model estimates a drift rate of 2, a boundary separation of 1, and a non-decision time of 0.5. 
+To evaluate whether these values likely reflect the child’s “true” parameter values (i.e., the combination of cognitive processes that produce their pattern of RTs and accuracy), we take each child’s estimated DDM parameters and use them to simulate RT/accuracy data.
+This procedure is analogous to drawing values from a normal distribution if we know the relevant parameters (i.e., the mean and standard deviation). 
+Similarly, we can draw simulated values (combinations of an RT and accuracy) based on the child’s parameter estimates. 
+If the child’s DDM parameter estimates are valid, the simulated RT/accuracy data should be highly correlated with the child’s actual data. 
+We will compute overall correlations between the observed and simulated scores for RTs in the 25th, 50th and 75th percentile of the RT distribution as well as for accuracy rates.
+If the correlation is  \< .80, we will take steps to improve model fit (see below).
+
+
+
+```{r}
+#| label: figureA1.3
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.3. **Graphical overview of the simulation-based model fit procedure. First, we fit the DDM to the observed response times and accuracy rates (step 1-2). Then, we use the resulting DDM parameter estimates of each participant to simulate new data (step 3). Finally, we compute correlations between the observed and simulated response times (separately at the 25th, 50h, and 75th percentile of the response time distribution) and accuracy rates (Step 4). We deviated from our preregistered simulation procedure (simulating the same number of trials as the observed data; step 3.1) by instead simulating 100 trials per task (step 3.2). This deviation is explained in more detail in the main text. Note: The scatterplots do not present real data but are for illustrative purposes only.
+knitr::include_graphics("figures/chapter2/supplement/figS3.png")
+```
+
+
+In addition, we also computed correlations between observed and simulated RTs and accuracy at different levels of the two adversity measures: <1*SD*, ≥1*SD*≤, and >1*SD*.
+This told us whether parameter recovery was worse for specific subgroups of participants, which would require caution when interpreting the results.
+If correlations for specific subgroups were low but the overall correlation was \> .80, we still used the estimates in the analyses.
+
+In case of overall model fit \< .80 for a particular task, we determined criteria to find outliers based on the following simulation procedure.
+First, we would simulate DDM parameters for 10,000 participants based on the overall sample parameter distributions (means, standard deviations, and the variance-covariance matrix).
+Second, we would generate RT and accuracy data based on this new set of simulated parameters.
+Third, we would fit the DDM to these RT and accuracy data and again generate RT and accuracy data from these estimated DDM parameters.
+Thus, this procedure would yield a set of simulated RT/accuracy data and corresponding recovered RT/accuracy data.
+We would fit regression models predicting estimated RTs and accuracy with simulated RTs and accuracy at the 25th, 50th and 75th percentile.
+The 2.5% and 97.5% quantiles of the residuals would be extracted from each model and used as cut-offs for bad model fit.
+Participants would be excluded if any of their RTs or accuracies are larger than these cut-offs.
+After excluding outliers, we would fit the DDM model again and repeat model fit assessments.
+
+## Imputation of the Mental Rotation Task
+
+During preprocessing, we discovered that the 5-second response cut-off that was used for the Mental Rotation Task led to severe truncation of the RT distribution.
+This is problematic because the tail of the distribution holds important information about stages of processing.
+Truncation of reasonably long RTs can therefore lead to biased DDM parameter estimates.
+The hierarchical Bayesian framework allows these missing values to be imputed based on the rest of the data, which has been shown to lead to unbiased estimates.
+The procedure is described in detail in the supplemental materials of @johnson_2017. 
+In short, it involves two steps. 
+First, responses are sampled probabilistically for each missing trial based on the overall accuracy of the participant.
+For example, if a participant has an overall accuracy of 80%, each missing response has a probability of .80 to be assigned a 1 (i.e., correct response).
+Second, responses are assigned to three bins.
+The first bin contains incorrect (imputed) RTs slower than 5 seconds (coded as -5).
+The second bin contains the observed data, ranging between -5 and 5 seconds.
+The third bin contains correct (imputed) RTs slower than 5 seconds (coded as 5).
+JAGS then imputes the response times for missing trials based on these thresholds.
+We will compare model versions with and without imputation of missing responses.
+A simulation demonstrating the feasibility of this approach is described below (DDM simulation 5: Imputation of missing RTs)
+
+## DDM simulations: The effect of few trials per participant
+
+The number of trials that is available for each of the cognitive tasks is substantially lower than is typical for DDM analyses.
+This is especially true for the Flanker Task (8 incongruent trials, 12 congruent trials) and the Attention Shifting Task (7 switch trials, 23 repeat trials).
+While each participant completed a small number of trials, the hierarchical Bayesian framework can use information from the full sample to estimate and constrain individual estimates.
+Here, we report simulation studies that aimed to assess whether it would be possible to accurately recover parameter estimates.
+The analyses are modeled on the Flanker Task, which is the task with the lowest overall number of trials (*N* = 20). 
+For simulations involving two conditions, we assume (as we do in the real data) that the drift rate and non-decision time differ (and are correlated) across conditions, and that the boundary separation is the same across conditions.
+This latter assumption reflects the fact that conditions are randomly shuffled on a trial-by-trial basis, which prohibits participants from adapting their strategy for different conditions.
+The starting point is fixed to the mid-point (0.5) for all simulations.
+
+### DDM simulation 1: Single condition with eight trials
+
+First, we simulated task data for 1,500 participants with eight trials per participant.
+We used the first 2,000 samples as burn-in, and then took an additional 10,000 samples.
+Every 10th sample was discarded to reduce the size of final model object. 
+We sampled across three chains, which were subsequently combined, for a total of 3,000 samples.
+The model converged normally (Figure A1.4). 
+Relative parameter recovery was decent for boundary separation (*r* = `r ch2_sup_staged_sim_results_supp$ddm_sim1_cor$a`) and non-decision time (*r* = `r ch2_sup_staged_sim_results_supp$ddm_sim1_cor$t`), but not for drift rate (*r* = `r ch2_sup_staged_sim_results_supp$ddm_sim1_cor$v`). 
+However, estimates of boundary separation and non-decision time showed substantial bias (See Figure A1.5).
+
+```{r}
+#| label: figureA1.4
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.4. **Convergence of the model in simulation 1. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_sim1_traces_plot
+```
+
+
+
+```{r}
+#| label: figureA1.5
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.5. **Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
+ch2_sup_staged_sim_results_supp$ddm_sim1_recov
+```
+
+As discussed above, the models reported in this manuscript will not be constricted to eight trials.
+Instead, they will be able to use the information of both conditions (e.g., congruent and incongruent for the Flanker Task), as parameters will tend to be correlated across conditions.
+Therefore, we ran a second simulation adding realistic condition effects.
+
+### DDM simulation 2: Two conditions; Boundary Separation fixed across conditions
+
+We again simulated task data for 1,500 participants.
+Mirroring the real Flanker task, we simulated two conditions, one with 8 trials (incongruent) and one with 12 trials (congruent).
+On average, drift rates were lower and non-decision times were longer for incongruent trials.
+Boundary separation was fixed within subjects to be equal across conditions.
+Non-decision times correlated on average .70 between conditions, and drift rates correlated on average .30 between conditions.
+These correlations were based on previous studies that we did using the Flanker Task.
+For more information on the specific settings, see [https://github.com/stefanvermeent/abcd_ddm/scripts/0_simulations/ddm_trial_simulations.R](https://github.com/stefanvermeent/abcd_ddm/scripts/0_simulations/ddm_trial_simulations.R).
+
+As the model converged without issues in simulation 1, we tried reducing the number of samples (2,000 burn-in with an additional 2,000 samples) to save time.
+The model converged normally (Figure A1.6). 
+Correlations between simulated and recovered parameter estimates was high, ranging between *r* = `r ch2_sup_staged_sim_results_supp$ddm_sim2_cor$v` for the drift rate and `r ch2_sup_staged_sim_results_supp$ddm_sim2_cor$t` for the non-decision time (see Figure A1.7).
+
+```{r}
+#| label: figureA1.6
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.6. **Convergence of the model in simulation 2. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_sim2_traces_plot
+```
+
+```{r}
+#| label: figureA1.7
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.7. **Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
+ch2_sup_staged_sim_results_supp$ddm_sim2_recov
+```
+
+Simulation 1 and 2 involved data of 1,500 simulated subjects.
+However, the sample size of our real data set is roughly 10,000.
+Thus, in the real data there is substantially more group-level data to inform and constrain the individual parameter estimates.
+we ran a third simulation to investigate if---and to what extent---the parameter estimates would improve moving from 1,500 to 10,000 participants.
+
+### DDM simulation 3: Two conditions; 10,000 subjects 
+
+We simulated task data for 10,000 participants.
+All other simulation settings were identical to simulation 2.
+
+The model converged normally (Figure A1.8). 
+Correlations between simulated and recovered parameter estimates were high and very similar to those found in simulation 2, ranging between *r* = `r ch2_sup_staged_sim_results_supp$ddm_sim3_cor$v` for the drift rate and `r ch2_sup_staged_sim_results_supp$ddm_sim3_cor$t` for the non-decision time (see Figure A1.9).
+Thus, the benefit of adding more subjects is already saturated around 1,500 participants, with additional participants not improving parameter estimation.
+
+```{r}
+#| label: figureA1.8
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.8. **Convergence of the model in simulation 3. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_sim3_traces_plot
+```
+
+```{r}
+#| label: figureA1.9
+#| fig-width: 7
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.9.**Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
+ch2_sup_staged_sim_results_supp$ddm_sim3_recov
+```
+
+Overall, we conclude that applying hierarchical Bayesian DDM to the ABCD data is feasible.
+
+## Additional DDM simulations 
+
+### DDM simulation 4: Does shrinkage bias the associations between parameter estimates and adversity?
+
+One of the reviewers noted that the hierarchical Bayesian DDM tends to compress parameter estimates by pulling extreme values toward the group mean (a phenomenon known as shrinkage). 
+A concern may be that this could potentially reduce the individual differences of interest, especially if these occur in the tail of the distribution (e.g., the participants with the highest levels of adversity obtaining the most extreme parameter estimates).
+In general, this is not the case; in contrast, shrinkage tends to pull less reliable and outlier estimates towards the group mean, which has been shown to positively affect the signal-to-noise ratio and reliability of parameter estimates in cognitive neuroscience [@dai_2017; @mejia_2018]. 
+To specifically study the effects of shrinkage on the variance of DDM parameter estimates, we nevertheless ran a simulation to investigate the likelihood that shrinkage might obscure adversity-DDM parameter associations.
+
+We simulated DDM parameters for 1,500 participants.
+Participants' adversity scores followed a log-normal distribution (mean~log~ = 0, sd~log~ = 0.3) to approximate the skew in the right tail typically found in adversity scores.
+Drift rates were simulated based on a standardized association of $\beta$ = 0.1 with the adversity score.
+Thus, higher levels of adversity tended to be associated with higher drift rates.
+Based on the simulated DDM parameters, we simulated 20 trials (RTs and accuracy) per participant, which were then used as input to the DDM model.
+We used the first 2,000 samples as burn-in, and then took an additional 2,000 samples.
+We sampled across three chains, which were subsequently combined, for a total of 6,000 samples.
+
+All parameters were recovered with high correlations ranging between `r round(min(ch2_sup_staged_sim_results_supp$ddm_sim4_cor$r),2)` and `r round(max(ch2_sup_staged_sim_results_supp$ddm_sim4_cor$r),2)`.
+Figure A1.10 shows signs of shrinkage, especially in the right tail of the drift rate distribution.
+However, the difference in standard deviations was minimal (*SD~simulated~* = `r round(ch2_sup_staged_sim_results_supp$ddm_sim4_dist$sd_sim,2)`; *SD~recovered~* = `r round(ch2_sup_staged_sim_results_supp$ddm_sim4_dist$sd_est,2)`.
+
+```{r}
+#| label: figureA1.10
+#| fig-width: 7
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.10.**Histograms of simulated and recovered parameter estimates. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
+ch2_sup_staged_sim_results_supp$ddm_sim4_hist
+
+```
+
+Next, we calculated the deviations between each simulated and recovered parameter estimate and plotted this against the adversity scores (See Figure A1.11).
+None of the associations were statistically significant (all *p*s > .05 for linear and quadratic effects).
+
+```{r}
+#| label: figureA1.11
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.11.**Deviation between simulated and recovered parameter estimates as a function of adversity. The regression lines show quadratic effects. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
+ch2_sup_staged_sim_results_supp$ddm_sim4_dev_plot
+```
+
+Finally, we fitted a linear mixed model predicting drift rates estimates as a function of adversity, dataset (simulated vs. recovered; dummy-coded with simulated as the reference category), and the adversity x dataset interaction to assess whether the difference between simulated and recovered drift rates would be different at low, average, and high levels of adversity.
+We did not find a significant adversity x dataset interaction, *b* = `r ch2_sup_staged_sim_results_supp$ddm_sim4_fit |> tidy() |> filter(str_detect(term, ":")) |> pull(estimate) |> round(2)`, *p* = `r ch2_sup_staged_sim_results_supp$ddm_sim4_fit |> tidy() |> filter(str_detect(term, ":")) |> pull(p.value) |> round(3) |> as.character() |> str_remove("^0")`.
+As Figure A1.12 illustrates, there seemed to be small shrinkage effects at the low and high levels of adversity.
+However, none of these simple slope effects were statistically significant.
+Taken together, we conclude that DDM recovery at higher levels of adversity was not less precise compared to lower levels of adversity.
+
+```{r}
+#| label: figureA1.12
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.12.**Simple slopes of the difference between simulated and estimated drift rates at different levels of adversity.
+ch2_sup_staged_sim_results_supp$ddm_sim4_points_plot
+```
+
+### DDM simulation 5: Imputation of missing RTs 
+
+To demonstrate the feasibility of the imputation approach for the Mental Rotation Task, we ran a simulation based on 1500 participants in which RT and accuracy data were generated modeled on the real Mental Rotation Task data (RT: *M*~real~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$rt_lmt`, *M*~sim~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$rt_sim`; Accuracy: *M*~real~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$acc_lmt`%, *M*~sim~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$acc_sim`%; RTs above 5 s cut-off: *M*~real~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$missing_lmt`%, *M*~sim~ = `r ch2_sup_staged_sim_results_supp$ddm_sim5_data_compare$missing_sim`%). 
+We fitted two DDM models: one that was fit to the complete data (including RTs > 5 s) and one that was fit to data in which all RTs > 5 s were set to missing.
+In the latter case, missing RTs were imputed as described above.
+All other model fit settings were identical to simulations 2-4.
+Correlations between DDM parameters based on the complete data and imputed data were near perfect, *r* = `r ch2_sup_staged_sim_results_supp$ddm_sim5_cor |> filter(parameter == 'v') |> pull(r_miss_comp)` for drift rate, *r* = `r ch2_sup_staged_sim_results_supp$ddm_sim5_cor |> filter(parameter == 't') |> pull(r_miss_comp)` for non-decision time, and *r* = `r ch2_sup_staged_sim_results_supp$ddm_sim5_cor |> filter(parameter == 'a') |> pull(r_miss_comp)` for boundary separation.
+
+## DDM Model Fit Assessments 
+
+### Parameter recovery 
+
+The results of our parameter recovery analyses are summarised in Table A1.3 (preregistered approach) and Table A1.2 (updated approach).
+Using the preregistered approach (simulating the same number of trials as the real data), four out of 16 correlations fell below the pre-specified cut-off (See Table A1.3).
+Specifically, this was the case for four out of 16 correlations: accuracies for Flanker (.79), Attention Shifting (.73), Processing Speed (.65), and the 75th percentile of RTs for Mental Rotation (.76). 
+In an updated procedure, we increased the number of simulated trials to 100 per task.
+In these analyses, all correlations were above the .80 cut-off.
+
+Thus, the updated simulation procedure was almost identical to the preregistered procedure, outlined above. 
+The only difference concerned the number of simulated trials. 
+In research with adult participants, it is standard to match the number of simulated trials to the number of observed trials [@lewandowsky_2010]. 
+This rule of thumb is arbitrary; researchers sometimes simulate thousands of trials in dedicated parameter recovery studies. 
+The only reason why they typically do not is because it is often sufficient to match the number of observed trials. 
+In our preregistered plan, we followed the convention by matching the number of simulated trials to the number of observed trials.
+However, in the adult literature, participants frequently complete several dozen, if not hundreds, of trials. 
+In hindsight, we did not sufficiently reflect on this difference, given the lower number of trials per participant in this study involving children. 
+That is, while we followed the convention in the field, the number of simulated trials was lower than is typically the case (because our study involved children), and would also be very low in adult samples. 
+
+If the youth’s DDM parameters were not recovered accurately because the data were too sparse, increasing the number of simulated trials should not improve these correlations. 
+In other words, if DDM parameters contained a lot of measurement noise or were biased, the correlation between real and simulated RTs/accuracy would remain low even if we simulated more trials. 
+However, that is not at all what found. 
+Instead, all correlations were above the .80 cut-off. 
+Many even surpassed .90. 
+This indicated that our data quality was good—the lower correlations observed in the preregistered analysis were solely due to the low number of simulated trials—and that we successfully recovered DDM parameters once addressing this issue. 
+
+```{r}
+#| tab.id: tableA1.2
+#| results: markup
+#| tab.width: 7
+ch2_sup_staged_sim_results_supp$ddm_fit_table |> 
+  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
+  add_header_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_b("Table A1.2. "), "Simulation-based model fit assessment comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
+    part = "header"
+  ) |> 
+  bold(i = c(3, 4, 8, 10)) |> 
+  add_footer_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  add_footer_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_i("Note: "), "The models that were selected for inclusion in the primary analyses are printed in bold."), 
+    part = "footer"
+  )
+```
+
+
+
+```{r}
+#| tab.id: tableA1.3
+#| results: markup
+ch2_sup_staged_sim_results_supp$ddm_fit_orig_table |> 
+  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
+  add_header_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_b("Table A1.3. "), "Simulation-based model fit assessment comparing observed and predicted data using the same number of observed and simulated trials (accuracy, 25th, 50th, 75th percentile)."),
+    part = "header"
+  ) |> 
+  bold(i = c(3, 4, 7, 9)) |> 
+  add_footer_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  add_footer_row(
+    values = " ",
+    colwidths = 7
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_i("Note: "), "The models that were selected for inclusion in the primary analyses are printed in bold."), 
+    part = "footer"
+  )
+```
+
+As planned, we explored whether model fit would be relatively worse at different levels of the two measures of adversity.
+Table A1.4 and A1.5 present correlations between observed and predicted RTs and accuracy at different levels of adversity.
+Model fit was high for all tasks across all levels of adversity, and there were no indications for any meaningful differences.
+
+```{r}
+#| tab.id: tableA1.4
+#| results: markup
+ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_dep_table |> 
+  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
+  add_header_row(
+    values = " ",
+    colwidths = 6
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_b("Table A1.4. "), "Simulation-based model fit assessment at different levels of material deprivation comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
+    part = "header"
+  )
+```
+
+```{r}
+#| tab.id: tableA1.5
+#| results: markup
+ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_threat_table |> 
+  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
+  add_header_row(
+    values = " ",
+    colwidths = 6
+  ) |> 
+  compose(
+    i = 1, j = 1, 
+    as_paragraph(as_b("Table A1.5. "), "Simulation-based model fit assessment at different levels of household threat comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
+    part = "header"
+  )
+```
+
+For the Processing Speed Task, we found a high degree of Kurtosis in the left-hand tail of the non-decision time distribution.
+This tail consisted of participants with the lowest RTs (between 0.3s and ~1s).
+Although overall accuracy on the Processing Speed Task was very high (`r ch2_pcps_clean |> summarise(acc = round(sum(correct)/n()*100,2)) |> pull(acc)`%), overall accuracy for RTs < 1s was below chance, with accuracy increasing above change starting at 1s.
+Therefore, we decided to remove RTs < 1s (`r round(sum(ch2_pcps_clean$RT < 1)/nrow(ch2_pcps_clean)*100,1)`% of trials) and refit the model, which solved the kurtosis in non-decision times.
+Recovery of RTs was above the cut-off of .80 for each quantile. 
+Thus, we selected this model for the main analyses.
+
+### Model convergence
+
+Figure A1.13-A1.16 show model convergence for each task. 
+All models converged normally.
+
+```{r}
+#| label: figureA1.13
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.13.** Convergence of the final model for the Mental Rotation Task. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_conv_lmt_fig
+```
+
+```{r}
+#| label: figureA1.14
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.14.** Convergence of the final model for the Inhibition Task. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_conv_flanker_fig
+```
+
+```{r}
+#| label: figureA1.15
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.15.** Convergence of the final model for the Attention Shifting Task. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_conv_dccs_fig
+```
+
+```{r}
+#| label: figureA1.16
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.16.** Convergence of the final model for the Processing Speed Task. Plots should resemble a 'fat, hairy caterpillar'.
+ch2_sup_staged_sim_results_supp$ddm_conv_pcps_fig
+```
+
+## Parameter distributions
+
+Figure A1.17-A1.20 show the distributions of DDM parameters for each task.
+
+```{r}
+#| label: figureA1.17
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.16.** Parameter distributions in the final model of the Mental Rotation Task.
+ch2_sup_staged_sim_results_supp$ddm_distri_lmt_fig
+```
+
+```{r}
+#| label: figureA1.18
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.18.** Parameter distributions in the final model of the Inhibition Task.
+ch2_sup_staged_sim_results_supp$ddm_distri_flanker_fig
+```
+
+```{r}
+#| label: figureA1.19
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.19.** Parameter distributions in the final model of the Attention Shifting Task.
+ch2_sup_staged_sim_results_supp$ddm_distri_dccs_fig
+```
+
+```{r}
+#| label: figureA1.20
+#| fig-width: 6
+#| fig-height: 3
+#| dpi: 600
+#| fig-cap: | 
+#|   **Figure A1.20.** Parameter distributions in the final model of the Processing Speed Task.
+ch2_sup_staged_sim_results_supp$ddm_distri_pcps_fig
+```
+
+## SEM Fit
+
+The factor loadings and residual variances of the full test model are presented in Table A1.6. 
+Table A1.7 presents the correlations between latent variables in the model.
+
+```{r}
+#| tab.id: tableA1.6
+#| results: markup
+ch2_sup_staged_sim_results_supp$test_sem_loading_table |> 
+  compose(
+    i = 1, j = 1,
+    as_paragraph(as_b("Table A1.6. "), "Factor loadings and unstandardized residual variances in the test set."),
+    part = "header"
+  )
+```
+
+```{r}
+#| tab.id: tableA1.7
+#| results: markup
+ch2_sup_staged_sim_results_supp$test_sem_cor_table |> 
+  compose(
+    i = 1, j = 1,
+    as_paragraph(as_b("Table A1.7. "), "Correlations between latent task-general and task-specific factors in the test set."),
+    part = "header"
+  )
+```
+
+```{=typst}
+#pagebreak()
+```
+
+```{=typst}
+#pagebreak(
+  to: "odd"
+)
+```

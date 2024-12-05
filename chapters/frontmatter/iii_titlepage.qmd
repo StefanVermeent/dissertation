@@ -1,0 +1,38 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+toc: false
+---
+
+\ 
+\ 
+
+```{=typst}
+#set rect(
+  inset: 8pt,
+  fill: none,
+  stroke: none,
+  width: 100%,
+)
+
+#align(center+ top,
+  grid(
+    columns: 1,
+    row-gutter: (0pt, 50pt, 50pt, 20pt, 20pt, 30pt, 10pt),
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Executieve functies in stressvolle omgevingen: Een integratie van deficit- en adaptatiemodellen door cognitief modelleren]],
+    rect[#text(12pt, weight: "light", font: "Cambria")[(Met een samenvatting in het Nederlands)]],
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Proefschrift]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[Ter verkrijging van de graad van doctor aan de \ Universiteit Utrecht \ op gezag van de \ rector magnificus, prof. dr. H.R.B.M. Kummeling, \ ingevolge het besluit van het College voor Promoties \ in het openbaar te verdedigen op]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[Vrijdag XX XX 2025 te X:XX uur]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[door]],
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Pieter Cornelis Stefan Vermeent]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[geboren op 27 februari 1993 \ te Gouda]],
+    align: center + top,
+  )
+)
+```
+
+```{=typst}
+#pagebreak()
+```

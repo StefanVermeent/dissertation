@@ -1,0 +1,36 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+toc: false
+---
+
+```{=typst}
+#pagebreak()
+```
+
+```{=typst}
+#set rect(
+  inset: 8pt,
+  fill: none,
+  stroke: none,
+  width: 100%,
+)
+
+#align(center+ horizon,
+  grid(
+    columns: 1,
+    rows: (auto, 80pt),
+    row-gutter: (0pt, 40pt),
+    rect[#text(24pt, weight: "light", font: "Gill Sans")[Executive functioning in adverse environments:]],
+    rect[#text(20pt, weight: "light", font: "Gill Sans")[Using cognitive modeling to integrate deficit and \ adaptation frameworks]],
+    rect[#text(20pt, weight: "light", font: "Gill Sans")[Stefan Vermeent]],
+    align: center + horizon,
+  )
+)
+```
+
+
+```{=typst}
+#pagebreak()
+```

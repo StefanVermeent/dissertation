@@ -1,0 +1,33 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+toc: false
+---
+
+```{=typst}
+#set rect(
+  inset: 4pt,
+  fill: none,
+  width: 100%
+)
+
+#align(left + bottom,
+  grid(
+    columns: 1,
+    rows: (40pt, 40pt, 40pt, 75pt),
+    row-gutter: (0pt),
+    rect[#text(12pt, weight: "bold", font: "Cambria")[ISBN] \ #text(12pt, weight: "regular", font: "Cambria")[xxxx-xx-xxxx-xxx-x]],
+    rect[#text(12pt, weight: "bold", font: "Cambria")[Cover design] \ #text(12pt, weight: "regular", font: "Cambria")[Anaïs Thijssen]],
+    rect[#text(12pt, weight: "bold", font: "Cambria")[Printing] \ #text(12pt, weight: "regular", font: "Cambria")[Ridderprint | www.ridderprint.nl]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[\u{00A9} Stefan Vermeent, 2025 \ All rights reserved. No parts of this publication may be reproduced, distributed, stored in a retrieval system, or transmitted in any form or by any means, without prior written permission from the author.]],
+    align: left + bottom,
+  )
+)
+
+
+```
+
+```{=typst}
+#pagebreak()
+```

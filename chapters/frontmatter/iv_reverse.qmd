@@ -1,0 +1,33 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+toc: false
+---
+
+```{=typst}
+#set rect(
+  inset: 4pt,
+  fill: none,
+  width: 100%
+)
+
+#align(left + top,
+  grid(
+    columns: 1,
+    row-gutter: (20pt, 20pt, 50pt),
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Promotoren:] \ #text(12pt, weight: "regular", font: "Cambria")[Dr. W.E. Frankenhuis \ Prof. dr. J.L. Van Gelder (Max Planck Institute for the Study of Crime, Security, and Law) \ Prof. dr. J.J.A. Denissen]],
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Copromotor:] \ #text(12pt, weight: "regular", font: "Cambria")[Dr. E.S. Young]],
+    rect[#text(14pt, weight: "bold", font: "Cambria")[Beoordelingscommissie] \ #text(12pt, weight: "regular", font: "Cambria")[Prof. dr. N.N.J. Rommelse \ Prof. dr. G.W.J.M. Stevens \ Prof. dr. S. Van Der Stigchel \ Prof. dr. E.-J. Wagenmakers (Universiteit van Amsterdam) \ Dr. A.S. Weigard (University of Michigan)]],
+    rect[#text(12pt, weight: "regular", font: "Cambria")[Dit proefschrift werd (mede) mogelijk gemaakt met financiële steun van de Nederlandse Organisatie voor Wetenschappelijk Onderzoek, de James S. McDonnell Foundation, en ODISSEI.]],
+    
+    align: left + top,
+  )
+)
+
+
+```
+
+```{=typst}
+#pagebreak()
+```

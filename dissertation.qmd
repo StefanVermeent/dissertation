@@ -1,0 +1,68 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+bibliography: bib-files/references.bib
+citeproc: true
+csl: bib-files/apa.csl
+toc: false
+bibliographystyle: bib-files/apa.csl
+---
+
+```{r}
+#| include: false
+#| echo: false
+library(tidyverse)
+library(lavaan)
+library(flextable)
+library(patchwork)
+library(ggsci)
+library(pwr)
+library(faux)
+library(broom.mixed)
+
+list.files('functions', full.names = TRUE) |> 
+  walk(function(x){source(x)})
+```
+
+
+{{< include chapters/chapter2.qmd >}}
+
+{{< include chapters/footnotes.qmd >}}
+
+# Bibliography
+
+```{=typst}
+#show: article.with(
+  chapter: "Bibliography",
+  chtitle: "Bibliography"
+)
+```
+
+::: {#refs}
+:::
+
+```{=typst}
+#pagebreak()
+```
+
+```{=typst}
+#pagebreak(
+  to: "odd"
+)
+```
+
+# Supplementary materials
+
+```{=typst}
+#pagebreak()
+```
+
+{{< include chapters/appendix2.qmd >}}
+
+# Summary 
+##Nederlanse samenvatting
+##English summary
+#Acknowledgements
+#About the author
+#Publications

@@ -1,0 +1,24 @@
+---
+title: Untitled
+format:
+  dissertation-template-typst: default
+---
+
+```{=typst}
+#show: article.with(
+  chapter: "Footnotes",
+  chtitle: "Footnotes"
+)
+```
+
+# Footnotes
+
+^1^ It is also possible to have the decision boundaries correspond to distinct response options. For instance, if the task requires people to classify faces as expressing either an angry or happy emotion, the boundaries could correspond to the 'angry' and 'happy' response, respectively. This specification is useful if the research question pertains to decision preferences (e.g., do people tend to prefer option A over option B? Do people with more exposure to threat tend to interpret facial expressions as more negative?).
+
+^2^ There are two caveats to this statement. First, the standard DDM also contains the starting point of the evidence accumulation process and provides a measure of response bias. When the process starts closer to one boundary relative to the other, it reaches this boundary faster and more frequently (also increasing the false positive rate), while responses terminating at the other boundary are slower and less frequent. Modeling the starting point makes most sense if the decision boundaries correspond to distinct response options (e.g., angry versus happy face) rather than correct versus incorrect responses. In the latter case, the response bias parameter is usually fixed to be equidistant to each boundary. As this is the case throughout this dissertation, I do not consider the starting point here. Second, the DDM also allows for additional parameters that capture inter-trial variability in drift rate, boundary separation, and/or non-decision time. For instance, drift rates may decrease as people start to lose motivation. Simulation studies indicate that several hundreds of trials are necessary to obtain stable estimates of these variability parameters, many more than were used in the cognitive tasks included in this dissertation.
+
+^3^ A fourth DDM parameter, the starting point, represents an initial bias towards one of the two decision options (e.g., a tendency to classify facial expressions as angry that extends to neutral faces). Note that allowing the starting point to vary only makes sense if response options differ in valence (e.g., happy and angry faces, which the current study does not include and thus is unable to examine).
+
+^4^ The preregistration also included the Picture Vocabulary Task. However, after accessing the data we realized that this task was implemented using computerized adaptive testing [@luciana_2018]. This makes it unsuitable for DDM, as the model assumes the level of difficulty is the same across trials.
+
+^5^ We ran parameter recovery studies simulating the data for the Inhibition Task, which has the lowest overall number of trials. Parameter recovery was excellent for the scenario that we planned in our main analyses (all *r*s ≥ .84). See the supplemental materials for more details.
