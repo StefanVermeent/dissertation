@@ -28,6 +28,8 @@
     paper: paper,
     margin: margin,
     numbering: "1",
+    // Headers are aligned left on even pages, and right on odd pages.
+    // using no-header-pages above, headers can be hidden on specific pages (e.g., frontmatter, first page of new chapter)
     header: locate(
       loc => if loc.page() in no-header-pages {
         none
@@ -37,6 +39,8 @@
         align(left, text(11pt, fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), chtitle))
       }
     ),
+    // Footers are aligned left on even pages, and right on odd pages.
+    // using no-footer-pages above, footers can be hidden on specific pages (e.g., frontmatter, first page of new chapter)
     footer: locate(
     loc => if loc.page() in no-footer-pages {
       none
@@ -92,6 +96,7 @@
   stroke: none
 )
 
+// placement: auto ensures that figures are placed in the document dynamically. This prevents whitespace if they do not fit on the current page.
 #set figure(
   placement: auto,
   numbering: none,
@@ -121,5 +126,5 @@
 #show figure.caption: set text(10pt)
 #show figure: set block(inset: (top: 0.5em, bottom: 2em))
 
-
+// Insert whitespace between paragraphs
 #set block(spacing: 2em)

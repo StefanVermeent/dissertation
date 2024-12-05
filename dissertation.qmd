@@ -47,6 +47,7 @@ list.files('functions', full.names = TRUE) |>
 ```
 
 ```{=typst}
+// Note that this function breaks to the next ODD page. This is used to make sure that each new chapter starts on an odd (i.e., right) page in the book.
 #pagebreak(
   to: "odd"
 )
