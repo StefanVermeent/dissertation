@@ -21,12 +21,12 @@ The online version of this repository does not contain folders including data an
 Therefore, you won't be able to render my dissertation yourself. 
 If you would like to reproduce/check out source code of specific chapters, please refer to their respective GitHub repositories:
 
-    1. Chapter 1: N/A, written specifically for the dissertation
-    2. Chapter 2: <stefanvermeent.github.io/abcd_ddm/>
-    3. Chapter 3: <stefanvermeent.github.io/liss_ef_2024/>
-    4. Chapter 4: <stefanvermeent.github.io/attention_project/>
-    5. Chapter 5: <stefanvermeent.github.io/liss_wm_profiles_2023/>
-    6. Chapter 6: N/A, written specifically for the dissertation
+1.  Chapter 1: N/A, written specifically for the dissertation
+2.  Chapter 2: [stefanvermeent.github.io/abcd_ddm/](stefanvermeent.github.io/abcd_ddm/)
+3.  Chapter 3: [stefanvermeent.github.io/liss_ef_2024/](stefanvermeent.github.io/liss_ef_2024/)
+4.  Chapter 4: [stefanvermeent.github.io/attention_project/](stefanvermeent.github.io/attention_project/)
+5.  Chapter 5: [stefanvermeent.github.io/liss_wm_profiles_2023/](stefanvermeent.github.io/liss_wm_profiles_2023/)
+6.  Chapter 6: N/A, written specifically for the dissertation
 
 ## Directory structure
 
