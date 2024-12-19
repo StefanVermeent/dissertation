@@ -25,17 +25,8 @@ list.files('functions', full.names = TRUE) |>
   walk(function(x){source(x)})
 ```
 
-{{< include chapters/frontmatter/i_firstpage.qmd >}}
-{{< include chapters/frontmatter/ii_colofon.qmd >}}
-{{< include chapters/frontmatter/iii_titlepage.qmd >}}
-{{< include chapters/frontmatter/iv_reverse.qmd >}}
-{{< include chapters/chapter1.qmd >}}
-{{< include chapters/chapter2.qmd >}}
-{{< include chapters/chapter4.qmd >}}
-{{< include chapters/chapter5.qmd >}}
-{{< include chapters/chapter6.qmd >}}
-{{< include chapters/backmatter/footnotes.qmd >}}
 
+{{< include chapters/chapter3.qmd >}}
 # Bibliography
 
 ```{=typst}
@@ -65,4 +56,4 @@ list.files('functions', full.names = TRUE) |>
 #pagebreak()
 ```
 
-{{< include chapters/supplements/appendix1.qmd >}}
+{{< include chapters/supplements/appendix2.qmd >}}

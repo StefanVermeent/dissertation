@@ -33,11 +33,6 @@ load("staged_results/chapter4/supp/study2/ssp_fit.RData")
 load("staged_results/chapter4/supp/pilot/DDM_objects.Rdata")
 load("staged_results/chapter4/supp/pilot/hddm_recovery_plots.RData")
 
-load("staged_results/chapter4/supp/pilot_staged_results.RData")
-load("staged_results/chapter4/supp/study1_staged_results.RData")
-load("staged_results/chapter4/supp/study2_staged_results.RData")
-load("staged_results/chapter4/supp/pooled_staged_results.RData")
-
 power_linear      <- read_csv("staged_results/chapter4/power_linear_model.csv") %>% mutate(power = round(power, 0))
 power_mixed       <- read_csv("staged_results/chapter4/power_mixed_model.csv") %>% mutate(power = round(power, 0))
 
@@ -681,17 +676,17 @@ final_plot_S22
 ```{r}
 #| include: false
 #| echo: false
-f24_p1 <- study1_expl_ssp_enh_variance_plot$rt_diff + labs(title = "RT difference", tag = "A", y = "", fill = "") 
-f24_p2 <- study1_expl_ssp_enh_variance_plot$p_flanker + labs(title = "Perceptual input", y = "") + guides(fill = "none")
-f24_p3 <- study1_expl_ssp_enh_variance_plot$interference_flanker + labs(title = "Interference", y = "") + guides(fill = "none")
-f24_p4 <- study1_expl_ssp_enh_variance_plot$a_flanker + labs(title = "Boundary separation", y = "") + guides(fill = "none")
-f24_p5 <- study1_expl_ssp_enh_variance_plot$t0_flanker + labs(title = "Non-decision time", y = "") + guides(fill = "none")
+f24_p1 <- study1_expl_ssp_enh_variance_plot$rt_diff + labs(title = "RT difference", tag = "A", y = "", fill = "") + theme_classic() 
+f24_p2 <- study1_expl_ssp_enh_variance_plot$p_flanker + labs(title = "Perceptual input", y = "") + guides(fill = "none") + theme_classic()
+f24_p3 <- study1_expl_ssp_enh_variance_plot$interference_flanker + labs(title = "Interference", y = "") + guides(fill = "none") + theme_classic()
+f24_p4 <- study1_expl_ssp_enh_variance_plot$a_flanker + labs(title = "Boundary separation", y = "") + guides(fill = "none") + theme_classic()
+f24_p5 <- study1_expl_ssp_enh_variance_plot$t0_flanker + labs(title = "Non-decision time", y = "") + guides(fill = "none") + theme_classic()
 
-f24_p6 <- study1_expl_ssp_deg_variance_plot$rt_diff + labs(title = "RT difference", tag = "B", y = "") + guides(fill = "none") 
-f24_p7 <- study1_expl_ssp_deg_variance_plot$p_flanker + labs(title = "Perceptual input", y = "") + guides(fill = "none")
-f24_p8 <- study1_expl_ssp_deg_variance_plot$interference_flanker + labs(title = "Interference", y = "") + guides(fill = "none") 
-f24_p9 <- study1_expl_ssp_deg_variance_plot$a_flanker + labs(title = "Boundary separation", y = "") + guides(fill = "none") 
-f24_p10 <- study1_expl_ssp_deg_variance_plot$t0_flanker + labs(title = "Non-decision time", y = "") + guides(fill = "none") 
+f24_p6 <- study1_expl_ssp_deg_variance_plot$rt_diff + labs(title = "RT difference", tag = "B", y = "") + guides(fill = "none") + theme_classic() 
+f24_p7 <- study1_expl_ssp_deg_variance_plot$p_flanker + labs(title = "Perceptual input", y = "") + guides(fill = "none") + theme_classic()
+f24_p8 <- study1_expl_ssp_deg_variance_plot$interference_flanker + labs(title = "Interference", y = "") + guides(fill = "none") + theme_classic() 
+f24_p9 <- study1_expl_ssp_deg_variance_plot$a_flanker + labs(title = "Boundary separation", y = "") + guides(fill = "none") + theme_classic() 
+f24_p10 <- study1_expl_ssp_deg_variance_plot$t0_flanker + labs(title = "Non-decision time", y = "") + guides(fill = "none") + theme_classic() 
 
 
 align_patches(f24_p1,f24_p2,f24_p3,f24_p4,f24_p5,f24_p6,f24_p7,f24_p8,f24_p9,f24_p10)

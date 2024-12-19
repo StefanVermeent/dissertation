@@ -26,12 +26,14 @@ The field of adversity research is rapidly evolving.
 For decades, the predominant focus has been on how exposure to adversity impairs cognitive abilities.
 However, strength-based perspectives have been gaining ground on such traditional deficit perspectives. 
 Strength-based perspectives highlight the skills, strategies, and knowledge that people may develop in response to adverse experiences.
-This more well-rounded approach to thinking about the effects of adversity is being picked up in popular science writing  [e.g., @jackson_2023; @washingtonpost_2024], and may guide important policies and interventions in the near future [@dejoseph_2024].
 One area in particular that has seen an increase in strength-based thinking is research on executive functioning (EF), which refers to a set of abilities involved in planning, reasoning, and goal-directed behavior. 
 At the same time, deficit perspectives remain influential, and for good reason: most studies also find that people with more exposure to adversity perform lower on EF tasks, even if some find support for improved abilities.
+Thus, understanding how adversity shapes EF requires knowing how deficits and strengths operate alongside each other within the same individual.
+In this dissertation, I will use methodological tools---grounded in mathematical and cognitive psychology---to develop this understanding.
 
-In this general introduction, I will first provide an overview of the current state of the field of adversity research, with a special focus on EF.
-Next, I will discuss methodological issues with the use of standard performance measures to infer EF ability, and explain how cognitive modeling can provide a solution.
+In this Chapter, I will first provide an overview of the current state of the field of adversity research, with a special focus on EF.
+Next, I will discuss methodological issues that limit an integration of deficit and adaptation frameworks.
+Specifically, I will focus on issues with using standard performance measures as direct measures  EF ability, and explain how cognitive modeling can provide a solution.
 Finally, I will present an overview of the aims of this dissertation, and the focus of subsequent chapters.
 
 # 1.1 Current state of the field of adversity research
@@ -49,13 +51,13 @@ In contrast to deficit frameworks, adaptation frameworks suggest that exposure t
 Specifically, people may develop cognitive abilities that help solve unique challenges posed by adverse environments [@ellis_2017; @ellis_2022; @frankenhuis_2013; @frankenhuis_2020].
 In adaptation frameworks, the term *enhanced* refers to an ability that has been improved by developmental adaptation, in a way that can be objectively measured [e.g., faster responses, higher accuracy\; @frankenhuis_2020].
 *Intact* abilities are abilities that are neither enhanced nor impaired by adversity.
-In some cases, cognitive adaptations could lead to intact rather then enhanced abilities, for instance, when performance is also negatively influenced by other deficits [@frankenhuis_2020; @young_2024].
+Cognitive adaptations could lead to intact rather then enhanced abilities, for instance, when performance is also negatively influenced by other deficits [@frankenhuis_2020; @young_2024].
 
 An important assumption of adaptation frameworks is that specific types of adversity pose their own unique challenges to the individual, and hence require different adaptations [@ellis_2022; @frankenhuis_2013; @frankenhuis_2016].
 Therefore, testing adaptation hypotheses requires specificity; measures that combine different types of adversity---such as cumulative adversity scores---might not be associated with cognitive enhancements.
 Contemporary dimensional models of adversity posit that different adversities can be broadly clustered into threat (physical or psychosocial harm), material deprivation (low quantity and quality of material resources), and environmental unpredictability (stochastic variation in adversity, i.e., threat and deprivation, over space and time) [@ellis_2009; @mclaughlin_2021; @salhi_2021].
 Each of these dimensions captures a variety of specific exposures. 
-For instance, exposure to threat may include living with an abusive parent, experiencing high levels of crime in the neighborhood, or witnessing or participating in fights.
+For instance, exposure to threat may include living with an abusive parent, experiencing high levels of crime in one's neighborhood, or witnessing or participating in fights.
 Despite this variety, research shows that adversity exposures of the same dimension tend to have similar effects on social and cognitive development, and that their effects are (partially) distinct from effects of other dimensions [@sheridan_2020].
 
 ## Developmental adaptations in executive functioning
@@ -80,7 +82,7 @@ However, their integration is still limited.
 For instance, it is largely unclear which specific abilities may be impaired and which ones may be enhanced by specific types of adversity, and how deficit and adaptation processes may operate alongside each other within the same person.
 In addition, disentangling deficit and adaptation processes can often be challenging.
 For example, adaptations in specific abilities may co-occur with general disruptions in brain architecture and neural efficiency due to chronic stress [@shonkoff_2012].
-As I will argue throughout this dissertation, one major methodological challenge limiting a further integration is that both frameworks tend to infer differences in cognitive abilities based on raw performance scores, such as average response times and error rates.
+As I will argue in the next section, one major methodological challenge limiting a further integration is that both frameworks tend to infer differences in cognitive abilities based on raw performance scores, such as average response times and error rates.
 
 # 1.2 Different reasons for lower performance on EF tasks
 
@@ -94,7 +96,7 @@ For performance to equal ability, it is important that the ability is the only f
 
 However, research in cognitive psychology shows that performance on EF tasks, is influenced by cognitive processes other than the specific EF ability that is often of primary interest.
 Examples of these other processes---discussed in more detail below---are a person’s level of response caution, speed of response execution, and general processing speed.
-This means that two people with the same EF ability level could differ in their performance if, for instance, one of them responds more cautiously (i.e., prioritizing accuracy over speed).
+This means that two people with the same EF ability level could differ in their performance if, for instance, one of them responds more cautiously than the other (i.e., prioritizing accuracy over speed).
 These emerging findings, and their implications, have so far mostly been overlooked in adversity research. 
 Given this, long-held assumptions about how adversity affects executive functions could be oversimplified or even misguided.
 
@@ -120,13 +122,13 @@ In the next sections, I will outline the issues with raw performance scores as p
 
 Research often relies on raw performance scores as a proxy for cognitive abilities. 
 Most often these are response times (i.e., the total time taken to complete a task) and accuracy (i.e., whether the decision made is correct or incorrect). 
-Though there are exceptions, researchers generally focus on one over the other, and these practices can differ between tasks. 
+Although there are exceptions, researchers generally focus on one over the other, and these practices can differ between tasks. 
 For instance, performance on inhibition tasks tends to be summarized using the average response time, while performance on working memory updating tasks tends to be summarized using the overall error rate [@vonbastian_2020]. 
 For simplicity, I will mostly focus on response times in this section. 
 However, the same arguments generally also apply to accuracy.
 
-The use of response times is based on the assumption that cognitive operations involve multiple distinct processes, and each of these processes takes time to complete [@donders_1869].
-When any process in the chain takes longer to complete, this results in an increased response time.
+The use of response times is based on the assumption that cognitive operations involve multiple distinct processes, each of which takes time to complete [@donders_1869].
+When any of the processes in the chain takes longer to complete, this results in an increased response time.
 This is also the basic rationale behind commonly used difference scores, where the mean response time of one condition is subtracted from the mean response time of another condition [@donders_1869].
 For instance, many EF tasks include a condition with lower processing demands (e.g., trials on the Stroop Task where the color matches the printed word) and a condition requiring the same processing demands *plus* an additional processing demand (e.g., trials on the Stroop trials where the color does not match the printed word).
 As the conditions are assumed to differ only in terms of the added processing demand, a difference score is thought to isolate the speed of that specific process.
@@ -148,8 +150,8 @@ By applying a cognitive model to empirical performance data, we can generate par
 These parameter estimates can then be used as measures of cognitive processes, and subsequently as predictors or outcomes of interest.
 
 Figure 1.1 shows how a workflow based on cognitive modeling differs from one based on analyzing raw performance.
-Performance-based workflows infer cognitive abilities either directly from raw performance scores (e.g., mean response time), or by calculating the difference in performance between an experimental and control condition.
-Thus, these approaches assume that response times directly reflect an ability of interest.
+Performance-based workflows infer cognitive abilities either directly from raw performance scores (e.g., mean response time), or by calculating the difference in performance between an experimental and a control condition.
+Thus, these approaches assume that response times directly reflect the ability of interest.
 In contrast, a cognitive modeling workflow provides an explicit mathematical account of how performance is shaped by a collection of cognitive processes.
 Adversity research can use cognitive models to obtain direct measures of the cognitive processes involved in EF tasks, and to investigate if and how they are associated with adversity exposure.
 
@@ -189,11 +191,10 @@ The DDM also accounts for the time that it takes to encode stimulus information 
 #| dpi: 600
 #| echo: false
 #| fig-cap: | 
-#|   **Figure 1.2.** An overview of the Drift Diffusion Model (DDM). The DDM assumes people sequentially move through three distinct stages when performing tests with two forced-response options. First, in a preparation phase, people visually encode stimuli (e.g., this may take longer if a stimulus is visually complex). Second, in the decision phase, people accumulate information favoring one decision over the other (e.g., whether to press the left vs. right key). Each jagged line represents this accumulation on a single trial. Third, in the execution phase, people execute a motor response (e.g., pressing the left vs. right key). The DDM estimates four parameters that represent four distinct cognitive processes (italicized): (1) *Drift rate*: the average rate of evidence accumulation towards the correct decision boundary; i.e., **efficiency of evidence accumulation**; (2) *Non-decision time*: the time spent on processes outside of the decision phase, i.e., **encoding stimuli and executing response**; (3) *Boundary separation*: the distance between decision boundaries; i.e., **response caution**; (4) *Starting point*: the starting point of the decision process; i.e., **response bias**. Figure copied from Vermeent et al. (2024).
+#|   **Figure 1.2.** An overview of the Drift Diffusion Model (DDM). The DDM assumes that people sequentially move through three distinct stages when performing tests with two forced-response options. First, in a preparation phase, people visually encode stimuli (e.g., this may take longer if a stimulus is visually complex). Second, in the decision phase, people accumulate information favoring one decision over the other (e.g., whether to press the left vs. right key). Each jagged line represents this accumulation on a single trial. Third, in the execution phase, people execute a motor response (e.g., pressing the left vs. right key). The DDM estimates four parameters that represent four distinct cognitive processes (italicized): (1) *Drift rate*: the average rate of evidence accumulation towards the correct decision boundary; i.e., **efficiency of evidence accumulation**; (2) *Non-decision time*: the time spent on processes outside of the decision phase, i.e., **encoding stimuli and executing response**; (3) *Boundary separation*: the distance between decision boundaries; i.e., **response caution**; (4) *Starting point*: the starting point of the decision process; i.e., **response bias**. Figure copied from Vermeent et al. (2024).
 
 knitr::include_graphics("figures/chapter1/ch1_fig2.png")
 ```
-
 
 Applying the DDM to trial-level RT and accuracy data yields three parameters^2^ that represent distinct cognitive processes.
 These are (1) the *drift rate*, (2) the *boundary separation*, and (3) the *non-decision time*.
@@ -229,8 +230,6 @@ Thus, people with a larger non-decision time are slower without a change in accu
 knitr::include_graphics("figures/chapter1/ch1_fig3.png")
 ```
 
-The DDM is part of a larger class of evidence accumulation models [@brown_2008; @hubner_2010; @ulrich_2015; @white_2011; @white_2018b].
-These models all share the same key assumptions about how people make decisions, but they differ in the types of tasks to which they can be applied.
 In this dissertation, I focus on the DDM for three reasons.
 First, previous work shows that the DDM is remarkably flexible.
 While it was originally developed for simple and fast perceptual and recall tasks, recent work has applied it to a wide range of more complex tasks with longer response windows, such as intelligence and EF tasks [@lerche_2020; @loffler_2024].
@@ -273,7 +272,7 @@ knitr::include_graphics("figures/chapter1/ch1_fig4.png")
 
 # 1.5 Open questions for adversity research
 
-The integration of deficit and adaptation frameworks is hindered by relying on the use of raw performance scores.
+The integration of deficit and adaptation frameworks is hindered by relying on the use of raw performance scores (see section 1.2).
 In particular, the idea that performance on EF tasks is influenced by multiple processes has two important implications for adversity research.
 First, both deficits and adaptations could affect different processes on the same EF task.
 That is, raw performance on a single task could be lowered by a deficit in one process, while also being enhanced by an adaptation in another process.
@@ -302,7 +301,7 @@ The third aim is to show how moving beyond raw performance towards cognitive pro
 The chapters in this dissertation can be read in any order.
 The empirical chapters (Chapters 2-5) are based on articles that have either been published in peer-reviewed scientific journals, or are currently under review.
 In **Chapter 2**, I analyze the associations of two forms of adversity---material deprivation and household threat---with inhibition ability, attention shifting ability, mental rotation ability, and general processing speed, among a representative sample of children from the United States.
-Specifically, I use use DDM and structural equation modeling to investigate which cognitive processes are associated with adversity in 9-10 year-olds, and whether these associations are more task-general or task-specific.
+Specifically, I use DDM and structural equation modeling to investigate which cognitive processes are associated with adversity in 9-10 year-olds, and whether these associations are more task-general or task-specific.
 In **Chapter 3**, I analyze the associations of two forms of adversity---exposure to material deprivation and threat---with inhibition ability, attention shifting, and general processing speed, among a representative sample of adults from the Netherlands.
 As in Chapter 2, I use DDM and structural equation modeling, but this time including two inhibition tasks, three attention shifting tasks, and a basic processing speed task, in order to estimate more precise latent ability factors.
 In **Chapter 4**, I analyze the associations of two forms of adversity---exposure to violence and unpredictability---with inhibition ability, among young adults from the United States.

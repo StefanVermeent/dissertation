@@ -9,13 +9,11 @@ This is how you make the chapter cover art cover the entire page, including the 
 ```{=typst}
 #set page(foreground: image("chapters/ch1_start.jpg", width: 100%, height: 100%))
 ```
-
 # Chapter 1
 
 ```{=typst}
 #pagebreak()
 ```
-
 ```{=typst}
 #set page(foreground: none)
 ```

@@ -17,6 +17,20 @@ library(pwr)
 library(faux)
 
 load('staged_results/chapter2/staged_sim_results_supp.RData')
+
+### Data objects ----
+load('data/chapter2/ch2_tasks_raw.RData')
+ch2_lmt_clean     <- readr::read_csv("data/chapter2/ch2_lmt_clean.csv")
+ch2_flanker_clean <- readr::read_csv("data/chapter2/ch2_flanker_clean.csv")
+ch2_pcps_clean    <- readr::read_csv("data/chapter2/ch2_pcps_clean.csv")
+ch2_dccs_clean    <- readr::read_csv("data/chapter2/ch2_dccs_clean.csv")
+ch2_ddm_data      <- readr::read_csv('data/chapter2/ch2_ddm_data.csv')
+ch2_iv_data       <- readr::read_csv("data/chapter2/ch2_iv_data.csv")
+ch2_training_set  <- readr::read_csv("data/chapter2/ch2_training_set.csv")
+ch2_test_set      <- readr::read_csv("data/chapter2/ch2_test_set.csv")
+
+
+
 ```
 
 ```{=typst}

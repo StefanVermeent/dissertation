@@ -76,7 +76,7 @@ set_flextable_defaults(
 #align(left + bottom,
   grid(
     columns: 1,
-    rect[#text(12pt, weight: "bold", font: "Cambria")[This chapter is based on] \ #text(12pt, weight: "regular", font: "Cambria")[Vermeent, S., Schubert, A.-L., DeJoseph, M.L., Denissen, J.J.A., van Gelder, J.-L., & Frankenhuis, W.E. (2024). Inconclusive evidence for associations between adverse experiences in adulthood and working memory performance. _Royal Society Open Science, 11_, 241837. https://doi.org/10.1098/rsos.241837]],
+    rect[#text(12pt, weight: "bold", font: "Cambria")[This chapter is based on] \ #text(12pt, weight: "regular", font: "Cambria")[Vermeent, S., Schubert, A.-L., DeJoseph, M.L., Denissen, J.J.A., van Gelder, J.-L., & Frankenhuis, W.E. (2025). Inconclusive evidence for associations between adverse experiences in adulthood and working memory performance. _Royal Society Open Science, 11_, 241837. https://doi.org/10.1098/rsos.241837]],
     align: left + bottom,
   )
 )
@@ -143,7 +143,7 @@ Much of this work has focused on WM capacity, or the ability to keep multiple pi
 For early-life adversity, this negative association is already present during childhood, and persists into adulthood [@bos_2009; @evans_2009; @hackman_2010; @farah_2006; @goodman_2019; @noble_2007; but see @nweze_2021].
 Studies with college students have found a link between both recent and lifetime experiences of stressful major life events (discrete negative events that have a clear onset and offset, unlike chronic adversity) with lower WM capacity [@klein_2001; @shields_2017; @shields_2019].
 
-The most common tasks used to examine the negative association between adversity and WM are simple span tasks (repeating a string of stimuli of increasing length), complex span tasks (remembering a string of stimuli while being engaged by a secondary task), and *n*-back tasks (judging whether the current stimulus in a string is identical to the stimulus *n* steps ago)  [@goodman_2019].
+The most common tasks used to examine the negative association between adversity and WM are simple span tasks (repeating a string of stimuli of increasing length), complex span tasks (remembering a string of stimuli while being engaged by a secondary task), and *n*-back tasks (judging whether the current stimulus in a string is identical to the stimulus *n* steps ago) [@goodman_2019].
 Performance on these tasks is assessed through the number of items that participants can retain in WM, that is, their overall capacity [with the exception of *n*-back\; for concerns about the construct validity of this task, see @frost_2021; @kane_2007].
 
 Although both early-life and recent adversity appear to be negatively associated with WM capacity, a small set of studies suggest that exposure to adversity may leave intact, or even enhance, the ability to update items in WM in adolescents [@young_2022] and adults [@young_2018].
@@ -203,7 +203,7 @@ First, what is the association between adversity and WM capacity?
 Second, what is the association between adversity and WM updating *after* accounting for WM capacity?
 Third, are the directions and strengths of these associations similar or different for neighborhood threat, material deprivation, and unpredictability?
 
-We evaluated evidence for deficit- and adaptation-based frameworks (see Figure 4.1A for a visual summary, and Appendix 1 for the study design plan). 
+We evaluated evidence for deficit- and adaptation-based frameworks (see Figure 5.1A for a visual summary). 
 Crucially, as deficit and adaptation processes can operate in concert [@frankenhuis_2020], we could find support (or lack thereof) for both frameworks in the same model. 
 We distinguished between three between-person data patterns: (1) lower performance, (2) higher performance, and (3) practically equivalent performance.
 We defined lower performance as a statistically significant negative association between a type of adversity and WM capacity or updating (irrespective of effect size).
@@ -260,7 +260,7 @@ We signed a contract with LISS stipulating that we would receive access to the n
 #| dpi: 600
 #| out-width: 6in
 #| fig-cap: | 
-#|   **Figure 5.2.**. Overview of the different data sources used in this study. We distinguished between measures taken from the LISS data archive and measures that were newly collected in our own study between October 2023 and February 2024. Perceived scarcity and income were collected yearly in the full panel from 2008 – 2023. Neighborhood crime and crime victimization were collected across six waves between 2008 and 2018. In the newly collected data, we collected data on a measure of neighborhood threat and multiple measures of working memory. Note that participants did not have data across all timepoints of the archived studies because they joined the LISS panel more recently or because they did not participate in each wave.
+#|   **Figure 5.2.** Overview of the different data sources used in this study. We distinguished between measures taken from the LISS data archive and measures that were newly collected in our own study between October 2023 and February 2024. Perceived scarcity and income were collected yearly in the full panel from 2008 – 2023. Neighborhood crime and crime victimization were collected across six waves between 2008 and 2018. In the newly collected data, we collected data on a measure of neighborhood threat and multiple measures of working memory. Note that participants did not have data across all timepoints of the archived studies because they joined the LISS panel more recently or because they did not participate in each wave.
 knitr::include_graphics("figures/chapter5/fig2.png")
 ```
 
@@ -271,7 +271,7 @@ Participants were eligible for inclusion if they 1) were currently between 18 an
 
 To ensure sufficient representation of people from lower socioeconomic backgrounds, *half* the total sample was sampled from participants who reported one or more of the following at least once in the three years: (1) a monthly income < €1,500, (2) HAVO or VWO as highest completed education (which are the two highest levels in Dutch secondary education), or (3) a score of 4 or lower on the 'ladder of life' ("If you imagine a ‘ladder of life’, where the first step represents the worst possible life, and the tenth (top) step the best possible life, on what step would you place yourself?").
 Participants were excluded if they (1) switched to and interacted with other browser tabs *during* one or more of the cognitive tasks, (2) did not perform above chance level on the secondary processing tasks.
-The final sample consisted of `r nrow(ch5_clean_data)` participants.
+The final sample consisted of `r nrow(ch5_clean_data)` participants (Table 5.1).
 
 ```{r}
 ch5_table1 |> 
@@ -296,7 +296,7 @@ ch5_table1 |>
 All independent variables, except for the income-to-needs ratio (INR) consisted of multiple items and/or scales.
 If all correlations between the items/scales were equal to or larger than .60 (i.e., indicating a "strong" correlation), then we computed a uniformly weighted average.
 If the correlation was lower than .60, we applied Principal Component Analysis (PCA) to the averaged measures and extracted only the first principal component score.
-We present bivariate correlations in Table 2, and histograms for all independent measures in the supplemental materials.
+We present bivariate correlations in Table 5.2, and histograms for all independent measures in the supplemental materials.
 
 ### Neighborhood threat
 
@@ -316,7 +316,7 @@ We computed a variety score by summing the exposures to *unique* types of crime 
 Thus, if a participants reported exposure to the same type of crime on separate waves, this counted as one exposure in the total score [@sweeten_2012].
 
 **Neighborhood threat composite.** We first computed an average across time for each measure separately (i.e., the two measures of neighborhood crime and the measure of crime victimization).
-Because correlations were below .60 (see Table 2), we then used PCA to extract only the first principal component score (R^2 = .20).
+Because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2 = .20).
 The threat component was most strongly determined by the Neighborhood Violence Scale (`r ch5_pca_threat_fit$loadings[3] |> formatC(digits = 2, width = 2, format = 'f')`), followed by the perceived neighborhood crime scale from the LISS archive (`r ch5_pca_threat_fit$loadings[1] |> formatC(digits = 2, width = 2, format = 'f')`) and crime victimization (`r ch5_pca_threat_fit$loadings[2] |> formatC(digits = 2, width = 2, format = 'f')`).
 
 ### Material deprivation
@@ -344,16 +344,18 @@ Second, we calculated the average within-person income-to-needs ratio for each y
 
 **Perceived scarcity (SD/mean).** This measure was based on the same items as outlined above (see Perceived scarcity (mean)).
 We computed unpredictability over time in perceived scarcity using the coefficient of variation, which is the within-person standard deviation across years divided by the mean [@key_2017; @liu_2022; @ugarte_2023; @walasek_2024; @young_2020].
-The mean and standard deviation in income have been found to be strongly negatively correlated, indicating that people with lower incomes tend to experience less variability in income [@li_2018; @young_2024].
+The mean and standard deviation in income have been found to be strongly positively correlated, indicating that people with lower incomes tend to experience less variability in income [@li_2018; @young_2024].
 For that reason, the standard deviation alone has been called into question as a measure of adversity, as the same fluctuation in income can have a greater relative impact for people close to the poverty line than for people with high incomes.
 
 We first computed the standard deviation across time for each item separately.
-because correlations were below .60 (see Table 2), we then used PCA to extract only the first principal component score (R^2 = .38).
+because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2 = .38).
 The perceived unpredictability component was almost fully determined by the item about people's current situation (`r ch5_pca_p_scar_fit$loadings[3] |> formatC(digits = 2, width = 2, format = 'f')`), followed by difficulties to live off income (`r ch5_pca_p_scar_fit$loadings[2] |> formatC(digits = 2, width = 2, format = 'f')`) and financial troubles (`r  ch5_pca_p_scar_fit$loadings[1] |> formatC(digits = 2, width = 2, format = 'f')`).
 
 **Income-to-needs (SD/mean).** Similar to perceived scarcity, we computed unpredictability over time in the income-to-needs ratio using the coefficient of variation.
 
-::: landscape
+```{=typst}
+#set page(flipped:true)
+```
 
 ```{r}
 ch5_table2 |> 
@@ -386,7 +388,9 @@ ch5_table2 |>
   autofit()
 ```
 
-:::
+```{=typst}
+#set page(flipped:false)
+```
 
 ### WM tasks
 
@@ -396,7 +400,7 @@ Prior to collecting LISS data, we conducted a pilot study among in a Dutch sampl
 The main goals of this pilot study were to collect participant feedback (e.g., difficulty of instructions, whether we included sufficient breaks) and to analyze performance and correlations between tasks.
 The results of this pilot study are described in more detail in the Supplemental Materials [https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html](https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html).
 
-**Operation Span Task.** The Operation Span Task (Figure 5.2A) is a common measure of WM capacity [@conway_2005; @wilhelm_2013].
+**Operation Span Task.** The Operation Span Task (Figure 5.3A) is a common measure of WM capacity [@conway_2005; @wilhelm_2013].
 In this task, participants alternate between a primary memorization task and a secondary processing task.
 On each trial, the task is to memorize a sequence of letters in the correct order (from a set of 12 letters).
 Each letter is presented for 1,000 ms in the center of the screen.
@@ -412,7 +416,7 @@ If they performed at or below chance, they had the opportunity to either repeat 
 After practicing, participants completed 9 test trials, with a total of 45 recall items and 45 math items.
 We computed an operation span score by calculating the proportion of letters recalled in the correct sequential position across trials [@conway_2005].
 
-**Rotation Span Task.** The Rotation Span Task (Figure 5.2B) is similar to the Operation Span Task and was adopted from @wilhelm_2013.
+**Rotation Span Task.** The Rotation Span Task (Figure 5.3B) is similar to the Operation Span Task and was adopted from @wilhelm_2013.
 On each trial, the task is to memorize the orientation of a sequence of arrows in the correct order.
 Arrows can take on eight different orientations, with increments of 45$\circ$.
 Each arrow is presented for 1,000 ms in the center of the screen. 
@@ -426,7 +430,7 @@ If they performed at or below chance, they had the opportunity to either repeat 
 After practicing, participants completed 12 test trials, with a total of 45 recall items and 45 letter items.
 We computed a rotation span score by calculating the proportion of arrows recalled in the correct sequential position across trials [@conway_2005].
 
-**Binding-Updating Task.** The Binding-Updating task (Figure 5.2C) was adopted from @wilhelm_2013.
+**Binding-Updating Task.** The Binding-Updating task (Figure 5.3C) was adopted from @wilhelm_2013.
 On each trial, participants see a 3×3 grid, with a fixation cross in the central cell.
 After 1,000 ms, they are presented with a sequence of numbers (0-9) in random locations of the grid.
 Each new number is presented for 1,500 ms, after which it disappears for 500 ms before the next number is presented.

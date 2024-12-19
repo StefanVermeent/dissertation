@@ -77,7 +77,8 @@ set_flextable_defaults(
 #set rect(
   inset: 4pt,
   fill: none,
-  width: 100%
+  width: 100%,
+  stroke: none
 )
 
 #align(left + bottom,
@@ -112,7 +113,8 @@ By combining DDM and SEM approaches, we can develop a more nuanced understanding
 #set rect(
   inset: 4pt,
   fill: none,
-  width: 100%
+  width: 100%, 
+  stroke: none
 )
 
 #align(left + bottom,
@@ -171,11 +173,11 @@ In the second phase, *decision-making*, people gather evidence for both response
 The third phase, *execution*, involves preparing and executing the motor response corresponding to the choice.
 
 ```{r}
-#| label: figure1
+#| label: figure2.1
 #| fig.width: 5.5
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure 1.** A visual overview of the Drift Diffusion Model (DDM). The DDM assumes that decision making on cognitive tasks with two forced response options advances through three stages. First, people go through a preparation phase in which they engage in initial stimulus encoding. Second, people gather information for one of two response options until the accumulation process terminates at one of the decision boundaries. Each squiggly line  represents the evidence accumulation process on a single trial. Third, a motor response is triggered in the execution phase. The model estimates four parameters that reflect distinct cognitive processes (printed in italic): (1) The *drift rate* represents the rate at which evidence accumulation drifts towards the decision boundary and is a measure of processing speed; (2) The *non-decision time* represents the combined time spent on task preparation and response execution; (3) The *boundary separation* represents the width of the decision boundaries and is a measure of response caution; (4) The *starting point* represents the starting point of the decision process and can be used to model response biases (not considered in this study). 
+#|   **Figure 2.1.** A visual overview of the Drift Diffusion Model (DDM). The DDM assumes that decision making on cognitive tasks with two forced response options advances through three stages. First, people go through a preparation phase in which they engage in initial stimulus encoding. Second, people gather information for one of two response options until the accumulation process terminates at one of the decision boundaries. Each squiggly line  represents the evidence accumulation process on a single trial. Third, a motor response is triggered in the execution phase. The model estimates four parameters that reflect distinct cognitive processes (printed in italic): (1) The *drift rate* represents the rate at which evidence accumulation drifts towards the decision boundary and is a measure of processing speed; (2) The *non-decision time* represents the combined time spent on task preparation and response execution; (3) The *boundary separation* represents the width of the decision boundaries and is a measure of response caution; (4) The *starting point* represents the starting point of the decision process and can be used to model response biases (not considered in this study). 
 knitr::include_graphics("figures/chapter2/fig1.png")
 ```
 
@@ -453,11 +455,11 @@ Goodness-of-fit was assessed using the root mean square error of approximation (
 Following @hu_1999, CFI values \> .90 and RMSEA values \< .08 were interpreted as acceptable model fit and CFI values \> .95 and RMSEA values \≤ .06 as good model fit.
 
 ```{r}
-#| label: figure3
+#| label: figure2.3
 #| fig-width: 6
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure 3.** Visualization of the full structural equation model (SEM). Elipses represent task-general factors. Circles represent task-specific (residual) variances. Dotted black lines represent covariances. Dashed black lines represent factor loadings. Solid grey lines represent regression paths. The factor loadings to each of the Processing Speed Task indicators are fixed to 1. The factor loadings of the task-specific factors are fixed to 1 and the residual variances of the manifest indicators are fixed to 0. For model identification reasons, we do not estimate regression paths to the unique variances of the Processing Speed Task. Not shown in this Figure to improve readability: (1) the sociodemographic covariates that are included in the MNLFA scores (see Measures section); (2) covariances between the task-general factors and the task-specific factors within each task. PS = Processing Speed Task; AS = Attention Shifting Task; MR = Mental Rotation Task; Inh = Inhibition Task; *v* = Drift rate; *a* = Boundary separation; *t0* = Non-decision time. 
+#|   **Figure 2.3.** Visualization of the full structural equation model (SEM). Elipses represent task-general factors. Circles represent task-specific (residual) variances. Dotted black lines represent covariances. Dashed black lines represent factor loadings. Solid grey lines represent regression paths. The factor loadings to each of the Processing Speed Task indicators are fixed to 1. The factor loadings of the task-specific factors are fixed to 1 and the residual variances of the manifest indicators are fixed to 0. For model identification reasons, we do not estimate regression paths to the unique variances of the Processing Speed Task. Not shown in this Figure to improve readability: (1) the sociodemographic covariates that are included in the MNLFA scores (see Measures section); (2) covariances between the task-general factors and the task-specific factors within each task. PS = Processing Speed Task; AS = Attention Shifting Task; MR = Mental Rotation Task; Inh = Inhibition Task; *v* = Drift rate; *a* = Boundary separation; *t0* = Non-decision time. 
 knitr::include_graphics("figures/chapter2/fig3.png")
 ```
 
@@ -495,7 +497,7 @@ Finally, material deprivation and household threat showed a small, negative corr
 ch2_table2 |> 
   compose(
     i = 1, j = 1,
-    as_paragraph(as_b("Table 4.1. "), "Bivariate correlations between DDM parameters and measures of adversity."),
+    as_paragraph(as_b("Table 2.1. "), "Bivariate correlations between DDM parameters and measures of adversity."),
     part = "header"
   ) |> 
   padding(
@@ -536,7 +538,7 @@ Task-specific correlations between DDM parameters of the same tasks ranged betwe
 #| dpi: 600
 #| out-width: 6in
 #| fig-cap: |
-#|   **Figure 2.4.** Simplified overview of the measurement part of the final SEM model, including standardized factor loadings, unstandardized residual variances, and correlations between the general latent factors. Excluding task-specific residual covariances and regression paths (see Figure 5). The elipses represent latent task-general factors. The circles represent latent task-specific factors. *v* = drift rate; *a* = boundary separation; *t0* = non-decision time; PS = Processing Speed Task; AS = Attention Shifting Task; MR = Mental Rotation Task; Inh = Inhibition Task.
+#|   **Figure 2.4.** Simplified overview of the measurement part of the final SEM model, including standardized factor loadings, unstandardized residual variances, and correlations between the general latent factors. Excluding task-specific residual covariances and regression paths (see Figure 2.5). The elipses represent latent task-general factors. The circles represent latent task-specific factors. *v* = drift rate; *a* = boundary separation; *t0* = non-decision time; PS = Processing Speed Task; AS = Attention Shifting Task; MR = Mental Rotation Task; Inh = Inhibition Task.
 
 knitr::include_graphics("figures/chapter2/fig4.png")
 ```

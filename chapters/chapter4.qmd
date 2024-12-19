@@ -33,11 +33,6 @@ load("staged_results/chapter4/supp/study2/ssp_fit.RData")
 load("staged_results/chapter4/supp/pilot/DDM_objects.Rdata")
 load("staged_results/chapter4/supp/pilot/hddm_recovery_plots.RData")
 
-load("staged_results/chapter4/supp/pilot_staged_results.RData")
-load("staged_results/chapter4/supp/study1_staged_results.RData")
-load("staged_results/chapter4/supp/study2_staged_results.RData")
-load("staged_results/chapter4/supp/pooled_staged_results.RData")
-
 power_linear      <- read_csv("staged_results/chapter4/power_linear_model.csv") %>% mutate(power = round(power, 0))
 power_mixed       <- read_csv("staged_results/chapter4/power_mixed_model.csv") %>% mutate(power = round(power, 0))
 
@@ -562,7 +557,7 @@ We did not find other significant associations for either violence exposure or u
 The main effects of task condition on the strength of perceptual input were in the expected direction: relative to the standard condition, the quality of perceptual input was higher in the enhanced condition (median $\beta$ = `r study1_condition_vio_results_list$p_enhanced$median_effect_Condition`, 95% CI = `r study1_condition_vio_results_list$p_enhanced$condition_CI`, `r study1_condition_vio_results_list$p_enhanced$p_sum_Condition` % of *p*s \<.05) and lower in the degraded condition (median $\beta$ = `r study1_condition_vio_results_list$p_degraded$median_effect_Condition`, 95% CI = `r  study1_condition_vio_results_list$p_degraded$condition_CI`, `r study1_condition_vio_results_list$p_degraded$p_sum_Condition` % of *p*s \<.05).
 Interference was lower in the enhanced condition (median $\beta$ = `r study1_condition_vio_results_list$interference_enhanced$median_effect_Condition`, 95% CI = `r study1_condition_vio_results_list$interference_enhanced$condition_CI`, `r study1_condition_vio_results_list$interference_enhanced$p_sum_Condition` % of *p*s \<.05).
 Unexpectedly, interference was also lower in the degraded condition (median $\beta$ = `r study1_condition_vio_results_list$interference_degraded$median_effect_Condition`, 95% CI = `r study1_condition_vio_results_list$interference_degraded$condition_CI`, `r study1_condition_vio_results_list$interference_degraded$p_sum_Condition` % of *p*s \<.05), suggesting that the angle in the flanking arrows reduced interference, relative to the standard condition.
-However, none of the interaction effects for either violence exposure or unpredictability were significant.
+However, none of the interaction effects for either violence exposure or unpredictability were significant (Table 4.5).
 
 ```{r}
 #| tab.id: table4.5
@@ -703,7 +698,7 @@ We did not find a significant unpredictability x task condition interaction effe
 ### Within-subjects comparison of Flanker and Global-Local task information processing
 
 There were no significant main effects for violence exposure (bootstrapped *p* = `r study2_aim3_results_list$Task_vio$boot_p`) nor for cognitive task (bootstrapped *p* = `r study2_aim3_results_list$Task_vio$boot_p`).
-There was a significant interaction effect ($\beta$~median~ = `r study2_aim3_results_list$Interaction_vio$median_effect`, 95% CI = `r study2_aim3_results_list$Interaction_vio$CI`, `r study2_aim3_results_list$Interaction_vio$p_sum` % of *p*s \< .05, bootstrapped *p* `r study2_aim3_results_list$Interaction_vio$boot_p`) (See Figure 4.2).
+There was a significant interaction effect ($\beta$~median~ = `r study2_aim3_results_list$Interaction_vio$median_effect`, 95% CI = `r study2_aim3_results_list$Interaction_vio$CI`, `r study2_aim3_results_list$Interaction_vio$p_sum` % of *p*s \< .05, bootstrapped *p* `r study2_aim3_results_list$Interaction_vio$boot_p`) (See Figure 4.4).
 A simple slopes analysis revealed that people with higher levels of violence exposure showed lower strength of perceptual input in the Flanker task (b = `r study2_aim3_simslopes1_list$vio_comp.Flanker$median_ss`, `r study2_aim3_simslopes1_list$vio_comp.Flanker$p_sum`% of *p*s \< .05), and showed a more global versus local processing style in the Global-Local task (b = `r study2_aim3_simslopes1_list$vio_comp.GlobalLocal$median_ss`, `r study2_aim3_simslopes1_list$vio_comp.GlobalLocal$p_sum`% of *p*s \< .05).
 
 There was no significant main effect for unpredictability (bootstrapped *p* = `r study2_aim3_results_list$Task_unp$boot_p`).

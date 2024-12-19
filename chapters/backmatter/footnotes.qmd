@@ -22,3 +22,7 @@ format:
 ^4^ The preregistration also included the Picture Vocabulary Task. However, after accessing the data we realized that this task was implemented using computerized adaptive testing [@luciana_2018]. This makes it unsuitable for DDM, as the model assumes the level of difficulty is the same across trials.
 
 ^5^ We ran parameter recovery studies simulating the data for the Inhibition Task, which has the lowest overall number of trials. Parameter recovery was excellent for the scenario that we planned in our main analyses (all *r*s ≥ .84). See the supplemental materials for more details.
+
+```{=typst}
+#pagebreak()
+```
