@@ -11,7 +11,7 @@ toc: false
 
 
 ```{=typst}
-#pagebreak()
+#pagebreak(to: "odd")
 ```
 
 
@@ -325,12 +325,3 @@ Chapter 2 is based on data from the Adolescent Brain Cognitive Development (ABCD
 The same is true for Chapter 4 and 5, which are based on a combination of previously collected and newly collected data in the Longitudinal Internet Studies for the Social Sciences (LISS) panel study (https://lissdata.org).
 Researchers with an academic affiliation can apply for access to both data sets.
 
-```{=typst}
-#pagebreak()
-```
-
-```{=typst}
-#pagebreak(
-  to: "odd"
-)
-```

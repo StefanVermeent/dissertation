@@ -62,6 +62,12 @@ set_flextable_defaults(
 )
 ```
 
+```{=typst}
+#pagebreak(
+  to: "even"
+)
+```
+
 \ 
 
 ```{=typst}
@@ -84,7 +90,7 @@ set_flextable_defaults(
 #align(left + bottom,
   grid(
     columns: 1,
-    rect[#text(12pt, weight: "bold", font: "Cambria")[This chapter is based on] \ #text(12pt, weight: "regular", font: "Cambria")[Vermeent, S., Young, E.S., DeJoseph, M.L., Schubert, A.L., & Frankenhuis, W.E. (2024). Cognitive deficits and enhancements in youth from adverse conditions: An integrative assessment using Drift Diffusion Modeling in the ABCD study. _Developmental Science, 27_(4), e13478. https://doi.org/10.1111/desc.13478]],
+    rect[#text(12pt, weight: "bold", font: "Cambria")[This chapter is based on] \ #text(12pt, weight: "regular", font: "Cambria")[Vermeent, S., Young, E.S., DeJoseph, M.L., Schubert, A.-L., & Frankenhuis, W.E. (2024). Cognitive deficits and enhancements in youth from adverse conditions: An integrative assessment using Drift Diffusion Modeling in the ABCD study. _Developmental Science, 27_(4), e13478. https://doi.org/10.1111/desc.13478]],
     align: left + bottom,
   )
 )
@@ -322,19 +328,19 @@ ch2_table1 |>
     part = "header"
   ) |> 
   padding(
-  i = 1:10,
-  j = 1:3,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "body"
-) |> 
+    i = 1:10,
+    j = 1:3,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
   padding(
-  i = 1:2,
-  j = 1:3,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "header"
-)
+    i = 1:2,
+    j = 1:3,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  )
 ```
 
 ## Measures
@@ -702,7 +708,3 @@ Our analytical approach provides a solution.
 By combining DDM and SEM approaches, we can start to develop a more nuanced understanding of how adversity affects different aspects of cognitive performance among youth and across development.
 This approach requires large datasets containing multiple cognitive tasks, a requirement that is increasingly feasible with the availability of large, secondary datasets in developmental science [@kievit_2022].
 Thus, we can develop a more balanced, well-rounded understanding of how adversity shapes cognitive development that integrates both deficit and adaptation perspectives.
-
-```{=typst}
-#pagebreak()
-```

@@ -61,6 +61,10 @@ set_flextable_defaults(
 )
 ```
 
+```{=typst}
+#pagebreak(to: "even")
+```
+
 \ 
 
 ```{=typst}
@@ -189,7 +193,7 @@ When the accumulated information reaches one of the two boundaries, the correspo
 #| fig.height: 9
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure 4.1.** A visual overview of the Drift Diffusion Model (DDM) and the Shrinking Spotlight Model (SSP). Panel A: The DDM assumes that people go through three distinct stages when they perform cognitive tasks with two forced response options. In a first preparation phase, they visually encode the relevant stimuli. In a second decision phase, people accumulate information in favor of one decision over the other (e.g., pressing left vs. right) until the decision boundary for either the correct or incorrect response is reached. Each jagged line represents this information accumulation process on a single trial. In a third execution phase, people execute the motor response.  The model estimates four parameters that reflect distinct cognitive processes (printed in italic): (1) The drift rate represents the average rate of evidence accumulation towards the correct decision boundary and measures processing speed; (2) The non-decision time represents both the time spent encoding the stimuli and executing the response; (3) The boundary separation represents how far apart a person has “set” their decision boundaries, and is a measure of the person’s level of response caution; (4) The starting point (not considered here) represents a potential bias towards one of two responses, with a biased decision-making process starting closer to one boundary relative to the other boundary. Panel B: The SSP is an extension of the standard DDM including additional parameters to capture attentional processes involved in Flanker task performance. Each stimulus arrow provides a certain strength of perceptual input (*p*). On incongruent trials, the perceptual input of flanking arrows is coded negatively (-*p*). Attention is assumed to be normally distributed over the arrows with a certain attentional width. Over time, attention is narrowed down toward the central arrow at a rate determined by the shrinking rate, thereby gradually lowering the interference caused by the flanking arrows. The drift rate in the SSP model is the sum of the perceptual input of each arrow multiplied by the attention allotted to each arrow. As attention for the flanking arrows decreases over time, the drift rate is assumed to increase over time (contrary to the standard DDM, which assumes a linear drift rate).
+#|   **Figure 4.1.** A visual overview of the Drift Diffusion Model (DDM) and the Shrinking Spotlight Model (SSP). Panel A: The DDM assumes that people go through three distinct stages on cognitive tasks with two response options. In a first preparation phase, they encode the stimuli. In a second decision phase, people accumulate evidence for both decisions (e.g., pressing left vs. right) until the decision boundary for either the correct or incorrect response is reached. Each jagged line represents this information accumulation process on a single trial. In a third execution phase, people execute the motor response. The model estimates four parameters reflecting distinct cognitive processes (printed in italic): (1) The drift rate represents the average rate of evidence accumulation and measures processing speed; (2) The non-decision time represents stimulus encoding and response exeuction; (3) The boundary separation represents the space between decision boundaries, and measures a person’s level of response caution; (4) The starting point (not considered here) represents a potential bias towards a response, with a biased decision-making process starting relatively closer to one boundary. Panel B: The SSP is an extension of the standard DDM including additional parameters to capture attentional processes on the Flanker task. Each arrow provides a certain strength of perceptual input (*p*). On incongruent trials, the perceptual input of flanking arrows is coded negatively (-*p*). Attention is assumed to be normally distributed over the arrows with a certain attentional width. Over time, attention narrows down toward the central arrow at a rate determined by the shrinking rate, which gradually lowers interference from flanking arrows. The drift rate in the SSP model is the sum of each arrow's perceptual input multiplied by the attention allotted to each arrow. As attention for the flanking arrows decreases over time, the drift rate is assumed to increase over time (contrary to the standard DDM, which assumes a linear drift rate).
 
 knitr::include_graphics("figures/chapter4/fig1.png")
 ```
@@ -266,7 +270,21 @@ demographics_table |>
     i = 1, j = 1,
     as_paragraph(as_b("Table 4.1. "), "Demographic information for all studies."),
     part = "header"
-  ) |> 
+  ) |>  
+  padding(
+  i = 1:24,
+  j = 1:4,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:2,
+  j = 1:4,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
   autofit()
 ```
 
@@ -401,6 +419,27 @@ iv_cor_pooled_table |>
     i = 1, j = 1,
     as_paragraph(as_b("Table 4.2. "), "Pooled bivariate correlations and descriptive statistics of measures of childhood violence exposure and environmental unpredictability across the three studies."),
     part = "header"
+  ) |> 
+  padding(
+  i = 1:17,
+  j = 1:11,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:3,
+  j = 1:11,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
+  padding(
+    i = 1:1,
+    j = 1:11,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
   )
 ```
 
@@ -445,7 +484,28 @@ pilot_main_eff_ddm_table |>
     flextable::as_paragraph(as_b("Table 4.3. "), "Main and interaction effects of the effect of violence exposure on task performance."),
     part = "header"
   ) |> 
-  flextable::compose(i = 3, j = c(2,6), as_paragraph("\u{03B2}"), part = "header") |> 
+  flextable::compose(i = 3, j = c(2,6), as_paragraph("\u{03B2}"), part = "header") |>  
+  padding(
+  i = 1:16,
+  j = 1:8,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:3,
+  j = 1:8,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
+  padding(
+    i = 1,
+    j = 1:8,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
+  ) |> 
   autofit()
 ```
 
@@ -544,8 +604,29 @@ study1_results_table |>
     as_paragraph(as_b("Table 4.4. "), "Standardized effects of violence exposure and unpredictability on Flanker performance in study 1."),
     part = "header"
   ) |> 
-  flextable::compose(i = 2, j = c(2), as_paragraph("\u{03B2}"), part = "header") |> 
-  autofit()
+  flextable::compose(i = 2, j = c(2), as_paragraph("\u{03B2}"), part = "header") |>  
+  padding(
+    i = 1:12,
+    j = 1:5,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:5,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  padding(
+    i = 1,
+    j = 1:5,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
+  ) |> 
+autofit()
 ```
 
 After pooling the data of the Pilot study and Study 1, there was a negative association between violence exposure and interference (median $\beta$ = `r study1_pooled_results_list$interference_vio$median_effect`, 95% CI = `r study1_pooled_results_list$interference_vio$CI`, `r study1_pooled_results_list$interference_vio$p_sum` % of *p*s \<.05, bootstrapped *p* = `r study1_pooled_results_list$interference_vio$boot_p`).
@@ -569,7 +650,28 @@ study1_condition_results_table |>
     as_paragraph(as_b("Table 4.5. "), "Standardized interaction effects of violence exposure (confirmatory analysis) and unpredictability (secondary analysis) on Flanker performance across standard, enhanced, and degraded conditions."),
     part = "header"
   ) |> 
-  flextable::compose(i = 3, j = c(2,6), as_paragraph("\u{03B2}"), part = "header") |> 
+  flextable::compose(i = 3, j = c(2,6), as_paragraph("\u{03B2}"), part = "header") |>  
+  padding(
+  i = 1:12,
+  j = 1:8,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:3,
+  j = 1:8,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
+  padding(
+    i = 1,
+    j = 1:8,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
+  ) |> 
   autofit()
 ```
 
@@ -666,6 +768,7 @@ Similarly, unpredictability was associated with a lower quality of perceptual in
 #| fig.width: 7
 #| fig.height: 9
 #| dpi: 600
+#| out-height: 7in
 #| fig-cap: | 
 #|   **Figure 4.2.** Multiverse results for the association between violence exposure with the strength of perceptual input and interference in the Flanker across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The Fourth row depicts effect curves of the pooled analyses across all studies.
 knitr::include_graphics("figures/chapter4/fig2.png")
@@ -676,6 +779,7 @@ knitr::include_graphics("figures/chapter4/fig2.png")
 #| label: figure4.3
 #| fig.width: 7
 #| fig.height: 9
+#| out-height: 7in
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure 4.3.** Multiverse results for the association between unpredictability with the strength of perceptual input and interference in the Flanker task across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The Fourth row depicts effect curves of the pooled analyses across all studies.
@@ -821,3 +925,7 @@ This is an important difference not just for theory development, but also for fu
 For example, when applied to school contexts, interventions based on an inhibition interpretation would focus on the learning environment, perhaps removing things from the classroom that could be distracting.
 In contrast, an intervention based on an information processing interpretation might instead focus on increasing the apparent relevance of the learning materials, perhaps by providing more repetition or by making the content more ecologically relevant [@young_2022].
 Thus, cognitive modeling can offer crucial insights for our understanding of cognitive abilities in adverse conditions.
+
+```{=typst}
+#pagebreak()
+```

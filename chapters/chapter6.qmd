@@ -2,14 +2,20 @@
 title: Untitled
 format:
   dissertation-template-typst: default
+toc: false
 ---
+
+```{=typst}
+#pagebreak(to: "odd")
+```
 
 \ 
 
 # Chapter 6. General discussion
 
+
 ```{=typst}
-#pagebreak()
+#pagebreak(to: "odd")
 ```
 
 
@@ -266,10 +272,4 @@ This way, cognitive modeling has the potential to directly impact children's and
 
 ```{=typst}
 #pagebreak()
-```
-
-```{=typst}
-#pagebreak(
-  to: "odd"
-)
 ```

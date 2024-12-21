@@ -1,5 +1,3 @@
-
-
 #let article(
   chapter: "chapter",
   title: none,
@@ -21,18 +19,25 @@
   toc_depth: 1,
   toc_indent: 1.5em,
   doc,
-  no-header-pages: (1,2,3,4,5,6,20),
-  no-footer-pages: (1,2,3,4,5,6,20),
+  no-header-pages: (1,2,3,4,17,18,19,20,44,45,46,75,76,77,78,107,108,109,110,121,133,134,135,136,145,146,179,180,181,182,203,204,213,216,246,256),
+  no-footer-pages: (1,2,3,4,17,18,19,20,44,45,46,75,76,77,78,107,108,109,110,121,133,134,135,136,145,146,179,180,181,182,203,204,213,216,246,256),
+  flipped-pages: (54,63,123), // Add pages here where headers and footers should be flipped
 ) = {
   set page(
     paper: paper,
     margin: margin,
     numbering: "1",
     // Headers are aligned left on even pages, and right on odd pages.
-    // using no-header-pages above, headers can be hidden on specific pages (e.g., frontmatter, first page of new chapter)
     header: locate(
       loc => if loc.page() in no-header-pages {
         none
+      } else if loc.page() in flipped-pages {
+        // Flipped headers
+        if calc.even(loc.page()) {
+          none
+        } else {
+          none
+        }
       } else if calc.even(loc.page()) {
         align(right, text(11pt, fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), chapter))
       } else {
@@ -40,17 +45,37 @@
       }
     ),
     // Footers are aligned left on even pages, and right on odd pages.
-    // using no-footer-pages above, footers can be hidden on specific pages (e.g., frontmatter, first page of new chapter)
     footer: locate(
-    loc => if loc.page() in no-footer-pages {
-      none
-    } else if calc.even(loc.page()) {
-      align(right, text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1")))
-    } else {
-      align(left, text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1")))
-    }
+      loc => if loc.page() in no-footer-pages {
+        none
+      } else if loc.page() in flipped-pages {
+        // Flipped footers
+        if calc.even(loc.page()) {
+          place(
+            dx: 25cm,  // Adjust X position for right alignment
+           dy: -16.4cm, // Adjust Y position for footer placement
+            rotate(-90deg, 
+              text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1"))
+            )
+          )
+        } else {
+          place(
+           dx: 25cm, // Adjust X position for left alignment
+            dy: -0.7cm, // Adjust Y position for footer placement
+            rotate(-90deg, 
+              text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1"))
+            )
+          )
+        }
+      } else if calc.even(loc.page()) {
+        align(right, text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1")))
+      } else {
+        align(left, text(fill: rgb(105,105,105), weight: "light", font: ("Gill Sans"), counter(page).display("1")))
+      }
+    )
   )
-  )
+
+
   
   set par(
     first-line-indent: 2em, 

@@ -25,9 +25,20 @@ list.files('functions', full.names = TRUE) |>
   walk(function(x){source(x)})
 ```
 
+{{< include chapters/frontmatter/i_firstpage.qmd >}}
 
+{{< include chapters/chapter1.qmd >}}
+{{< include chapters/chapter2.qmd >}}
 {{< include chapters/chapter3.qmd >}}
-# Bibliography
+{{< include chapters/chapter4.qmd >}}
+{{< include chapters/chapter5.qmd >}}
+
+{{< include chapters/backmatter/footnotes.qmd >}}
+
+
+```{=typst}
+#pagebreak(to: "odd")
+```
 
 ```{=typst}
 #show: article.with(
@@ -35,6 +46,8 @@ list.files('functions', full.names = TRUE) |>
   chtitle: "Bibliography"
 )
 ```
+
+# Bibliography
 
 ::: {#refs}
 :::
@@ -44,10 +57,7 @@ list.files('functions', full.names = TRUE) |>
 ```
 
 ```{=typst}
-// Note that this function breaks to the next ODD page. This is used to make sure that each new chapter starts on an odd (i.e., right) page in the book.
-#pagebreak(
-  to: "odd"
-)
+#pagebreak(to: "odd")
 ```
 
 # Supplementary materials
@@ -56,4 +66,6 @@ list.files('functions', full.names = TRUE) |>
 #pagebreak()
 ```
 
-{{< include chapters/supplements/appendix2.qmd >}}
+
+
+{{< include chapters/backmatter/dutch_summary.qmd >}}

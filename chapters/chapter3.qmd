@@ -49,13 +49,16 @@ set_flextable_defaults(
   padding.right = 1
 )
 ```
+```{=typst}
+#pagebreak(to: "even")
+```
 
 \ 
 
 ```{=typst}
 #show: article.with(
   chapter: "Chapter 3",
-  chtitle: "Adversity is associated with lower general processing speed rather than specific executive functioning abilities"
+  chtitle: "Adversity is associated with lower general processing speed"
 )
 ```
 
@@ -257,6 +260,20 @@ ch3_table1 |>
   border(i = 2, border.top = fp_border_default(), part = "header") |>  
   border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
   border(i = 14, border.bottom = fp_border_default(), part = "body") |> 
+  padding(
+  i = 1:14,
+  j = 1:2,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:2,
+  j = 1:2,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
   autofit()
 ```
 
@@ -310,7 +327,6 @@ ch3_table2 |>
   flextable::set_header_labels(Variable = "") |> 
   flextable::autofit() |> 
   border_remove() %>% 
- # border(i = 1, border.top = fp_border_default(), part = "header") %>% 
   border(i = 1, border.bottom = fp_border_default(), part = "header") %>% 
   border(i = 18, border.bottom = fp_border_default(), part = "body") %>% 
   add_header_row(
@@ -326,6 +342,20 @@ ch3_table2 |>
     values = " ",
     colwidths = 13
   ) |> 
+  padding(
+  i = 1:18,
+  j = 1:13,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:2,
+  j = 1:13,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
   autofit()
 ```
 
@@ -409,7 +439,7 @@ Directed Acyclic Graphs aid in the identification of variables that need to be a
 For a detailed explanation, see @rohrer_2018.
 
 The set of potential confounders consisted of (1) age [@salthouse_2016; @salthouse_2019; @starns_2010]; (2) education [@hofmarcher_2021]; (3) sex [@ning_2023]; (4) childhood adversity exposure (material deprivation and threat combined) [@bos_2009; @goodman_2019]; and (5) potential causal relations between recent material deprivation and recent threat [@bywaters_2016; @lacey_2022; @ning_2023].
-We made these decisions based on previous literature, or, in cases of doubt, by statistically testing support for specific relations using data from a previous LISS study [@vermeent_2024c].
+We made these decisions based on previous literature, or, in cases of doubt, by statistically testing support for specific relations using data from a previous LISS study [@vermeent_2025].
 Specifically, following our preregistration, we used the *dagitty* R package [@ankan_2021; @textor_2016] to test whether independencies between specific variables implied by the Directed Acyclic Graph (conditional on the other causal pathways) were supported by these data (see the preregistration for more details).
 
 Figure 3.2 depicts the final preregistered Directed Acyclic Graph for material deprivation and threat exposure in adulthood.
@@ -544,19 +574,6 @@ The two preregistered models specifying additional latent factors loading only o
 The final model combining all three DDM parameters provided a good fit, although it required the addition of covariances between residual variances of manifest DDM parameters of the same task (reflecting shared method variance), CFI = `r ch3_fit_meas_fitstats[['cfi.robust']] |> round(2)`, RMSEA = `r ch3_fit_meas_fitstats[['rmsea.robust']] |> round(2)` [`r ch3_fit_meas_fitstats[['rmsea.ci.lower.robust']] |> round(2)`, `r ch3_fit_meas_fitstats[['rmsea.ci.upper.robust']] |> round(2)`].
 See Figure 3.3 for a visualization and Table 3.3 for fit statistics of all models.
 
-::: {.landscape}
-
-```{r}
-#| label: Figure3.3
-#| dpi: 600
-#| out-width: 12in
-#| fig-cap: | 
-#|   **Figure 3.3.** Final measurement model of the Drift Diffusion parameters. Rectangles depict manifest parameter estimates, elipses depict latent factors, unidirectional arrows depict factor loadings, and bidirectional arrows depict correlations. Latent factors with non-significant residual variances are greyed out. *a* = manifest boundary separation, AS = Attention-shifting task, CS = Color-shape task, GL = Global-local task, Fl = Flanker task, Sm = Simon task, *t* = manifest non-decision time, *v* = manifest drift rate.
-knitr::include_graphics("figures/chapter3/fig3.png")
-```
-
-:::
-
 ```{r}
 #| tab.id: table3.3
 #| results: markup
@@ -588,10 +605,44 @@ ch3_table3 |>
     i = 1, j = 1, 
     as_paragraph(as_i("Note: "), "for each DDM parameter, measurement model 1 contained a task-general latent factor as well as separate latent factors for inhibition and shifting. Measurement model 2 contained a task-general latent factor as well as a common EF factor. Measurement model 3 contained only a task-general latent factor."), 
     part = "footer"
+  ) |>  
+  padding(
+  i = 1:15,
+  j = 1:4,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
+  padding(
+  i = 1:2,
+  j = 1:4,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+) |> 
+  padding(
+    i = 1,
+    j = 1:4,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
   ) |> 
   autofit()
   
 ```
+
+::: {.landscape}
+
+```{r}
+#| label: Figure3.3
+#| dpi: 600
+#| out-width: 8in
+#| fig-cap: | 
+#|   **Figure 3.3.** Final measurement model of the Drift Diffusion parameters. Rectangles depict manifest parameter estimates, elipses depict latent factors, unidirectional arrows depict factor loadings, and bidirectional arrows depict correlations. Latent factors with non-significant residual variances are greyed out. *a* = manifest boundary separation, AS = Attention-shifting task, CS = Color-shape task, GL = Global-local task, Fl = Flanker task, Sm = Simon task, *t* = manifest non-decision time, *v* = manifest drift rate.
+knitr::include_graphics("figures/chapter3/fig3.png")
+```
+
+:::
 
 ## Preregistered analyses
 
@@ -676,11 +727,11 @@ Thus, task-specific drift rate did provide consistent measures of specific EF ab
 #| label: Figure3.6
 #| fig-width: 6.5
 #| fig-height: 5
-#| dpi: 600
+#| dpi: 900
 #| out-width: 7in
 #| fig-cap: | 
 #|   **Figure 3.6.** Correlations between task-specific drift rates after accounting for task-general processing speed.
-ch3_fig6
+ch3_fig6 
 ```
 
 Next, we explored the associations of task-specific drift rates with exposure to material deprivation and threat in both childhood and adulthood, after accounting for task-general processing speed (Figure 3.7).

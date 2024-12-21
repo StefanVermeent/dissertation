@@ -12,6 +12,11 @@ toc: false
   chtitle: "Nederlandse samenvatting"
 )
 ```
+
+```{=typst}
+#pagebreak(to: "odd")
+```
+
 # Nederlandse samenvatting
 
 Decennia aan onderzoek tonen aan dat mensen uit chronisch stressvolle omgevingen gemiddeld genomen slechter presteren op cognitieve taken. 
@@ -31,7 +36,7 @@ De eerste limitatie is dat prestaties op EF taken niet alleen worden beïnvloed 
 Voorbeelden van zulke cognitieve processen zijn de mate van voorzichtigheid waarmee iemand beslissingen neemt en de snelheid waarmee iemand een respons uitvoert. 
 Dit betekent dat de ruwe prestaties van twee mensen kunnen verschillen zelfs als ze niet verschillen in hun EF vaardigheid, bijvoorbeeld wanneer de één relatief voorzichtiger is dan de ander. 
 De tweede limitatie is dat prestaties op EF taken niet alleen worden beïnvloed door specifieke EF vaardigheden, maar ook door algemene processen die van invloed zijn op verschillende EF taken. Als een dergelijk algemeen cognitief proces leidt tot lagere prestaties op meerdere taken kan dit verkeerd worden geïnterpreteerd als meerdere verslechterde vaardigheden. 
-Beide limitaties staan een integratie van deficit- en adaptatiemodellen in de weg (**hoofdstuk 1**).
+Beide limitaties staan een integratie van deficit- en adaptatiemodellen in de weg (**Hoofdstuk 1**).
 
 Om de eerste limitatie te addresseren maak ik in dit proefschrift gebruik van cognitief modelleren, specifiek het *Drift Diffusion* Model (DDM). 
 Het DDM geeft een verklaring van de manier waarop mensen beslissingen nemen op taken met binaire keuzeopties, zoals veel EF taken. 
@@ -42,30 +47,30 @@ Deze techniek maakt het mogelijk om te onderzoeken in hoeverre prestaties op EF 
 
 Het onderzoek beschreven in dit proefschrift laat zien dat de samenhang tussen stressvolle omstandigheden en specifieke EF vaardigheden wordt overschat door het gebruik van ruwe prestatiematen. 
 Dit blijkt in de eerste plaats uit het feit dat negatieve associaties tussen blootstelling aan stressvolle omstandigheden en *drift rates* worden gedreven door algemene processen die van invloed zijn op verschillende EF taken. 
-Amerikaanse Kinderen met meer blootstelling aan dreiging (maar niet deprivatie) hadden een lagere algemene *drift rate* op drie EF taken en een basale verwerkingssnelheidstaak (**hoofdstuk 2**). 
-ederlandse volwassenen met meer blootstelling aan dreiging in de volwassenheid, en zowel dreiging als deprivatie in de kindertijd, hadden eveneens een lagere algemene *drift rate* (**hoofdstuk 3**). 
-Tot slot presteren jongvolwassenen met meer blootstelling aan dreiging en onvoorspelbaarheid in de kindertijd slechter op de Flankertaak vanwege lagere perceptuele verwerking, niet vanwege een lagere inhibitievaardigheid (**hoofdstuk 4**). 
-In **hoofdstuk 6** bespreek ik verschillende mogelijke interpretaties van dit algemene proces. 
+Amerikaanse Kinderen met meer blootstelling aan dreiging (maar niet deprivatie) hadden een lagere algemene *drift rate* op drie EF taken en een basale verwerkingssnelheidstaak (**Hoofdstuk 2**). 
+ederlandse volwassenen met meer blootstelling aan dreiging in de volwassenheid, en zowel dreiging als deprivatie in de kindertijd, hadden eveneens een lagere algemene *drift rate* (**Hoofdstuk 3**). 
+Tot slot presteren jongvolwassenen met meer blootstelling aan dreiging en onvoorspelbaarheid in de kindertijd slechter op de Flankertaak vanwege lagere perceptuele verwerking, niet vanwege een lagere inhibitievaardigheid (**Hoofdstuk 4**). 
+In **Hoofdstuk 6** bespreek ik verschillende mogelijke interpretaties van dit algemene proces. 
 De meest waarschijnlijke verklaring---op basis van de huidige bevindingen en voorgaand onderzoek---is dat het een indicatie is van een lagere algemene verwerkingssnelheid. 
 Het is echter mogelijk dat de algemene *drift rate* factor een combinatie is van verschillende processen, zoals iemands huidige staat (motivatie, vermoeidheid, etc.) en meer stabiele individuele eigenschappen.
 
 Nadat ik corrigeer voor algemene processen is er weinig tot geen bewijs dat blootstelling aan stressvolle omstandigheden samenhangt met specifieke EF vaardigheden. 
-Amerikaanse kinderen met meer blootstelling aan dreiging hebben taakspecifieke *drift rates* die praktisch equivalent zijn aan die van kinderen uit een veiligere omgeving (**hoofdstuk 2**). Dit suggereert dat hun EF vaardigheden even goed ontwikkeld zijn. 
+Amerikaanse kinderen met meer blootstelling aan dreiging hebben taakspecifieke *drift rates* die praktisch equivalent zijn aan die van kinderen uit een veiligere omgeving (**Hoofdstuk 2**). Dit suggereert dat hun EF vaardigheden even goed ontwikkeld zijn. 
 Deze studie bevatte echter maar één taak per EF ability; hierdoor was het niet mogelijk om te onderzoeken in hoeverre taakspecifieke *drift rates* een reflectie waren van specifieke EF vaardigheden. 
 In een vervolgstudie met Nederlandse volwassenen includeer ik meerdere taken per EF vaardigheid (inhibitie en aandachtsverschuiving), wat het mogelijk maakt om de EF vaardigheden op latent niveau te schatten. 
 Na een correctie voor algemene processen is de overgebleven variantie echter niet toe te schrijven aan specifieke EF vaardigheden. 
 Hoewel sommige vormen van stressvolle omstandigheden (met name dreiging in de kindertijd) negatief samenhangen met *drift rates*, zijn al deze effecten onafhankelijk van elkaar, ook voor taken die dezelfde vaardigheid beogen te meten. 
 Met andere woorden, mensen met meer blootstelling aan stressvolle omstandigheden verwerken informatie op specifieke taken langzamer vanwege unieke aspecten van de taak, niet vanwege verslechterde EF vaardigheden die worden gedeeld door sommige taken. 
-Tot slot hangt blootstelling aan stressvolle omstandigheden ook niet samen met de vaardigheid om informatie in het werkgeheugen te updaten, nadat ik corrigeer voor de capaciteit van het werkgeheugen (**hoofdstuk 5**).
+Tot slot hangt blootstelling aan stressvolle omstandigheden ook niet samen met de vaardigheid om informatie in het werkgeheugen te updaten, nadat ik corrigeer voor de capaciteit van het werkgeheugen (**Hoofdstuk 5**).
 
 Tot slot laat mijn onderzoek zien dat mensen uit meer stressvolle omstandigheden in sommige gevallen andere strategieën gebruiken dan mensen uit minder stressvolle omstandigheden. 
-Amerikaanse kinderen met meer blootstelling aan dreiging hebben een (al dan niet bewuste) strategie om langer de tijd te nemen en daarmee hun accuratesse te vergroten (**hoofdstuk 2**). 
-Ik vond echter geen bewijs voor een dergelijke strategie bij jongvolwassenen (**hoofdstuk 4**) en volwassenen (**hoofdstuk 3**). 
-Daarnaast suggereert mijn onderzoek ook dat jongvolwassenen met meer blootstelling aan dreiging en onvoorspelbaarheid in de kindertijd langzamer zijn in het verwerken van informatie op de Flankertaak omdat ze een meer holistische informatieverwerkingsstijl hebben (**hoofdstuk 4**). 
+Amerikaanse kinderen met meer blootstelling aan dreiging hebben een (al dan niet bewuste) strategie om langer de tijd te nemen en daarmee hun accuratesse te vergroten (**Hoofdstuk 2**). 
+Ik vond echter geen bewijs voor een dergelijke strategie bij jongvolwassenen (**Hoofdstuk 4**) en volwassenen (**Hoofdstuk 3**). 
+Daarnaast suggereert mijn onderzoek ook dat jongvolwassenen met meer blootstelling aan dreiging en onvoorspelbaarheid in de kindertijd langzamer zijn in het verwerken van informatie op de Flankertaak omdat ze een meer holistische informatieverwerkingsstijl hebben (**Hoofdstuk 4**). 
 Dit betekent dat ze meer geneigd zijn om te focussen op globale eigenschappen van visuele informatie in plaats van individuele stimuli. 
 Mogelijk is dit een adaptatie die mensen beter in staat stelt om perifere informatie snel te detecteren.
 
-Dit proefschrift biedt een aantal aanbevelingen voor toekomstig wetenschappelijk onderzoek (**hoofdstuk 6**). 
+Dit proefschrift biedt een aantal aanbevelingen voor toekomstig wetenschappelijk onderzoek (**Hoofdstuk 6**). 
 Het is belangrijk om rekening te houden met het feit dat (1) prestaties op EF taken worden beïnvloed door meerdere cognitieve processen en (2) dat prestaties op EF taken voor een substantieel deel worden beïnvloed door algemene processen die van invloed zijn op meerdere taken, niet door specifieke EF vaardigheden. 
 Daarnaast zouden studies idealiter twee of meer taken per EF vaardigheid includeren, zodat deze vaardigheden op latent niveau geschat kunnen worden. Deze methodologische benadering, rustend op cognitief modelleren en *structural equation modeling*, kan een centrale rol spelen in twee huidige onwikkelingen in het veld. 
 Ten eerste stelt het toekomstig onderzoek beter in staat om precieze hypothesen te testen over de interactie van deficit- en adaptatieprocessen binnen dezelfde persoon. 

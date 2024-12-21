@@ -2,11 +2,14 @@
 title: Untitled
 format:
   dissertation-template-typst: default
+execute:
+  echo: false
+  warning: false
+  
 ---
 
 ```{r}
 #| include: false
-#| echo: false
 
 library(tidyverse)
 library(lavaan)
@@ -31,6 +34,10 @@ ch2_test_set      <- readr::read_csv("data/chapter2/ch2_test_set.csv")
 
 
 
+```
+
+```{=typst}
+#pagebreak(to: "odd")
 ```
 
 ```{=typst}
@@ -116,9 +123,10 @@ See Table A1.1 for descriptive statistics for all cognitive tasks.
 ```{r}
 #| tab.id: tableA1.1
 #| results: markup
-flextable(ch2_sup_staged_sim_results_supp$descriptives, cwidth = c(2, 1.2, 1.2, 1.2, 1.2)) |> 
+
+ch2_sup_staged_sim_results_supp$descriptives |> 
+  flextable() |> 
   set_header_labels(task = "", mean_rt = "RT\nMean (SD)", mean_acc = "Accuracy\nMean (SD)", acc_min = "Accuracy\nMin", acc_max = "Accuracy\nMax") |> 
-  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
   add_header_row(
     values = " ",
     colwidths = 5
@@ -127,7 +135,26 @@ flextable(ch2_sup_staged_sim_results_supp$descriptives, cwidth = c(2, 1.2, 1.2, 
     i = 1, j = 1, 
     as_paragraph(as_b("Table A1.1. "), "Descriptive statistics of mean RTs and accuracy for the cognitive tasks."),
     part = "header"
-  )
+  ) |> 
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 4, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:4,
+    j = 1:5,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:5,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  autofit()
 ```
 
 
@@ -234,7 +261,7 @@ However, estimates of boundary separation and non-decision time showed substanti
 ```{r}
 #| label: figureA1.4
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.4. **Convergence of the model in simulation 1. Plots should resemble a 'fat, hairy caterpillar'.
@@ -246,7 +273,7 @@ ch2_sup_staged_sim_results_supp$ddm_sim1_traces_plot
 ```{r}
 #| label: figureA1.5
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.5. **Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
@@ -284,7 +311,7 @@ ch2_sup_staged_sim_results_supp$ddm_sim2_traces_plot
 ```{r}
 #| label: figureA1.7
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.7. **Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
@@ -318,7 +345,7 @@ ch2_sup_staged_sim_results_supp$ddm_sim3_traces_plot
 ```{r}
 #| label: figureA1.9
 #| fig-width: 7
-#| fig-height: 3
+#| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.9.**Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
@@ -351,10 +378,10 @@ However, the difference in standard deviations was minimal (*SD~simulated~* = `r
 ```{r}
 #| label: figureA1.10
 #| fig-width: 7
-#| fig-height: 3
+#| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A1.10.**Histograms of simulated and recovered parameter estimates. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
+#|   **Figure A1.10.** Histograms of simulated and recovered parameter estimates. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
 ch2_sup_staged_sim_results_supp$ddm_sim4_hist
 
 ```
@@ -365,7 +392,7 @@ None of the associations were statistically significant (all *p*s > .05 for line
 ```{r}
 #| label: figureA1.11
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.11.**Deviation between simulated and recovered parameter estimates as a function of adversity. The regression lines show quadratic effects. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
@@ -428,7 +455,6 @@ This indicated that our data quality was good—the lower correlations observed 
 #| results: markup
 #| tab.width: 7
 ch2_sup_staged_sim_results_supp$ddm_fit_table |> 
-  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
   add_header_row(
     values = " ",
     colwidths = 7
@@ -451,7 +477,35 @@ ch2_sup_staged_sim_results_supp$ddm_fit_table |>
     i = 1, j = 1, 
     as_paragraph(as_i("Note: "), "The models that were selected for inclusion in the primary analyses are printed in bold."), 
     part = "footer"
+  ) |> 
+border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 10, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:10,
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  padding(
+    i = 1, 
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
   )
+
+
+
 ```
 
 
@@ -460,7 +514,6 @@ ch2_sup_staged_sim_results_supp$ddm_fit_table |>
 #| tab.id: tableA1.3
 #| results: markup
 ch2_sup_staged_sim_results_supp$ddm_fit_orig_table |> 
-  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
   add_header_row(
     values = " ",
     colwidths = 7
@@ -483,7 +536,34 @@ ch2_sup_staged_sim_results_supp$ddm_fit_orig_table |>
     i = 1, j = 1, 
     as_paragraph(as_i("Note: "), "The models that were selected for inclusion in the primary analyses are printed in bold."), 
     part = "footer"
+  ) |> 
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 9, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:9,
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  padding(
+    i = 1, 
+    j = 1:7,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
   )
+
+
 ```
 
 As planned, we explored whether model fit would be relatively worse at different levels of the two measures of adversity.
@@ -494,7 +574,6 @@ Model fit was high for all tasks across all levels of adversity, and there were 
 #| tab.id: tableA1.4
 #| results: markup
 ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_dep_table |> 
-  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
   add_header_row(
     values = " ",
     colwidths = 6
@@ -503,14 +582,40 @@ ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_dep_table |>
     i = 1, j = 1, 
     as_paragraph(as_b("Table A1.4. "), "Simulation-based model fit assessment at different levels of material deprivation comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
     part = "header"
+  )  |> 
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 12, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:12,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  padding(
+    i = 1, 
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "footer"
   )
+
+
 ```
 
 ```{r}
 #| tab.id: tableA1.5
 #| results: markup
 ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_threat_table |> 
-  border(i = 1, border.top = fp_border_default(style = "none", width = 0), part = "header") |> 
   add_header_row(
     values = " ",
     colwidths = 6
@@ -519,7 +624,26 @@ ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_threat_table |>
     i = 1, j = 1, 
     as_paragraph(as_b("Table A1.5. "), "Simulation-based model fit assessment at different levels of household threat comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
     part = "header"
-  )
+  ) |> 
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 12, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:12,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) 
+
 ```
 
 For the Processing Speed Task, we found a high degree of Kurtosis in the left-hand tail of the non-decision time distribution.
@@ -537,7 +661,7 @@ All models converged normally.
 ```{r}
 #| label: figureA1.13
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.13.** Convergence of the final model for the Mental Rotation Task. Plots should resemble a 'fat, hairy caterpillar'.
@@ -547,7 +671,7 @@ ch2_sup_staged_sim_results_supp$ddm_conv_lmt_fig
 ```{r}
 #| label: figureA1.14
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.14.** Convergence of the final model for the Inhibition Task. Plots should resemble a 'fat, hairy caterpillar'.
@@ -557,7 +681,7 @@ ch2_sup_staged_sim_results_supp$ddm_conv_flanker_fig
 ```{r}
 #| label: figureA1.15
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.15.** Convergence of the final model for the Attention Shifting Task. Plots should resemble a 'fat, hairy caterpillar'.
@@ -567,7 +691,7 @@ ch2_sup_staged_sim_results_supp$ddm_conv_dccs_fig
 ```{r}
 #| label: figureA1.16
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.16.** Convergence of the final model for the Processing Speed Task. Plots should resemble a 'fat, hairy caterpillar'.
@@ -581,7 +705,7 @@ Figure A1.17-A1.20 show the distributions of DDM parameters for each task.
 ```{r}
 #| label: figureA1.17
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.16.** Parameter distributions in the final model of the Mental Rotation Task.
@@ -591,7 +715,7 @@ ch2_sup_staged_sim_results_supp$ddm_distri_lmt_fig
 ```{r}
 #| label: figureA1.18
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.18.** Parameter distributions in the final model of the Inhibition Task.
@@ -601,7 +725,7 @@ ch2_sup_staged_sim_results_supp$ddm_distri_flanker_fig
 ```{r}
 #| label: figureA1.19
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.19.** Parameter distributions in the final model of the Attention Shifting Task.
@@ -611,7 +735,7 @@ ch2_sup_staged_sim_results_supp$ddm_distri_dccs_fig
 ```{r}
 #| label: figureA1.20
 #| fig-width: 6
-#| fig-height: 3
+#| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.20.** Parameter distributions in the final model of the Processing Speed Task.
@@ -631,7 +755,26 @@ ch2_sup_staged_sim_results_supp$test_sem_loading_table |>
     i = 1, j = 1,
     as_paragraph(as_b("Table A1.6. "), "Factor loadings and unstandardized residual variances in the test set."),
     part = "header"
-  )
+  ) |> 
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 32, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:32,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:6,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) 
+
 ```
 
 ```{r}
@@ -642,15 +785,28 @@ ch2_sup_staged_sim_results_supp$test_sem_cor_table |>
     i = 1, j = 1,
     as_paragraph(as_b("Table A1.7. "), "Correlations between latent task-general and task-specific factors in the test set."),
     part = "header"
+  ) |>  
+  border_remove() |> 
+  border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
+  border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
+  border(i = 20, border.bottom = fp_border_default(), part = "body") |>
+  padding(
+    i = 1:20,
+    j = 1:2,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:2,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
   )
+
 ```
 
 ```{=typst}
 #pagebreak()
-```
-
-```{=typst}
-#pagebreak(
-  to: "odd"
-)
 ```

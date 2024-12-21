@@ -4,6 +4,13 @@ format:
   dissertation-template-typst: default
 ---
 
+
+```{=typst}
+#pagebreak(
+  to: "odd"
+)
+```
+
 ```{=typst}
 #show: article.with(
   chapter: "Footnotes",

@@ -6,10 +6,6 @@ toc: false
 ---
 
 ```{=typst}
-#pagebreak()
-```
-
-```{=typst}
 #set rect(
   inset: 8pt,
   fill: none,
@@ -32,5 +28,7 @@ toc: false
 
 
 ```{=typst}
-#pagebreak()
+#pagebreak(
+  to: "odd"
+)
 ```

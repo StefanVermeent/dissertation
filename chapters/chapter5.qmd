@@ -53,6 +53,9 @@ set_flextable_defaults(
 )
 ``` 
 
+```{=typst}
+#pagebreak(to: "even")
+```
 
 \ 
 
@@ -274,6 +277,8 @@ Participants were excluded if they (1) switched to and interacted with other bro
 The final sample consisted of `r nrow(ch5_clean_data)` participants (Table 5.1).
 
 ```{r}
+#| tab.id: table5.1
+#| results: markup
 ch5_table1 |> 
   flextable::autofit() |> 
   add_header_row(
@@ -358,6 +363,8 @@ The perceived unpredictability component was almost fully determined by the item
 ```
 
 ```{r}
+#| tab.id: table5.2
+#| results: markup
 ch5_table2 |> 
   flextable() |> 
   flextable::set_header_labels(Variable = "") |> 
@@ -376,13 +383,33 @@ ch5_table2 |>
     colwidths = 15
   ) |> 
   border_remove() %>% 
-  #border(i = 1, border.top = fp_border_default(), part = "header") %>% 
   border(i = 1, border.bottom = fp_border_default(), part = "header") %>% 
   border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
   border(i = 20, border.bottom = fp_border_default(), part = "body") %>% 
   flextable::compose(
     i = 1, j = 1, 
     as_paragraph(as_i("Note: "), "* = ", as_i("p"), " < .05, ** = ", as_i("p"), " < .01, *** = ", as_i("p"), " < .001. ", "CV = coefficient of variance, INR = income-to-needs ratio, M = mean, Perc. Scarcity = perceived scarcity"), 
+    part = "footer"
+  ) |>  
+  padding(
+    i = 1:20,
+    j = 1:15,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "body"
+  ) |> 
+  padding(
+    i = 1:2,
+    j = 1:15,
+    padding.top = 3,
+    padding.bottom = 3,
+    part = "header"
+  ) |> 
+  padding(
+    i = 1,
+    j = 1:15,
+    padding.top = 3,
+    padding.bottom = 3,
     part = "footer"
   ) |> 
   autofit()
@@ -673,10 +700,4 @@ Building on this work will ultimately lead to a better understanding of the uniq
 
 ```{=typst}
 #pagebreak()
-```
-
-```{=typst}
-#pagebreak(
-  to: "odd"
-)
 ```
