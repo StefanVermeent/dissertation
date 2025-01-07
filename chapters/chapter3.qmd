@@ -49,16 +49,13 @@ set_flextable_defaults(
   padding.right = 1
 )
 ```
-```{=typst}
-#pagebreak(to: "even")
-```
 
 \ 
 
 ```{=typst}
 #show: article.with(
   chapter: "Chapter 3",
-  chtitle: "Adversity is associated with lower general processing speed"
+  chtitle: "Adversity is associated with lower general processing speed rather than specific executive functioning abilities"
 )
 ```
 
@@ -142,7 +139,7 @@ We advocate for cognitive modeling as a viable alternative approach to estimatin
 ## Methodological challenges for measuring specific EF abilities
 
 Recent research shows that raw performance on EF tasks does not necessarily capture specific EF abilities, for two related reasons.
-First, raw performance on EF tasks is also influenced by processes other than the ability of interest, such as response caution and the speed of response execution [@hedge_2021; @ratcliff_2008; @stahl_2014].
+First, raw performance on EF tasks is also influenced by processes other than the ability of interest, such as response caution and the speed of response execution [@hedge_2022; @ratcliff_2008; @stahl_2014].
 Thus, slower (or faster) responses in people with more adversity exposure need not reflect EF ability, but could, for instance, reflect a tendency to respond more cautiously [@vermeent_2024a].
 Second, raw performance on EF tasks is also influenced by general processes, such as basic speed of information processing [@frischkorn_2019; @loffler_2024; @weigard_2021].
 Thus, lower performance on multiple EF tasks may reflect a difference in a general process, rather than specific EF abilities [@bignardi_2024; @vermeent_2024a; @young_2024].
@@ -172,7 +169,7 @@ The *boundary separation* reflects the width between the two decision boundaries
 A higher boundary separation leads to slower responses and higher accuracy.
 The *non-decision time* reflects a combination of preparation time (e.g., stimulus encoding) as well as execution time (e.g., time spent pressing the button).
 A larger non-decision time leads to slower responses without a change in accuracy.
-Finally, the *starting-point* allows for initial bias for one of two responses (e.g., happy or angry faces). 
+Finally, the *starting point* allows for initial bias for one of two responses (e.g., happy or angry faces). 
 In this paper, we will not consider the starting point, because people cannot have biases towards correct or incorrect responses.
 
 ```{r}
@@ -191,7 +188,7 @@ knitr::include_graphics("figures/chapter3/fig1.png")
 Recent studies show that a single general factor accounts for most of the variance in drift rates across multiple tasks [@lerche_2020; @loffler_2024; @weigard_2021].
 This general factor appears to be largely stable across time [@schubert_2016; @weigard_2021].
 It arises also in analyses of tasks thought to measure different abilities [@schmiedek_2007; @schmitz_2016].
-Even if all tasks are designed to measure the same EF ability [@hedge_2021], variance in the general factor is fully explained by general processing speed instead of any specific EF ability [@loffler_2024].
+Even if all tasks are designed to measure the same EF ability [@hedge_2022], variance in the general factor is fully explained by general processing speed instead of any specific EF ability [@loffler_2024].
 These findings suggest that performance on standard EF tasks largely reflects basic speed of processing, rather than EF abilities.
 
 Recent findings suggest that the effects of adversity are more general than specific.
@@ -260,20 +257,6 @@ ch3_table1 |>
   border(i = 2, border.top = fp_border_default(), part = "header") |>  
   border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
   border(i = 14, border.bottom = fp_border_default(), part = "body") |> 
-  padding(
-  i = 1:14,
-  j = 1:2,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "body"
-) |> 
-  padding(
-  i = 1:2,
-  j = 1:2,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "header"
-) |> 
   autofit()
 ```
 
@@ -327,6 +310,7 @@ ch3_table2 |>
   flextable::set_header_labels(Variable = "") |> 
   flextable::autofit() |> 
   border_remove() %>% 
+ # border(i = 1, border.top = fp_border_default(), part = "header") %>% 
   border(i = 1, border.bottom = fp_border_default(), part = "header") %>% 
   border(i = 18, border.bottom = fp_border_default(), part = "body") %>% 
   add_header_row(
@@ -342,20 +326,6 @@ ch3_table2 |>
     values = " ",
     colwidths = 13
   ) |> 
-  padding(
-  i = 1:18,
-  j = 1:13,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "body"
-) |> 
-  padding(
-  i = 1:2,
-  j = 1:13,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "header"
-) |> 
   autofit()
 ```
 
@@ -475,7 +445,7 @@ After each task, they indicated their state anxiety and the level of environment
 Then, participants had the option to either continue to the next task or complete the other tasks at a later point in time. 
 `r round(ch3_n_sessions)` % of participants completed all tasks in a single session, and `r 100-round(ch3_n_sessions)` % of participants took two or more sessions.
 Jointly, the cognitive tasks took around 25 minutes to complete.
-After finishing all cognitive tasks, participants completed questionnaires about neighborhood threat and material deprivation during childhood and, adulthood exposure to crime victimization in the past two years.
+After finishing all cognitive tasks, participants completed questionnaires about neighborhood threat and material deprivation during childhood and adulthood, and exposure to crime victimization in the past two years.
 They also completed questionnaires on impulsivity, self-control, and future orientation, which are not considered here because they fall outside of the scope of the present study.
 As some participants had already completed all of these questionnaires in a different data collection (about six months prior to the current study), we only presented the questionnaires to new participants.
 Finally, all participants answered a few standard LISS evaluation questions about the study, giving them an opportunity to provide written feedback.
@@ -552,9 +522,9 @@ Thus, it affords conclusions about practical equivalence based on significant *p
 ## Transparency and openness
 
 We have reported how we determined our sample size, all data exclusions, and all measures in the study.
-The preregistration, analysis code, and study materials, can be found on the article's GitHub repository (<https://github.com/stefanvermeent/liss_ef_2024>).
+The preregistration, analysis code, and study materials, can be found on the article's GitHub repository (<https://stefanvermeent.github.io/liss_ef_2024/>).
 The newly collected data will be available for other researchers in the LISS data archive, after signing a data use agreement (https://lissdata.nl).
-For more information on the LISS variables used, see the article's GitHub repository (<https://github.com/stefanvermeent/liss_ef_2024>).
+For more information on the LISS variables used, see the article's GitHub repository (<https://stefanvermeent.github.io/liss_ef_2024/>).
 Our study complies with Level 2 of the Transparency and Openness Promotion (TOP) guidelines.
 
 # 3.3 Results
@@ -573,6 +543,19 @@ The two preregistered models specifying additional latent factors loading only o
 
 The final model combining all three DDM parameters provided a good fit, although it required the addition of covariances between residual variances of manifest DDM parameters of the same task (reflecting shared method variance), CFI = `r ch3_fit_meas_fitstats[['cfi.robust']] |> round(2)`, RMSEA = `r ch3_fit_meas_fitstats[['rmsea.robust']] |> round(2)` [`r ch3_fit_meas_fitstats[['rmsea.ci.lower.robust']] |> round(2)`, `r ch3_fit_meas_fitstats[['rmsea.ci.upper.robust']] |> round(2)`].
 See Figure 3.3 for a visualization and Table 3.3 for fit statistics of all models.
+
+::: {.landscape}
+
+```{r}
+#| label: Figure3.3
+#| dpi: 600
+#| out-width: 12in
+#| fig-cap: | 
+#|   **Figure 3.3.** Final measurement model of the Drift Diffusion parameters. Rectangles depict manifest parameter estimates, elipses depict latent factors, unidirectional arrows depict factor loadings, and bidirectional arrows depict correlations. Latent factors with non-significant residual variances are greyed out. *a* = manifest boundary separation, AS = Attention-shifting task, CS = Color-shape task, GL = Global-local task, Fl = Flanker task, Sm = Simon task, *t* = manifest non-decision time, *v* = manifest drift rate.
+knitr::include_graphics("figures/chapter3/fig3.png")
+```
+
+:::
 
 ```{r}
 #| tab.id: table3.3
@@ -605,44 +588,10 @@ ch3_table3 |>
     i = 1, j = 1, 
     as_paragraph(as_i("Note: "), "for each DDM parameter, measurement model 1 contained a task-general latent factor as well as separate latent factors for inhibition and shifting. Measurement model 2 contained a task-general latent factor as well as a common EF factor. Measurement model 3 contained only a task-general latent factor."), 
     part = "footer"
-  ) |>  
-  padding(
-  i = 1:15,
-  j = 1:4,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "body"
-) |> 
-  padding(
-  i = 1:2,
-  j = 1:4,
-  padding.top = 3,
-  padding.bottom = 3,
-  part = "header"
-) |> 
-  padding(
-    i = 1,
-    j = 1:4,
-    padding.top = 3,
-    padding.bottom = 3,
-    part = "header"
   ) |> 
   autofit()
   
 ```
-
-::: {.landscape}
-
-```{r}
-#| label: Figure3.3
-#| dpi: 600
-#| out-width: 8in
-#| fig-cap: | 
-#|   **Figure 3.3.** Final measurement model of the Drift Diffusion parameters. Rectangles depict manifest parameter estimates, elipses depict latent factors, unidirectional arrows depict factor loadings, and bidirectional arrows depict correlations. Latent factors with non-significant residual variances are greyed out. *a* = manifest boundary separation, AS = Attention-shifting task, CS = Color-shape task, GL = Global-local task, Fl = Flanker task, Sm = Simon task, *t* = manifest non-decision time, *v* = manifest drift rate.
-knitr::include_graphics("figures/chapter3/fig3.png")
-```
-
-:::
 
 ## Preregistered analyses
 
@@ -727,11 +676,11 @@ Thus, task-specific drift rate did provide consistent measures of specific EF ab
 #| label: Figure3.6
 #| fig-width: 6.5
 #| fig-height: 5
-#| dpi: 900
+#| dpi: 600
 #| out-width: 7in
 #| fig-cap: | 
 #|   **Figure 3.6.** Correlations between task-specific drift rates after accounting for task-general processing speed.
-ch3_fig6 
+ch3_fig6
 ```
 
 Next, we explored the associations of task-specific drift rates with exposure to material deprivation and threat in both childhood and adulthood, after accounting for task-general processing speed (Figure 3.7).
@@ -775,9 +724,9 @@ In other words, from these data, we were neither able to conclude that people wi
 
 We found that variance in EF task performance was mostly explained by a task-general factor, not by ability-specific factors.
 This finding aligns with previous research applying DDM to EF tasks. 
-Three recent studies converged on the similar conclusion that performance across different EF tasks is best explained by a task-general drift rate factor [@frischkorn_2019; @hedge_2021; @loffler_2024; @weigard_2021].
+Three recent studies converged on the similar conclusion that performance across different EF tasks is best explained by a task-general drift rate factor [@frischkorn_2019; @hedge_2022; @loffler_2024; @weigard_2021].
 One study found that the task-general drift rate factor fully reflected basic processing speed, rather than common EF processes [@loffler_2024].
-Similarly, another study including several inhibition tasks found that shared variance was mostly explained by basic processing speed and strategy differences, not by inhibition ability [@hedge_2021].
+Similarly, another study including several inhibition tasks found that shared variance was mostly explained by basic processing speed and strategy differences, not by inhibition ability [@hedge_2022].
 It is therefore not surprising that we were unable to estimate ability-specific EF factors after accounting for general processing.
 These issues tie into several other criticisms of common EF tasks in the cognitive psychology literature---such as low test-retest reliability---which should be considered when using these tasks to test associations with adversity [@vonbastian_2020].
 
@@ -859,7 +808,7 @@ Nevertheless, research could more systematically test associations between adver
 
 Third, future research could design preregistered, well-powered analyses to tease apart the unique effects of childhood adversity and recent adversity on cognitive performance, as well as their combined effects.
 Our understanding of how cognitive outcomes later in life depend on the developmental timing of adversity exposure is still limited [@frankenhuis_2020].
-In this study, we assumed that recent adversity exposure mediates the effect of childhood adversity exposure on cognitive processes, as people who experienced adversity early in life are more likely to also experience adversity later in life (e.g., due to systemic constraints; @hazel_2008).
+In this study, we assumed that recent adversity exposure mediates the effect of childhood adversity exposure on cognitive processes, as people who experienced adversity early in life are more likely to also experience adversity later in life [e.g., due to systemic constraints; @hazel_2008].
 Our study focused on adversity in adulthood, the average or summed adversity exposure over the past few years.
 Future research should distinguish such recent adversity from acute stress. 
 For instance, some research suggests that childhood adversity enhances specific EF abilities, but only under situations of acute stress [@mittal_2015; @young_2018].

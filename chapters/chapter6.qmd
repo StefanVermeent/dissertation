@@ -28,11 +28,11 @@ toc: false
 
 # 6.1 Fitting the pieces together
 
-In the preceding chapters, I applied a methodological approach---grounded in Drift Diffusion Modeling (DDM) and structural equation modeling---to measure executive functioning (EF) abilities in people exposed to adversity. 
-Using DDM, I translated raw performance into three distinct cognitive processes: the speed of evidence accumulation (drift rate), response caution (boundary separation), and speed of stimulus encoding and response execution (non-decision time). 
+In the preceding chapters, I apply a methodological approach---grounded in Drift Diffusion Modeling (DDM) and structural equation modeling---to measure executive functioning (EF) abilities in people exposed to adversity. 
+Using DDM, I translate raw performance into three distinct cognitive processes: the speed of evidence accumulation (drift rate), response caution (boundary separation), and speed of stimulus encoding and response execution (non-decision time). 
 Using structural equation modeling, I investigated the extent to which cognitive processes are task-general (shared across tasks) or task-specific (unique to particular tasks). 
-I investigated associations between these cognitive processes and exposure to three types of adversity: threat (all chapters), material deprivation (Chapters 2, 3, and 5), and unpredictability (Chapters 4 and 5). 
-In addition, I investigated associations across different developmental stages, focusing on middle childhood (Chapter 2), young adulthood (Chapter 4), and adulthood (Chapters 3 and 5).
+I investigate associations between these cognitive processes and exposure to three types of adversity: threat (all chapters), material deprivation (Chapters 2, 3, and 5), and unpredictability (Chapters 4 and 5). 
+In addition, I investigate associations across different developmental stages, focusing on middle childhood (Chapter 2), young adulthood (Chapter 4), and adulthood (Chapters 3 and 5).
 
 Taken together, I show that adversity researchers analyzing raw performance (e.g., mean response time, accuracy) will overestimate the association between adversity exposure and specific EF abilities. 
 This general conclusion is based on three key findings. 
@@ -41,7 +41,7 @@ That is, they respond more slowly largely due to cognitive processes that are sh
 The second key finding, also supported by Chapters 2-4, is that after accounting for task-general processing speed, the specific EF abilities of people with more exposure to adversity do not appear to be lower (or higher) than those of people with less exposure to adversity. 
 In fact, in Chapter 2, five out of six associations with task-specific drift rates were practically equivalent to zero, suggesting intact processing. 
 The third key finding, supported by Chapters 2 and 4 (but not Chapter 3), is that people with more exposure to adversity use different strategies on EF tasks. 
-Specifically, I found that children with more exposure to household threat (but not material deprivation) respond more cautiously (as measured with DDM's boundary separation parameter), and that young adults with more exposure to childhood threat and unpredictability process information more holistically.
+Specifically, I find that children with more exposure to household threat (but not material deprivation) respond more cautiously (as measured with DDM's boundary separation parameter), and that young adults with more exposure to childhood threat and unpredictability process information more holistically.
 
 # 6.2 Key finding 1: Adversity exposure is associated with task-general processing speed
 
@@ -61,8 +61,8 @@ However, a competing interpretation is that shared variance among EF tasks repre
 Specifically, executive attention is thought to support a person's ability to *maintain* information in working memory for immediate processing, and to *disengage* from information that is no longer relevant [@burgoyne_2020; @shipstead_2016].
 Executive attention can offer a mechanistic explanation for the general factor that accounts for variance across many cognitive tasks, often referred to as general intelligence or *g* [@burgoyne_2022].
 Thus, shared variance across EF tasks could reflect general executive processes, rather than basic processing speed.
-A similar argument is made by *process-overlap theory*, which states that the general factor reflects a shared dependence on general executive processes [@kovacs_2016].
-Importantly, process-overlap theory does not consider the general factor to be a unitary cognitive process that *causes* differences in specific abilities.
+A similar argument is made by *process overlap theory*, which states that the general factor reflects a shared dependence on general executive processes [@kovacs_2016].
+Importantly, process overlap theory does not consider the general factor to be a unitary cognitive process that *causes* differences in specific abilities.
 Rather, the general factor arises as a statistical artifact as specific cognitive abilities draw from a shared set of general processes [@kovacs_2019].
 This is an important distinction: while the task-general factor may resemble a unitary process in latent models, it could actually arise from a combination of (partially) independent processes.
 
@@ -70,6 +70,8 @@ Task-general drift rate could similarly reflect several processes.
 Differences in drift rates might reflect a combination of task-specific processes (e.g., EF abilities), state factors (e.g., motivation, fatigue), and trait factors (e.g., general speed of processing, functional or structural brain differences) [@weigard_2021b].
 At the same time, task-general drift rate appears to be more stable over time [@schubert_2016; @weigard_2021].
 It also has better convergent validity, correlating, for instance, with self-report measures of self-control, which is conceptually similar to EF [@weigard_2021].
+However, these studies did not account for adversity exposure.
+It is possible that task-general drift rate is more strongly influenced by state factors for people with more adversity exposure.
 Thus, processing speed may be but one potential explanation for the negative associations we observed between adversity exposure and task-general drift rate; other explanations may include motivation, stress, fatigue, and a strategic deployment of cognitive resources.
 This also means that lower task-general drift rate does not necessarily (only) reflect a cognitive deficit.
 
@@ -80,7 +82,7 @@ Childhood exposure to threat and deprivation has been associated with reduced wh
 Changes in white matter associated with childhood adversity appear to persist into adulthood [@mccarthy_jones_2018], which could explain the associations between childhood adversity and task-general drift rate in adulthood in Chapter 3.
 Relatedly, early exposure to cognitive deprivation (i.e., a lack of cognitive stimulation) disrupts the development of basic sensory and perceptual processes, which can have negative downstream effects on the development of EF [@rosen_2019].
 Yet, task-general drift rate may at least partly reflect processes that are more context-dependent, such as EF engagement or task familiarity [@niebaum_2023], rather than basic processing speed. 
-Some of these processes may be more malleable than basic processing speed, e.g., through task manipulations that increase the familiarity of content, or that make people more willing to exert effort. 
+Such processes may be more malleable than basic processing speed, e.g., through task manipulations that increase the familiarity of content, or that make people more willing to exert effort. 
 This could make them valuable targets for interventions.
 
 # 6.3 Key finding 2: Adversity exposure is not associated with specific EF abilities
@@ -91,7 +93,7 @@ In addition, material deprivation is associated with intact drift rates on an in
 Chapter 3 paints a similar, but more nuanced picture, by including two inhibition tasks, three attention-shifting tasks, and a basic processing speed task. 
 After accounting for task-general processing speed, adversity is negatively associated with several task-specific drift rates, particularly effects of childhood threat on attention-shifting tasks.
 However, the correlations between these task-specific drift rates are low, even between tasks that are thought to measure the same EF ability.
-Thus, it appears that they do not capture inhibition or attention shifting ability, but rather more unique features of individual tasks.
+Thus, it appears that they do not capture inhibition or attention-shifting ability, but rather more unique features of individual tasks.
 In Chapter 4, which focuses on the Flanker task, young adults' exposure to childhood threat and unpredictability is not associated with inhibition ability.
 Rather, their lower performance on the task is mostly driven by lower perceptual processing. 
 Finally, in Chapter 5, exposure to adversity in adulthood is not associated with either working memory updating or working memory capacity.
@@ -102,11 +104,11 @@ The finding that adversity exposure is not associated with specific EF abilities
 Such conclusions are often based on performance on a single task.
 For instance, lower performance on inhibition tasks has been interpreted as lower inhibition ability [@farah_2006; @fields_2021; @mezzacappa_2004; @mittal_2015; @noble_2005].
 Similarly, higher performance on attention-shifting tasks has been interpreted as an enhanced attention shifting ability [@fields_2021; @howard_2020; @mittal_2015; @nweze_2021; @young_2022].
-My dissertation highlights two crucial limitations of this approach.
+My dissertation highlights a crucial limitation of this approach.
 Task-general processes make it difficult to infer specific abilities based on the performance on a single task, even when using DDM rather than raw performance measures.
-Even after accounting for task-general processes, though, remaining variance may not capture specific EF abilities (but rather other factors, such as context or familiarity), as suggested by Chapter 3 as well as prior literature [@frischkorn_2019; @loffler_2024].
+Even after accounting for task-general processes, though, remaining variance may not capture specific EF abilities (but rather other factors, such as content or familiarity), as suggested by Chapter 3 as well as prior literature [@frischkorn_2019; @loffler_2024].
 
-One reason could be that content effects mask the effects of specific EF abilities.
+One reason for not finding ability-specific associations could be that content effects mask the effects of specific EF abilities.
 Task performance is known to vary with task content (e.g., numbers, letters, or geometric shapes), and studies in cognitive psychology often account for this by sampling tasks with different types of content [@lerche_2020].
 Some research shows that people from adversity may be particularly sensitive to content effects, and that their performance on EF tasks could be improved by using more real-world content [@young_2022].
 With the exception of Chapter 2, the studies in this dissertation involved more abstract content, which may be one explanation for lower task-general processing speed.
@@ -118,12 +120,12 @@ Thus, content effects may have lowered processing on these tasks in specific way
 
 Further down the psychometric path, the elephant in the room is that commonly used EF tasks may not be sufficiently reliable to detect individual differences in EF [@draheim_2019; @hedge_2018; @rouder_2019]. 
 Many EF tasks, like the Flanker or Simon task, were developed by experimental psychologists with the aim to obtain robust group-level experimental effects (e.g., the Flanker effect, in which people are on average slower on incongruent trials compared to congruent trials) [@cronbach_1957]. 
-These tasks achieve this because they minimize within-person variability. 
+These tasks achieve this by minimizing within-person variability. 
 However, low within-person variability makes them less suitable for studying individual differences. 
 In fact, a recent study showed that over 1,000 trials are needed to obtain reliable estimates of individual differences in the Stroop or Flanker effect [@lee_2023].
 Needless to say, the studies reported in this dissertation did not even get close to these trial numbers. 
 Nor do the majority of studies in the broader adversity and developmental literature. This is exemplified by the ABCD study, which is currently used in over 1,200 articles (<https://abcdstudy.org/publications/>), including the study in Chapter 2. 
-The EF tasks included in the ABCD study contain at most a few dozen trials, with as few as 20 across conditions for the Flanker task.
+The EF tasks included in the ABCD study contain as few as 20 across conditions for the Flanker task.
 
 An inconvenient but important conclusion is that most research in the adversity literature lacks reliable measurements to adequately assess specific EF abilities.
 In light of this issue, some have argued that large-scale developmental data collections should make fundamentally different trade-offs by lowering the number of participants and increasing the number of trials for cognitive tasks [@lee_2023].
@@ -136,8 +138,8 @@ Promising potential solutions include tasks that require accurate but not speede
 
 # 6.4 Key finding 3: Adversity exposure is associated with the use of different strategies
 
-My dissertation finds limited evidence that exposure to adversity is associated with the use of different cognitive strategies.
-First, I find evidence for differences in *speed-accuracy trade offs*, reflecting a person's response caution.
+My dissertation finds some evidence that exposure to adversity is associated with the use of different cognitive strategies.
+First, I find evidence for differences in *speed-accuracy trade-offs*, reflecting a person's response caution.
 A person with higher response caution uses the strategy (deliberate or not) of slowing down their responses in order to increase their accuracy.
 In Chapter 2, I find that children who experienced more household threat in the preceding year (but not material deprivation) respond more cautiously than children with less exposure to household threat.
 However, I do not observe differences in response caution in young adults with more exposure to childhood threat and unpredictability (Chapter 4), nor in adults with more exposure to threat and deprivation in childhood or adulthood (Chapter 3).
@@ -148,17 +150,17 @@ Second, Chapter 4 suggests that young adults with more exposure to childhood thr
 
 The results in Chapter 2 are consistent with research on optimal speed-accuracy trade-offs in the face of threats.
 Individuals across different species tend to be more cautious if they were recently exposed to sources of threat such as violence or predation [@chittka_2009].
-Making a mistake (e.g., wrongly assuming that there is no predator nearby) can be very costly, and therefore it pays to accumulate more information if past environments tended to be more dangerous. However, the opposite is true in the face of immediate danger. In such cases, responding quickly can prevent serious harm, which, all else being equal, outweighs the potential cost of acting too fast (e.g., failing to seize potential resources) [@pirrone_2014].
+Making a mistake (e.g., wrongly assuming that there is no predator nearby) can be costly, and therefore it pays to accumulate more information if past environments tended to be more dangerous. However, the opposite is true in the face of immediate danger. In such cases, responding quickly can prevent serious harm, which, all else being equal, outweighs the potential cost of acting too fast (e.g., failing to seize potential resources) [@pirrone_2014].
 
 There is strong evidence that detecting and responding to threat in both scenarios is facilitated by distinct neural pathways: a fast but less accurate pathway in the case of an immediate threat, and a slower but more accurate pathway when there is no immediate threat [@ledoux_2000].
 The first relies on short subcortical pathways that provide rapid but coarse information, and do not involve extensive evidence accumulation.
 Under conditions of stress, people use simpler and faster stimulus-response learning strategies and rely more on habits [@schwabe_2007; @schwabe_2009].
-In contrast, in the absence of immediate threat, processing relies on longer cortical pathways that do engage in evidence accumulation, as modeled using the DDM [@trimmer_2008].
+In contrast, in the absence of immediate threat, processing relies on longer cortical pathways that do involve evidence accumulation, as modeled using the DDM [@trimmer_2008].
 Chapter 2 is consistent with this theory: the test setting did not convey an immediate threat and so did not require an immediate response, but children with more exposure to threat did accumulate more evidence.
 
 The results of Chapter 3 and 4 are not consistent with this theory, which may be explained by the temporal gap between the exposure to adversity and the testing session. 
 In Chapter 2, this gap was relatively small; children reported on their exposure to threat in the preceding year.
-Hence, it is likely that their strategies were still attuned to these recent experiences, which would explain their increased response caution.
+Hence, it is possible that their strategies were still attuned to these recent experiences, which would explain their increased response caution.
 In Chapter 3 and 4, involving (young) adults, the gap was larger, especially when they retroactively reported on exposure to childhood adversity.
 Even though Chapter 3 did focus on adversity exposure in adulthood, the adversity measures spanned several years and thus did not necessarily reflect recent adversity exposure.
 It is possible that differences in how people make speed-accuracy trade-offs in response to threat exposure remain plastic, such that a preference for accuracy over speed may diminish or even disappear if threats become less frequent.
@@ -199,7 +201,7 @@ A more realistic vantage point appears to be that both types of processes can op
 Using cognitive modeling, future research will be well-positioned to test more precise predictions about how deficit and adaptation processes interact.
 
 Researchers need to deal with the fact that task performance is influenced by both task-general and ability-specific processes.
-Deficit frameworks can accommodate impairments in both specific abilities as well as general processing (e.g., associated with impairments in more localized as well as more widely connected brain networks) [@sheridan_2014; @tucker_drob_2013].
+Deficit frameworks predict impairments in both specific abilities as well as general processing (e.g., associated with impairments in more localized as well as more widely connected brain networks) [@sheridan_2014; @tucker_drob_2013].
 Still, as impairments in general and specific processes may have different origins (e.g., functional or structural changes in the brain), differentiating them using cognitive modeling and structural equation modeling affords testing more precise predictions.
 Arguably, the existence of task-general processes poses a bigger challenge for adaptation frameworks, which predict that specific types of adversity enhance specific cognitive abilities [@ellis_2022; @frankenhuis_2013; @frankenhuis_2020].
 Testing such predictions will require accounting for general processes and ideally sampling two or more tasks for each ability.
@@ -208,14 +210,14 @@ Abilities enhanced by adversity may even cross the boundaries of traditional EF 
 For instance, several studies have found that people from lower socioeconomic backgrounds are more attentive to task-irrelevant sounds [@dangiulli_2012b; @giuliano_2018; @hao_2024; @stevens_2009].
 Children from lower socioeconomic backgrounds also appear more attentive to peripheral visual information [@mezzacappa_2004].
 Similarly, exposure to adversity might lead to a more diffuse scope of attention to facilitate tracking the environment for potential threats and opportunities. 
-We did not find support for our initial hypothesis (see the Introduction of Chapter 4) that this might lead people to be better at detecting subtle changes and peripheral stimuli, i.e., an enhanced ability to detect specific stimuli in the broader environment.
-However, as discussed in section 6.4, we did find more holistic processing. 
+We did not find support for our initial hypothesis (see the Introduction of Chapter 4) that this might make people better at detecting subtle changes and peripheral stimuli, i.e., an enhanced ability to detect specific stimuli in the broader environment.
+However, as discussed in section 6.4, we did find a tendency towards holistic processing. 
 This may be an alternative manifestation of diffuse attention, where people do not so much attend to individual features in the periphery, but rather do so more holistically.
 Both cognitive modeling and structural equation modeling can help to illuminate such phenotypes and how they affect performance across traditional EF tasks.
 
 Integrating deficit and adaptation frameworks also requires quantifying support in favor of the null hypothesis (i.e., intact ability), rather than only against the null hypothesis (i.e., impaired or enhanced ability) [@harms_2013; @lakens_2018].
 Cognitive adaptations may not always lead to enhancements, but could also translate to intact ability, especially when performance is simultaneously influenced by deficits [@bignardi_2024; @young_2024].
-Using practical equivalence testing, I found some evidence for intact specific abilities after accounting for task-general processing speed, especially in Chapter 2.
+Using practical equivalence testing, I find some evidence for intact specific abilities after accounting for task-general processing speed, especially in Chapter 2.
 Equally importantly, in many cases I found inconclusive results, with evidence supporting neither adversity-related differences nor practical equivalence.
 Throughout, I have used a standardized effect of 0.1 as the cut-off for practical equivalence, with effects smaller than 0.1 considered practically equivalent to zero.
 This cut-off is arbitrary: some small effects can have a substantial impact on the population level, and conversely, some effects above 0.1 may not be all that meaningful.
@@ -224,10 +226,9 @@ As researchers learn more about which effects sizes are associated with meaningf
 ## Better understanding content and context effects on EF performance
 
 Some developmental psychologists argue that abstract EF tasks may disadvantage people from more disadvantaged backgrounds, e.g., due to less formal education [@doebel_2020; @frankenhuis_2020; @miller_cotto_2022; @niebaum_2023].
-Common EF tasks may disadvantage children from minority groups because they were developed for, and normed based on children from majority groups [@miller_cotto_2022
-].
+Common EF tasks may disadvantage children from minority groups because they were developed for, and normed based on children from majority groups [@miller_cotto_2022].
 Children from minority groups may in part perform lower because EF tasks are divorced from their everyday experiences and cultural and social norms. 
-They involve unfamiliar researchers and test settings that look nothing like the environments they are used to [@doebel_2020].
+They involve unfamiliar researchers and test settings that are unlike the environments they are used to [@doebel_2020].
 From an adaptive perspective, it has been argued that people may perform best when task conditions, including the stimuli that are used, match the conditions in which they developed their cognitive abilities [@frankenhuis_2020].
 Consistent with this idea, real-world content has been found to affect performance on EF tasks, and in some cases this effect is larger for people with more exposure to adversity [@young_2022].
 Finally, abstract testing conditions may even lower children's willingness to *engage* EF, for instance, because the task does not seem relevant or because it does not seem worth the effort [@niebaum_2023].
@@ -236,7 +237,7 @@ Thus, to understand the effect of adversity on EF performance, we may need to un
 Although it is important to develop more equitable and valid EF tasks, such tasks risk the same psychometric limitations that have been central in my dissertation.
 Researchers should not assume that more ecologically relevant tasks are less susceptible to the influence of general processes and speed-accuracy trade-offs.
 For instance, different types of content could affect performance through different pathways: it may influence general processes, specific abilities, response caution, or a combination of these and other factors. 
-In any case, cognitive modeling and structural equation modeling can play a key role in better understanding which cognitive processes are affected by different types of task manipulations.
+Cognitive modeling and structural equation modeling can play a key role in better understanding which cognitive processes are affected by different types of task manipulations.
 
 To focus on one example, cognitive modeling can illuminate which dimensions of stimulus content are responsible for closing (or widening) performance gaps.
 One key dimension may be how *familiar* the content is to the person taking the test, that is, the extent to which a stimulus has been encountered before [@niebaum_2023].

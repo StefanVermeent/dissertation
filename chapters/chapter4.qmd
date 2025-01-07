@@ -162,14 +162,14 @@ Similarly, children with more caregiver switches (an indicator of unpredictabili
 Performance on attention tasks could reflect developmental adaptation to adverse environments [@blair_2012; @dangiulli_2012a; @frankenhuis_2020; @mittal_2015].
 In unpredictable or threatening conditions, the ability to detect salient peripheral information (e.g., distant noises or approaching individuals) could help to more quickly detect and act on potential threats.
 Over time, cognitive adaptations to such conditions could result in a general tendency to use a more diffuse scope of attention, leading to an enhanced ability to keep track of the broader environment.
-In line with this hypothesis, people with lower SES respond more strongly to auditory distractors [@giuliano_2018; @stevens_2009; @hao_2022] and are faster to orient their attention to peripheral visual information [@mezzacappa_2004].
+In line with this hypothesis, people with lower SES respond more strongly to auditory distractors [@giuliano_2018; @stevens_2009; @hao_2024] and are faster to orient their attention to peripheral visual information [@mezzacappa_2004].
 While potentially adaptive, a more diffuse scope of attention could come at the cost of lowered ability to ignore irrelevant distractors.
 This could compromise longer-term goal-directed behavior, especially in chaotic environments (e.g., a noisy classroom or a busy street).
 
 Thus, lowered performance on tasks like the Flanker task could reflect either a cognitive impairment or a difference in attentional strategies.
 Distinguishing between these two possibilities is challenging for two reasons.
 First, few studies in the adversity literature have measured performance differences on different attention tasks within the same individual [@mezzacappa_2004; @mittal_2015].
-Thus, it is unclear whether lowered inhibition is related to enhanced processing of peripheral information in people from from adverse backgrounds.
+Thus, it is unclear whether lowered inhibition is related to enhanced processing of peripheral information in people from adverse backgrounds.
 Second, performance on inhibition tasks is---beyond the ability to inhibit distractors---also influenced by other factors, such as a person's general processing speed and response caution [@hedge_2022; @loffler_2024].
 This means that lowered performance on inhibition tasks does not necessarily reflect inhibition difficulties.
 In other words, we should consider cognitive processes other than ability when drawing inferences based on inhibition tasks.
@@ -209,7 +209,7 @@ Finally, the *starting point* represents a potential bias towards one of two res
 
 The Shrinking Spotlight (SSP) model is an extension of the standard DDM to account for attention processes in the Flanker task [@grange_2016; @white_2018a; @white_2018b; @white_2011].
 The SSP model assumes that attention resembles a spotlight that is normally distributed over the Flanker task arrows (with a particular starting *attentional width*).
-Over time, people narrow their attention down to the central arrow (at a rate defined by the *shrinking rate*), thereby gradually decreasing interference from irrelevant information [cf\. @eriksen_1986\; see Figure 4.1b).
+Over time, people narrow their attention down to the central arrow (at a rate defined by the *shrinking rate*), thereby gradually decreasing interference from irrelevant information [cf. @eriksen_1986\; see Figure 4.1b].
 Prior work has defined the amount of distractor *interference* by dividing the attentional width by the shrinking rate [@white_2018a].
 People may experience less interference either by starting with a narrower attentional width, and/or by more rapidly shrinking their attention down to the target arrow.
 Finally, performance is also influenced by the *perceptual input* strength; that is, how well someone can process the arrows in general.
@@ -462,7 +462,7 @@ For interference, non-normality was caused by extreme outliers (\>3.2SD), which 
 ## Results and discussion
 
 Table 4.3 summarizes the results.
-In the flanker task, More violence exposure was associated with lower strength of perceptual input under `r pilot_main_eff_ddm_list$Flanker_p$p_sum_Main`% of multiverse specifications (although the median 95% CI interval contained zero).
+In the flanker task, more violence exposure was associated with lower strength of perceptual input under `r pilot_main_eff_ddm_list$Flanker_p$p_sum_Main`% of multiverse specifications (although the median 95% CI interval contained zero).
 We additionally found a significant main effect of violence exposure on interference under `r pilot_main_eff_ddm_list$Flanker_interference$p_sum_Main`% of multiverse specifications, such that more violence exposure was associated with less interference.
 This was contrary to our expectation that people exposed to adversity would have more difficulties dealing with interference from irrelevant distractors.
 
@@ -770,7 +770,7 @@ Similarly, unpredictability was associated with a lower quality of perceptual in
 #| dpi: 600
 #| out-height: 7in
 #| fig-cap: | 
-#|   **Figure 4.2.** Multiverse results for the association between violence exposure with the strength of perceptual input and interference in the Flanker across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The Fourth row depicts effect curves of the pooled analyses across all studies.
+#|   **Figure 4.2.** Multiverse results for the association between violence exposure with the strength of perceptual input and interference in the Flanker across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The fourth row depicts effect curves of the pooled analyses across all studies.
 knitr::include_graphics("figures/chapter4/fig2.png")
 ```
 
@@ -782,7 +782,7 @@ knitr::include_graphics("figures/chapter4/fig2.png")
 #| out-height: 7in
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure 4.3.** Multiverse results for the association between unpredictability with the strength of perceptual input and interference in the Flanker task across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The Fourth row depicts effect curves of the pooled analyses across all studies.
+#|   **Figure 4.3.** Multiverse results for the association between unpredictability with the strength of perceptual input and interference in the Flanker task across all studies. Each panel depicts sorted beta coefficients across all combinations of arbitrary decisions (i.e., the effect curve across the whole multiverse). The top row depicts effect curves in the Pilot study. The second row depicts effect curves in Study 1. The third row depicts effect curves in Study 2. The fourth row depicts effect curves of the pooled analyses across all studies.
 knitr::include_graphics("figures/chapter4/fig3.png")
 ```
 
@@ -836,7 +836,7 @@ See Table A2.2 for an overview of the correlations.
 Impulsivity was negatively associated with the strength of perceptual input (*r* = -.07, *p* = .004) and positively associated with interference (*r* = .09, *p* = .005). 
 In addition, impulsivity was also associated with a more holistic information processing style (*r* = .11, *p* = .020). 
 Thus, more impulsive participants processed information less deeply and were more easily drawn to distractions, but this might partly be explained by a holistic information processing style.
-Similarly, future-orientation was positively associated with perceptual input (*r* = .09 *p* < .001)—--but not with interference (*p* = .112) —--in the Flanker task, and was also associated with a more detail-oriented processing style (*r* = -.12, *p* = .011). 
+Similarly, future-orientation was positively associated with perceptual input (*r* = .09 *p* < .001)---but not with interference (*p* = .112)---in the Flanker task, and was also associated with a more detail-oriented processing style (*r* = -.12, *p* = .011). 
 Thus, more future-oriented participants processed information more deeply, which might partly be explained by a detail-oriented processing style.
 
 # 4.6 General discussion
@@ -857,8 +857,6 @@ More childhood exposure to violence was associated with slower processing of sub
 It was not associated with speed of processing of peripheral information in the Cued Attention task.
 Zooming in in the Flanker task, our two main studies found mixed evidence for the hypotheses that violence exposure and unpredictability were associated with lower strength of perceptual input.
 This mixed evidence suggests that people with more exposure to these adversities process information less deeply, leading to slower responses on congruent and incongruent trials in equal measure.
-
-which would affect both the processing of distractor and target information. making it more difficult to make judgments about target and distractor information in equal measure.
 This was corroborated by the pooled analyses across studies, which found that both exposure to violence and unpredictability were associated with lower strength of perceptual input, but not with differences in the ability to inhibit distractors.
 This finding contradicts the standard deficit interpretation of lowered performance on inhibition tasks by people with more adversity exposure (discussed below).
 In addition, lowered strength of perceptual input was associated with a holistic processing style.

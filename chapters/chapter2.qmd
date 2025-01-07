@@ -62,12 +62,6 @@ set_flextable_defaults(
 )
 ```
 
-```{=typst}
-#pagebreak(
-  to: "even"
-)
-```
-
 \ 
 
 ```{=typst}
@@ -201,7 +195,7 @@ As mentioned earlier, adversity-related raw performance differences---both lower
 If these interpretations are accurate, then drift rate would reflect these variations.
 That is because improved ability would result in both decreased RTs and increased accuracy.
 However, if performance differences arise through other factors---such as differences in response caution or response speed---they would be captured by parameters other than the drift rate.
-Thus, disentangling the drift rate, non-decision time, and boundary separation enhances our understanding of how adversity-exposure is associated with performance.
+Thus, disentangling the drift rate, non-decision time, and boundary separation enhances our understanding of how adversity exposure is associated with performance.
 
 ## Are deficit and enhancement patterns task-specific or task-general?
 
@@ -305,7 +299,7 @@ The data processing steps described below were preregistered unless noted otherw
 
 First, we removed RTs of the Attention Shifting, Flanker, and Mental Rotation Tasks that exceeded maximum task-specific RT thresholds (\> 10 seconds (`r ch2_exclusions$dccs_trial$ex_RT_above_10`%), \> 10 seconds (`r ch2_exclusions$flanker_trial$ex_RT_above_10`%), and  \> 5 seconds (\< 0.01% of trials), respectively).
 The Processing Speed Task did not have a programmed time-out.
-Instead, we cut-off responses \> 10 seconds (`r ch2_exclusions$pcps_trial$ex_RT_above_10`% of trials) to remove extreme outliers.
+Instead, we cut off responses \> 10 seconds (`r ch2_exclusions$pcps_trial$ex_RT_above_10`% of trials) to remove extreme outliers.
 This step was not preregistered as we did not anticipate these extreme outliers.
 
 Next, we removed trials with: (1) RTs \< 300 ms (ranging from `r min(as.numeric(c(ch2_exclusions$lmt_trial$ex_fast_RT,ch2_exclusions$flanker_trial$ex_fast_RT,ch2_exclusions$dccs_trial$ex_fast_RT,ch2_exclusions$pcps_trial$ex_fast_RT,ch2_exclusions$picvoc_trial$ex_fast_RT)))`% to `r max(as.numeric(c(ch2_exclusions$lmt_trial$ex_fast_RT,ch2_exclusions$flanker_trial$ex_fast_RT,ch2_exclusions$dccs_trial$ex_fast_RT,ch2_exclusions$pcps_trial$ex_fast_RT,ch2_exclusions$picvoc_trial$ex_fast_RT)))`% of trials across tasks); (2) RTs \> 3 *SD* above the participant-level average log-transformed mean RT (ranging from `r min(as.numeric(c(ch2_exclusions$lmt_trial$ex_slow_RT,ch2_exclusions$flanker_trial$ex_slow_RT,ch2_exclusions$dccs_trial$ex_slow_RT,ch2_exclusions$pcps_trial$ex_slow_RT,ch2_exclusions$picvoc_trial$ex_slow_RT)))`% to `r max(as.numeric(c(ch2_exclusions$lmt_trial$ex_slow_RT,ch2_exclusions$flanker_trial$ex_slow_RT,ch2_exclusions$dccs_trial$ex_slow_RT,ch2_exclusions$pcps_trial$ex_slow_RT,ch2_exclusions$picvoc_trial$ex_slow_RT)))`% of trials across tasks; the same thing was done for RTs < 3 SD on the Processing Speed Task (not preregistered) to remove several fast outliers); (3) trials with missing response times and/or accuracy data (\< 0.01% for all tasks except Mental Rotation). We found that the response time-out of 5 seconds on the Mental Rotation Task led to missing responses on `r ch2_exclusions$lmt_trial$ex_missing_response`% of trials. 
@@ -314,7 +308,7 @@ Therefore, we decided to impute these values during DDM estimation instead of re
 
 Next, we excluded participants who (1) had suffered possible mild traumatic brain injury or worse (*n* = `r smallNum(ch2_exclusions$lmt_participant$ex_tbi)`); (2) showed a response bias of \> 80% on a task (ranging between `r smallNum(min(as.numeric(c(ch2_exclusions$lmt_participant$ex_response_biases,ch2_exclusions$flanker_participant$ex_response_biases,ch2_exclusions$pcps_participant$ex_response_biases,ch2_exclusions$dccs_participant$ex_response_biases))))` and `r smallNum(max(as.numeric(c(ch2_exclusions$lmt_participant$ex_response_biases,ch2_exclusions$flanker_participant$ex_response_biases,ch2_exclusions$pcps_participant$ex_response_biases,ch2_exclusions$dccs_participant$ex_response_biases))))`; deviating from the preregistration); (3) had a low number of trials left after trial-level exclusions, defined as \< 20 trials for Mental Rotation and Attention Shifting (*n* = `r smallNum(ch2_exclusions$lmt_participant$ex_below_20_trials)` and `r smallNum(ch2_exclusions$dccs_participant$ex_below_20_trials)`, respectively) and \< 15 trials for Flanker and Processing Speed (*n* = `r ch2_exclusions$flanker_participant$ex_below_15_trials` and `r smallNum(ch2_exclusions$pcps_participant$ex_below_15_trials)`, respectively, deviating from the preregistration).
 Finally, we excluded task data of several participants based on data inspection (not preregistered): `r smallNum(ch2_exclusions$lmt_participant$ex_0_accuracy)` participant with 0% accuracy on the Mental Rotation Task; `r smallNum(ch2_exclusions$pcps_participant$ex_decreasing_effort)` participants who showed a sharp decline in accuracy over time on the Processing Speed Task; `r smallNum(ch2_exclusions$dccs_participant$ex_switching_bias)` participants on the Attention Shifting Task who (almost) only made switches across all trials, even on repeat trials.
-We also decided to include participants with missing data on one or more tasks because our main analyses will use FIML for missing data.
+We also decided to include participants with missing data on one or more tasks because our main analyses used FIML for missing data.
 
 The final sample consisted of `r ch2_descriptives$postcleaning_n$full_n_trial` participants (See Table 2.1).
 
@@ -328,19 +322,19 @@ ch2_table1 |>
     part = "header"
   ) |> 
   padding(
-    i = 1:10,
-    j = 1:3,
-    padding.top = 3,
-    padding.bottom = 3,
-    part = "body"
-  ) |> 
+  i = 1:10,
+  j = 1:3,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "body"
+) |> 
   padding(
-    i = 1:2,
-    j = 1:3,
-    padding.top = 3,
-    padding.bottom = 3,
-    part = "header"
-  )
+  i = 1:2,
+  j = 1:3,
+  padding.top = 3,
+  padding.bottom = 3,
+  part = "header"
+)
 ```
 
 ## Measures
@@ -393,7 +387,7 @@ Higher scores indicate more material deprivation.
 **Household threat.** We assessed threat experienced in the youth's home using the Family Conflict subscale of the ABCD Family Environment Scale [@moos_1994; @zucker_2018].
 The subscale consisted of nine items assessing conflict with family members (e.g., 'We fight a lot in our family').
 Items were endorsed with either 1 (True) or 0 (False).
-Two items are positively valenced and will therefore be reverse-scored.
+Two items were positively valenced and were therefore reverse-scored.
 Similar to material deprivation, we used a previously-created factor score of this measure derived from MNLFA [@dejoseph_2022].
 Higher scores indicate more threat exposure.
 
@@ -416,26 +410,28 @@ The approved Stage 1 Protocol for this manuscript can be found on the Open Scien
 Before conducting analyses, we split the full sample up in a training set (*n* = 1,500) and a test set (*n* \≈ 8,500).
 We conducted our main analyses in three steps (see Figure 2.2): (1) fitting the DDM to the cognitive task data; (2) fitting the SEM model to the adversity and DDM data and optimize it where necessary based on the training set; (3) Refitting the model to the test data and interpret the regression coefficients.
 We conducted a simulation-based power analysis based on the main SEM model (see Figure 2.3), with standardized regression coefficients of 0.06, 0.08 and 0.1 and the alpha level set to .05.
-The analysis indicated that we would have more than 90% power for all regression paths with *N* between 2,500 ($\beta$ = 0.1) and 6,500 ($\beta$ = 0.06).
+The analysis indicated that we would have more than 90% power for all regression paths with *N* between 2,500 ($\beta$ = 0.1) and 6,500 ($\beta$ = 0.06) (see Figure A1.2) .
 
 ```{r}
 #| label: figure2.2
 #| fig-width: 5
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure 2.2.** Visual overview of the full analysis workflow. Analyses are done in two stages: (1) prior to Stage 1 submission of the manuscript, and (2) after Stage 1 in-principle acceptance. Analyses at Stage 1 only focus on the cognitive task data. Independent variables (i.e., threat and deprivation measures) will only be accessed during Stage 2 after all DDM models have been fit, and only for the test set after the model has been optimized based on the training set. Data access will be tracked via the GitHub repository. IV = independent variable; SEM = structural equation modeling; DDM = Drift Diffusion Model. 
+#|   **Figure 2.2.** Visual overview of the full analysis workflow. Analyses were done in two stages: (1) prior to Stage 1 submission of the manuscript, and (2) after Stage 1 in-principle acceptance. Analyses at Stage 1 only focused on the cognitive task data. Independent variables (i.e., threat and deprivation measures) were only accessed during Stage 2 after all DDM models had been fit, and only for the test set after the model had been optimized based on the training set. Data access was tracked via the GitHub repository. IV = independent variable; SEM = structural equation modeling; DDM = Drift Diffusion Model. 
 knitr::include_graphics("figures/chapter2/fig2.png")
 ```
 
 All analyses were conducted in R 4.2.1 [@Rcoreteam_2022].
-The source code can be found on the Github repository ([https://stefanvermeent.github.io/abcd_ddm/scripts/README.html](https://stefanvermeent.github.io/abcd_ddm/scripts/README.html
-)).
+The source code can be found on the Github repository ([https://stefanvermeent.github.io/abcd_ddm/scripts/README.html](https://stefanvermeent.github.io/abcd_ddm/scripts/README.html)).
 
 **Step 1: DDM estimation.** The DDM was fit to each cognitive task in a hierarchical Bayesian framework which estimates DDM parameters both on the individual and group level [@vandekerckhove_2011; @wiecki_2013].
-We use code provided by @johnson_2017.
+We used code provided by @johnson_2017.
 The benefit of this approach is that group-level information is leveraged to estimate individual-level estimates.
 This differs from classic DDM estimation approaches where the model is fitted to the data of each participant separately [@voss_2013].
-This is particularly useful in developmental samples like the ABCD dataset which have a limited number of trials per participant but substantially larger sample sizes than is typical in the DDM literature^5^.
+This is particularly useful in developmental samples like the ABCD dataset which have a limited number of trials per participant but substantially larger sample sizes than is typical in the DDM literature.
+We ran parameter recovery studies simulating data based on the Inhibition task, which has the lowest overall number of trials. 
+Parameter recovery was excellent for the scenario that we planned in our main analyses (all *r*s ≥ .84). 
+See the supplemental materials for more details.
 
 All models freely estimated the drift rate, non-decision time, and boundary separation while constraining response bias to 0.5 (i.e., assuming no bias towards a particular response option).
 For the Flanker and Attention Shifting Task, we compared model versions that separately estimate drift rate and non-decision-time per task condition or collapsed across conditions.
@@ -445,7 +441,7 @@ The best-fitting model of each task was used to estimate participant-level DDM p
 See the supplement for more information about model fitting procedures.
 
 **Step 2: Model optimization in training set.** We first estimated and (where necessary) optimized the SEM in the training set using the *lavaan* package [@rosseel_2012].
-This goal of this step was to investigate whether we needed to adjust the model specification in any way (e.g., add residual correlations, introduce or reduce constraints of factor loadings, etc.) to achieve good model fit.
+The goal of this step was to investigate whether we needed to adjust the model specification in any way (e.g., add residual correlations, introduce or reduce constraints of factor loadings, etc.) to achieve good model fit.
 For this reason, the model fitted in this step was not interpreted to address our research aims.
 
 See Figure 2.3 for the *a-priori* specification of the model.
@@ -647,7 +643,7 @@ Our results align to some extent with two recent investigations.
 First, @bignardi_2024 conducted a study in three large datasets---among which the ABCD study---in which they used SEM to separate task-general variance from task-specific variance.
 They found that SES was positively associated with lower task-general performance in all datasets, but after accounting for task-general performance, found many instances of practically equivalent performance.
 Interestingly, they found negative associations (meaning better performance) between SES and the Flanker and Attention Shifting Task in the ABCD data.
-Second, @young_2023 examined associations between SES and unpredictability with performance on an achievement task battery, comparing specific subtasks to overall performance across tasks. 
+Second, @young_2024 examined associations between SES and unpredictability with performance on an achievement task battery, comparing specific subtasks to overall performance across tasks. 
 Similar to our findings, lower SES was associated with lower overall performance, but with intact (or even enhanced) performance on most specific subtasks, relative to the overall effect. 
 However, these studies did not separate cognitive abilities from other processes such as response caution.
 
@@ -708,3 +704,7 @@ Our analytical approach provides a solution.
 By combining DDM and SEM approaches, we can start to develop a more nuanced understanding of how adversity affects different aspects of cognitive performance among youth and across development.
 This approach requires large datasets containing multiple cognitive tasks, a requirement that is increasingly feasible with the availability of large, secondary datasets in developmental science [@kievit_2022].
 Thus, we can develop a more balanced, well-rounded understanding of how adversity shapes cognitive development that integrates both deficit and adaptation perspectives.
+
+```{=typst}
+#pagebreak()
+```

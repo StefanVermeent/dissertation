@@ -66,6 +66,9 @@ list.files('functions', full.names = TRUE) |>
 #pagebreak()
 ```
 
-
+{{< include chapters/supplements/appendix1.qmd >}}
+{{< include chapters/supplements/appendix2.qmd >}}
+{{< include chapters/supplements/appendix3.qmd >}}
+{{< include chapters/supplements/appendix4.qmd >}}
 
 {{< include chapters/backmatter/dutch_summary.qmd >}}

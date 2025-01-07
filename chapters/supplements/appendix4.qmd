@@ -71,7 +71,7 @@ Pilot data were collected sequentially to allow for intermediate changes to inst
 The first session (including the Operation Span Task and the Binding-Updating Task) took approximately 35 minutes to complete, and participants were paid 5.25 GBP.
 The second session (including the Rotation Span Task) took approximately 9 minutes to complete, and participants were paid 1.50 GBP.
 
-Table S1 presents bivariate correlations among the WM tasks, and between the WM tasks and measures of adversity.
+Table A4.1 presents bivariate correlations among the WM tasks, and between the WM tasks and measures of adversity.
 The WM tasks correlated moderately to strongly with each other.
 The strongest correlation was between the Binding and Updating score (.80).
 This is not surprising given that both scores are derived from the same task, and shows the importance of accounting for this association in the model.
@@ -126,7 +126,7 @@ Each model included the same independent variables and covariates as the primary
 We adjusted for multiple testing across models involving the Rotation Span Task, Operation Span Task, and the binding trials of the Binding-Updating Task, and separately for the updating trials of the Binding-Updating Task, as the former three tasks are primarily conceptualized as WM capacity tasks.
 We also tested for practical equivalence in the same way as for the confirmatory analyses
 
-The results are summarized in Figure 6.
+The results are summarized in Figure A4.1.
 Threat was negatively associated with performance on the Rotation Span Task ($\beta$ = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "rspan") |> pull(estimate) |> formatC(digits = 2, width = 2, format = 'f')`, *p* = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "rspan") |> pull(pvalue_adj) |> formatC(digits = 3, width = 3, format = 'f') |> str_remove(string = _, pattern = "^0")`), Operation Span Task ($\beta$ = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "Ospan") |> pull(estimate) |> formatC(digits = 2, width = 2, format = 'f')`, *p* = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "Ospan") |> pull(pvalue_adj) |> formatC(digits = 3, width = 3, format = 'f') |> str_remove(string = _, pattern = "^0")`), and binding trials of the Binding-Updating Task ($\beta$ = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "binding") |> pull(estimate) |> formatC(digits = 2, width = 2, format = 'f')`, *p* = `r ch5_lm_reg_coef_expl |> filter(term == "threat_comp", task == "binding") |> pull(pvalue_adj) |> formatC(digits = 3, width = 3, format = 'f') |> str_remove(string = _, pattern = "^0")`).
 Unpredictability in perceived scarcity was positively associated with performance on the Rotation Span Task ($\beta$ = `r ch5_lm_reg_coef_expl |> filter(term == "p_scar_cv", task == "rspan") |> pull(estimate) |> formatC(digits = 2, width = 2, format = 'f')`, *p* = `r ch5_lm_reg_coef_expl |> filter(term == "p_scar_cv", task == "rspan") |> pull(pvalue_adj) |> formatC(digits = 3, width = 3, format = 'f') |> str_remove(string = _, pattern = "^0")`).
 None of the types of adversity were significantly associated with performance on the updating trials of the Binding-Updating Task.
@@ -147,13 +147,10 @@ ch5_fig6
 
 ### Bayes Factors for equivalence tests
 
-We calculated Bayes factors for the preregistered equivalence tests using the *bain* package [@hoijtink_2019].
-We evaluated evidence in favor of the hypothesis that the regression coefficients fell within the equivalence bounds ($\beta$ ≤ -0.1 and $\beta$ ≥ 0.1)
-
-Third, as a robustness check, we calculated Bayes factors for the preregistered equivalence tests using the *bain* package [@hoijtink_2019], in which we evaluated evidence in favor of the hypothesis that the effects fell within the equivalence bounds, relative to the hypothesis that the effects fell outside the equivalence bounds.
-The results are summarized in Table S3.
-For all but one association, the model comparisons showed at least strong evidence in favor of the hypothesis that the effects fell within the equivalence bounds (BF~10~ ranging between `r ch5_BF_expl04 |> filter(Hypothesis != '-0.1 < (WM capacity ~ Threat) > 0.1') |> pull(BF.c) |> min()` and `r ch5_BF_expl04 |> filter(Hypothesis != '-0.1 < (WM capacity ~ Threat) > 0.1') |> pull(BF.c) |> max()`.
-The only exception was the association between threat and WM capacity, for which we found moderate evidence for the hypothesis that the effect fell within the equivalence bounds (BF~10~ = `r ch5_BF_expl04 |> filter(Hypothesis == '-0.1 < (WM capacity ~ Threat) > 0.1') |> pull(BF.c)`.
+As a robustness check, we calculated Bayes factors for the preregistered equivalence tests using the *bain* package [@hoijtink_2019], in which we evaluated evidence in favor of the hypothesis that the effects fell within the equivalence bounds, relative to the hypothesis that the effects fell outside the equivalence bounds.
+The results are summarized in Table A4.3.
+For all but one association, the model comparisons showed at least strong evidence in favor of the hypothesis that the effects fell within the equivalence bounds (BF~10~ ranging between `r ch5_BF_expl04 |> filter(Hypothesis != '-0.1 < (WM capacity ~ Threat) < 0.1') |> pull(BF.c) |> min()` and `r ch5_BF_expl04 |> filter(Hypothesis != '-0.1 < (WM capacity ~ Threat) < 0.1') |> pull(BF.c) |> max()`.
+The only exception was the association between threat and WM capacity, for which we found moderate evidence for the hypothesis that the effect fell within the equivalence bounds (BF~10~ = `r ch5_BF_expl04 |> filter(Hypothesis == '-0.1 < (WM capacity ~ Threat) < 0.1') |> pull(BF.c)`.
 Thus, these results were inconsistent with the preregistered frequentist equivalent tests.
   
 ```{r}
@@ -250,7 +247,7 @@ ch5_threat_combn_hist
 #| fig-height: 4
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A4.5.** Histograms for unpredictability in measures of perceived scarcity over time (coefficient of change).
+#|   **Figure A4.5.** Histograms for unpredictability in measures of perceived scarcity over time (coefficient of variation).
 ch5_p_scar_cv_combn_hist
 ```
 
@@ -260,7 +257,7 @@ ch5_p_scar_cv_combn_hist
 #| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A4.6.** Histograms for unpredictability in the income-to-needs ratio over time (coefficient of change).
+#|   **Figure A4.6.** Histograms for unpredictability in the income-to-needs ratio over time (coefficient of variation).
 ch5_inr_cv_hist
 ```
 

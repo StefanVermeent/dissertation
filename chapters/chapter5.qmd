@@ -89,7 +89,7 @@ set_flextable_defaults(
 #pagebreak()
 ```
 
-# 2.0 Abstract
+# 5.0 Abstract
 
 Decades of research show that adversity tends to be associated with lower working memory (WM) performance. 
 This literature has mainly focused on impairments in the capacity to hold information available in WM for further processing.
@@ -321,7 +321,7 @@ We computed a variety score by summing the exposures to *unique* types of crime 
 Thus, if a participants reported exposure to the same type of crime on separate waves, this counted as one exposure in the total score [@sweeten_2012].
 
 **Neighborhood threat composite.** We first computed an average across time for each measure separately (i.e., the two measures of neighborhood crime and the measure of crime victimization).
-Because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2 = .20).
+Because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2^ = .20).
 The threat component was most strongly determined by the Neighborhood Violence Scale (`r ch5_pca_threat_fit$loadings[3] |> formatC(digits = 2, width = 2, format = 'f')`), followed by the perceived neighborhood crime scale from the LISS archive (`r ch5_pca_threat_fit$loadings[1] |> formatC(digits = 2, width = 2, format = 'f')`) and crime victimization (`r ch5_pca_threat_fit$loadings[2] |> formatC(digits = 2, width = 2, format = 'f')`).
 
 ### Material deprivation
@@ -352,8 +352,8 @@ We computed unpredictability over time in perceived scarcity using the coefficie
 The mean and standard deviation in income have been found to be strongly positively correlated, indicating that people with lower incomes tend to experience less variability in income [@li_2018; @young_2024].
 For that reason, the standard deviation alone has been called into question as a measure of adversity, as the same fluctuation in income can have a greater relative impact for people close to the poverty line than for people with high incomes.
 
-We first computed the standard deviation across time for each item separately.
-because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2 = .38).
+We first computed the coefficient of variation across time for each item separately.
+because correlations were below .60 (see Table 5.2), we then used PCA to extract only the first principal component score (R^2^ = .38).
 The perceived unpredictability component was almost fully determined by the item about people's current situation (`r ch5_pca_p_scar_fit$loadings[3] |> formatC(digits = 2, width = 2, format = 'f')`), followed by difficulties to live off income (`r ch5_pca_p_scar_fit$loadings[2] |> formatC(digits = 2, width = 2, format = 'f')`) and financial troubles (`r  ch5_pca_p_scar_fit$loadings[1] |> formatC(digits = 2, width = 2, format = 'f')`).
 
 **Income-to-needs (SD/mean).** Similar to perceived scarcity, we computed unpredictability over time in the income-to-needs ratio using the coefficient of variation.
@@ -388,7 +388,7 @@ ch5_table2 |>
   border(i = 20, border.bottom = fp_border_default(), part = "body") %>% 
   flextable::compose(
     i = 1, j = 1, 
-    as_paragraph(as_i("Note: "), "* = ", as_i("p"), " < .05, ** = ", as_i("p"), " < .01, *** = ", as_i("p"), " < .001. ", "CV = coefficient of variance, INR = income-to-needs ratio, M = mean, Perc. Scarcity = perceived scarcity"), 
+    as_paragraph(as_i("Note: "), "* = ", as_i("p"), " < .05, ** = ", as_i("p"), " < .01, *** = ", as_i("p"), " < .001. ", "CV = coefficient of variation, INR = income-to-needs ratio, M = mean, Perc. Scarcity = perceived scarcity"), 
     part = "footer"
   ) |>  
   padding(
@@ -425,7 +425,7 @@ The WM tasks were all part of the newly collected data.
 All materials and scripts for the cognitive tasks can be found at [https://stefanvermeent.github.io/liss_wm_profiles_2023/materials/README.html](https://stefanvermeent.github.io/liss_wm_profiles_2023/materials/README.html).
 Prior to collecting LISS data, we conducted a pilot study among in a Dutch sample (*N* = 100) through Prolific Academic.
 The main goals of this pilot study were to collect participant feedback (e.g., difficulty of instructions, whether we included sufficient breaks) and to analyze performance and correlations between tasks.
-The results of this pilot study are described in more detail in the Supplemental Materials [https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html](https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html).
+The results of this pilot study are described in more detail in the Supplemental Materials ([https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html](https://stefanvermeent.github.io/liss_wm_profiles_2023/supplement/README.html)).
 
 **Operation Span Task.** The Operation Span Task (Figure 5.3A) is a common measure of WM capacity [@conway_2005; @wilhelm_2013].
 In this task, participants alternate between a primary memorization task and a secondary processing task.
@@ -489,7 +489,7 @@ knitr::include_graphics("figures/chapter5/fig3.png")
 
 ## Procedure
 
-We received ethical approval from the first author's institutional ethical board.
+We received ethical approval from the Ethics Review Board of the Faculty of Social & Behavioral Sciences of Utrecht University (FETC20-490).
 Upon starting the study, participants were informed that the study could only be completed on a laptop or desktop PC.
 If they attempted to start the study on a tablet or smartphone, they were unable to advance and prompted to switch to a suitable device.
 Participants started with the WM tasks, which on average took between 20 and 25 minutes.
@@ -510,7 +510,7 @@ The Stage 1 protocol of this Registered Report can be found at [https://osf.io/d
 
 ### Data access
 
-The working memory data and one of the neighborhood threat indices were collected through October-December 2023, prior to submitting the Stage 1 protocol.
+The working memory data and one of the neighborhood threat indices were collected between October 2023 and February 2024, prior to submitting the Stage 1 protocol.
 These data were only made available to the first author after Stage 1 acceptance, as stipulated in a signed contract with LISS.
 During planning of the study, the first author accessed the LISS data archive and inspected three waves of the LISS data containing the items about neighborhood safety and crime exposure, as well as the three most recent monthly data collections containing basic demographic info.
 The purpose was to ascertain the number of individuals who had finished the previous waves in the LISS data archive and were presently still participating in the panel (i.e., to see if we could reasonably create a link between the LISS data archive and newly collected data). 
@@ -539,7 +539,7 @@ First, we constructed the measurement model of WM, without including the adversi
 This step was planned to be carried out prior to accessing any of the adversity measures.
 Once we obtained at least acceptable model fit, we accessed and added the adversity measures to the model.
 This procedure was tracked and timestamped on the GitHub repository using the procedure outlined above.
-We controlled for multiple testing using the false discovery rate [@benjamini_1995; @cribbie_2007].
+We controlled for multiple testing across adversity measures, but separately for each outcome measure, using the false discovery rate [@benjamini_1995; @cribbie_2007].
 
 To statistically test whether small effects were practically equivalent to zero we used Two One-Sided T-tests (TOST) equivalence testing [@lakens_2018], using -0.1 and 0.1 as equivalence bounds.
 TOST equivalence testing allows us to conclude practically equivalent performance based on a significant effect, rather than erroneously interpreting a non-significant effect as evidence for the absence of an effect.
@@ -614,7 +614,7 @@ In the Stage 1 protocol, we planned to first access the dependent variables to c
 Due to an unintended error, the first author already accessed the datasets containing the measures that would be used to compute the independent variables before finalizing the SEM.
 However, beyond reading them into the R environment, these data were not yet inspected, manipulated, or summarized. 
 We contacted the PCI recommender upon finding out about this deviation, and agreed to describe this deviation as done here.
-For the sake of transparency, we timestamped the scripts for processing the independent variables at the moment of this unintended data access (<https://github.com/StefanVermeent/liss_wm_profiles_2023/blob/d143e551018ba27313643a15bed57f329974272d/scripts/2_pipeline/1_ivs.R>).
+For the sake of transparency, we timestamped the scripts for processing the independent variables at the moment of this unintended data access (<https://github.com/StefanVermeent/liss_wm_profiles_2023/blob/d143e55/scripts/2_pipeline/1_ivs.R>).
 They contain the code to read in the data, but no code yet for any type of data cleaning or variable computation.
 
 # 5.4 Discussion

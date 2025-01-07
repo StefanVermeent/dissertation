@@ -504,10 +504,6 @@ study2_ssp_fit_rt
 study2_ssp_fit_acc
 ```
 
-**Global-Local Task**
-
-XXX
-
 ## Section 4. Deviations from preregistrations
 
 In this section, we provide a numbered overview of the deviations from the preregistration in each study.

@@ -102,7 +102,7 @@ We generated population models with beta coefficients of 0.06, 0.08 and 0.1, and
 Each combination of coefficients and sample sizes was repeated 500 times, for a total of 12,000 iterations.
 
 The results are shown in Figure A1.2. The simulations yield power \> 90% at around *N* = 2,500 for $\beta$ = 0.1 and *N* = 6,500 for $\beta$ = 0.06.
-Thus, after taking out 1,500 participants for the training set, the test set will be highly powered.
+Thus, after taking out 1,500 participants for the training set, the test set is highly powered.
 
 
 ```{r}
@@ -166,19 +166,19 @@ An advantage of this approach is that information regarding estimation uncertain
 However, this approach is very computationally expensive and might even be unfeasible with the current sample size.
 Therefore, we opted for a two-step estimation approach.
 
-The hierarchical DDM models will be fit using the *runjags* package [@denwood_2016] with JAGS code adapted from @johnson_2017.
-The JAGS code will be adjusted in a number of ways to meet our purposes.
-Across all models, the starting point will be fixed to 0.5, and the boundary separation will be will be constrained to be the same across conditions where relevant.
-Each model will be fit with three Markov Chain Monte Carlo (MCMC) chains.
-Each chain will contain 2,000 burn-in samples and 10,000 additional samples.
-Of these samples, every 10th sample will be retained.
-Posterior samples of all three chains will be combined, resulting in a posterior sample of 3,000 samples.
-If a model does not converge properly with these settings, we will increase the amount of samples drawn stepwise up to 100,000.
+The hierarchical DDM models was fit using the *runjags* package [@denwood_2016] with JAGS code adapted from @johnson_2017.
+The JAGS code was adjusted in a number of ways to meet our purposes.
+Across all models, the starting point was fixed to 0.5, and the boundary separation was constrained to be the same across conditions where relevant.
+Each model was fit with three Markov Chain Monte Carlo (MCMC) chains.
+Each chain contained 2,000 burn-in samples and 10,000 additional samples.
+Of these samples, every 10th sample was retained.
+Posterior samples of all three chains were combined, resulting in a posterior sample of 3,000 samples.
+If a model did not converge properly with these settings, we increased the amount of samples drawn stepwise up to 100,000.
 
-Model convergence will be assessed in several ways.
-First, we will visually inspect the traces, which should not contain any drifts or large jumps.
-Second, we will calculate the Gelman-Rubin convergence statistic R\^ (@gelman_1992), of which all values should be below 1.1.
-Third, we will assess whether the model provides a good fit to the participants' data using simulation (See Figure A1.3 for a visualization of this procedure).
+Model convergence was assessed in several ways.
+First, we visually inspected the traces, which should not contain any drifts or large jumps.
+Second, we calculated the Gelman-Rubin convergence statistic R\^ [@gelman_1992], of which all values should be below 1.1.
+Third, we assessed whether the model provided a good fit to the participants' data using simulation (See Figure A1.3 for a visualization of this procedure).
 When we estimate DDM parameters for a participant, we want to be sufficiently sure that the parameters accurately reflect the participant’s real cognitive processes. 
 Some factors can bias estimates. 
 For example, trial-level outliers could bias DDM parameters so that they are no longer representative of the full RT distribution.
@@ -189,10 +189,8 @@ To evaluate whether these values likely reflect the child’s “true” paramet
 This procedure is analogous to drawing values from a normal distribution if we know the relevant parameters (i.e., the mean and standard deviation). 
 Similarly, we can draw simulated values (combinations of an RT and accuracy) based on the child’s parameter estimates. 
 If the child’s DDM parameter estimates are valid, the simulated RT/accuracy data should be highly correlated with the child’s actual data. 
-We will compute overall correlations between the observed and simulated scores for RTs in the 25th, 50th and 75th percentile of the RT distribution as well as for accuracy rates.
-If the correlation is  \< .80, we will take steps to improve model fit (see below).
-
-
+We computed overall correlations between the observed and simulated scores for RTs in the 25th, 50th and 75th percentile of the RT distribution as well as for accuracy rates.
+If the correlation was \< .80, we took steps to improve model fit (see below).
 
 ```{r}
 #| label: figureA1.3
@@ -265,7 +263,10 @@ However, estimates of boundary separation and non-decision time showed substanti
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.4. **Convergence of the model in simulation 1. Plots should resemble a 'fat, hairy caterpillar'.
-ch2_sup_staged_sim_results_supp$ddm_sim1_traces_plot
+ch2_sup_staged_sim_results_supp$ddm_sim1_traces_plot +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 
 
@@ -305,7 +306,10 @@ Correlations between simulated and recovered parameter estimates was high, rangi
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.6. **Convergence of the model in simulation 2. Plots should resemble a 'fat, hairy caterpillar'.
-ch2_sup_staged_sim_results_supp$ddm_sim2_traces_plot
+ch2_sup_staged_sim_results_supp$ddm_sim2_traces_plot +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 
 ```{r}
@@ -339,7 +343,10 @@ Thus, the benefit of adding more subjects is already saturated around 1,500 part
 #| dpi: 600
 #| fig-cap: | 
 #|   **Figure A1.8. **Convergence of the model in simulation 3. Plots should resemble a 'fat, hairy caterpillar'.
-ch2_sup_staged_sim_results_supp$ddm_sim3_traces_plot
+ch2_sup_staged_sim_results_supp$ddm_sim3_traces_plot +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 
 ```{r}
@@ -348,7 +355,7 @@ ch2_sup_staged_sim_results_supp$ddm_sim3_traces_plot
 #| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A1.9.**Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
+#|   **Figure A1.9.** Parameter recovery in the case of two conditions. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate
 ch2_sup_staged_sim_results_supp$ddm_sim3_recov
 ```
 
@@ -395,7 +402,7 @@ None of the associations were statistically significant (all *p*s > .05 for line
 #| fig-height: 2
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A1.11.**Deviation between simulated and recovered parameter estimates as a function of adversity. The regression lines show quadratic effects. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
+#|   **Figure A1.11.** Deviation between simulated and recovered parameter estimates as a function of adversity. The regression lines show quadratic effects. a = Boundary Separation; t = Non-Decision Time; v = Drift Rate.
 ch2_sup_staged_sim_results_supp$ddm_sim4_dev_plot
 ```
 
@@ -411,7 +418,7 @@ Taken together, we conclude that DDM recovery at higher levels of adversity was 
 #| fig-height: 3
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A1.12.**Simple slopes of the difference between simulated and estimated drift rates at different levels of adversity.
+#|   **Figure A1.12.** Simple slopes of the difference between simulated and estimated drift rates at different levels of adversity.
 ch2_sup_staged_sim_results_supp$ddm_sim4_points_plot
 ```
 
@@ -445,7 +452,7 @@ That is, while we followed the convention in the field, the number of simulated 
 
 If the youth’s DDM parameters were not recovered accurately because the data were too sparse, increasing the number of simulated trials should not improve these correlations. 
 In other words, if DDM parameters contained a lot of measurement noise or were biased, the correlation between real and simulated RTs/accuracy would remain low even if we simulated more trials. 
-However, that is not at all what found. 
+However, that is not what we found. 
 Instead, all correlations were above the .80 cut-off. 
 Many even surpassed .90. 
 This indicated that our data quality was good—the lower correlations observed in the preregistered analysis were solely due to the low number of simulated trials—and that we successfully recovered DDM parameters once addressing this issue. 
@@ -578,11 +585,12 @@ ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_dep_table |>
     values = " ",
     colwidths = 6
   ) |> 
-  compose(
+  flextable::compose(
     i = 1, j = 1, 
     as_paragraph(as_b("Table A1.4. "), "Simulation-based model fit assessment at different levels of material deprivation comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
     part = "header"
   )  |> 
+  flextable::compose(i = c(3, 5, 9, 11), j = 2, as_paragraph("-1SD ≥ x ≤ 1SD"), part = "body") |> 
   border_remove() |> 
   border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
   border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
@@ -625,6 +633,7 @@ ch2_sup_staged_sim_results_supp$ddm_fit_subgroup_threat_table |>
     as_paragraph(as_b("Table A1.5. "), "Simulation-based model fit assessment at different levels of household threat comparing observed and predicted data using 100 simulated trials (accuracy, 25th, 50th, 75th percentile)."),
     part = "header"
   ) |> 
+  flextable::compose(i = c(3, 5, 9, 11), j = 2, as_paragraph("-1SD ≥ x ≤ 1SD"), part = "body") |> 
   border_remove() |> 
   border(i = 1, border.bottom = fp_border_default(), part = "header") |>  
   border(i = 2, border.bottom = fp_border_default(), part = "header") |> 
@@ -708,7 +717,7 @@ Figure A1.17-A1.20 show the distributions of DDM parameters for each task.
 #| fig-height: 1.5
 #| dpi: 600
 #| fig-cap: | 
-#|   **Figure A1.16.** Parameter distributions in the final model of the Mental Rotation Task.
+#|   **Figure A1.17.** Parameter distributions in the final model of the Mental Rotation Task.
 ch2_sup_staged_sim_results_supp$ddm_distri_lmt_fig
 ```
 
